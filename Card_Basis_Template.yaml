@@ -1,0 +1,184 @@
+uid: Card_Basis_Template
+tags:
+  - Customizable Template
+  - Card Basis Template
+  - Version 0.1
+  - ScrewPlate
+props:
+  parameters:
+    - label: Card Border Radius (px)
+      name: cardBorderRadius
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - label: Card Border Color
+      name: cardBorderColor
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - label: Card Background Color
+      name: cardBgColor
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - default: "false"
+      label: Icon - Show on Card
+      name: iconShow
+      required: false
+      type: BOOLEAN
+      groupName: iconGroup
+    - label: Icon
+      name: iconName
+      required: false
+      type: TEXT
+      groupName: iconGroup
+    - label: Icon Color
+      name: iconColor
+      required: false
+      type: TEXT
+      groupName: iconGroup
+    - label: Icon  Size
+      name: iconSize
+      required: false
+      type: TEXT
+      groupName: iconGroup
+    - default: "false"
+      label: Header - Show on Card
+      name: headerShow
+      required: false
+      type: BOOLEAN
+      groupName: headerGroup
+    - label: Header
+      name: headerText
+      required: false
+      type: TEXT
+      groupName: headerGroup
+    - label: Header Text Color
+      name: headerTextColor
+      required: false
+      type: TEXT
+      groupName: headerGroup
+    - label: Header Text Size
+      name: headerTextSize
+      required: false
+      type: TEXT
+      groupName: headerGroup
+    - default: "false"
+      label: Footer - Show on Card
+      name: footerShow
+      required: false
+      type: BOOLEAN
+      groupName: footerGroup
+    - label: Footer
+      name: footerText
+      required: false
+      type: TEXT
+      groupName: footerGroup
+    - label: Footer Text Color
+      name: footerTextColor
+      required: false
+      type: TEXT
+      groupName: footerGroup
+    - label: Footer Text Size
+      name: footerTextSize
+      required: false
+      type: TEXT
+      groupName: footerGroup
+    - label: Content Text Color
+      name: contentTextColor
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - label: Content Text Size
+      name: contentTextSize
+      required: false
+      type: TEXT
+      groupName: contentGroup
+  parameterGroups:
+    - name: cardGroup
+      label: Card Setting
+      description: All settings to customize the card layout
+    - name: iconGroup
+      label: Icon Setting
+      description: All settings to customize the icon
+    - name: headerGroup
+      label: Header Setting
+      description: All settings to customize the header area
+    - name: footerGroup
+      label: Footer Setting
+      description: All settings to customize the content area
+    - name: contentGroup
+      label: Content Setting
+      description: All settings to customize the content area
+timestamp: Dec 15, 2024, 12:33:09 PM
+component: f7-card
+config:
+  style:
+    --f7-card-bg-color: "=props.cardBgColor ? props.cardBgColor : (themeOptions.dark
+      === 'dark' ? 'black' : 'white')"
+    --f7-card-border-radius: "=props.cardBorderRadius ? (props.cardBorderRadius) + 'px' : '0px'"
+    --f7-card-margin-horizontal: 0px
+    --f7-card-margin-vertical: 0px
+    --f7-card-outline-border-color: "=props.cardBorderColor ? props.cardBorderColor
+      : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+    background-color: var(--f7-card-bg-color)
+    border: 2px solid var(--f7-card-outline-border-color)
+    color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark
+      === 'dark' ? 'white' : 'black')"
+    font-size: "=props.contentTextSize ? (props.contentTextSize)+'px' : '14px'"
+slots:
+  default:
+    - component: f7-card-header
+      config:
+        style:
+          --f7-card-header-border-color: transparent
+          --f7-card-header-font-size: "=props.headerTextSize ? (props.headerTextSize) + 'px' : '14px'"
+          --f7-card-header-font-weight: 800
+          --f7-card-header-min-height: "=props.headerShow == 'true' ? '50px' : '15px'"
+          --f7-card-header-text-color: "=props.headerTextColor ? props.headerTextColor :
+            (themeOptions.dark === 'dark' ? 'white' : 'black')"
+          justify-content: flex-start
+      slots:
+        default:
+          - component: oh-icon
+            config:
+              icon: "=props.iconName ? props.iconName : 'f7:house'"
+              style:
+                color: "=props.iconColor ? props.iconColor : (themeOptions.dark === 'dark' ?
+                  'white' : 'black')"
+                padding-right: 10px
+              visible: "=props.iconShow ? props.iconShow : props.iconShow"
+              width: "=props.iconSize ? (props.iconSize) + 'px' : '25px'"
+          - component: Label
+            config:
+              text: "=props.headerText ? props.headerText : 'Header'"
+              visible: "=props.headerShow ? props.headerShow : props.headerShow"
+    - component: f7-card-content
+      slots:
+        default:
+          - component: f7-block
+            config:
+              style:
+                margin-top: -10px
+            slots:
+              default:
+                - component: Label
+                  config:
+                    text: The status or other things are displayed here later
+    - component: f7-card-footer
+      config:
+        style:
+          --f7-card-footer-border-color: transparent
+          --f7-card-footer-font-size: "=props.footerTextSize ? (props.footerTextSize) + 'px' : '14px'"
+          --f7-card-footer-font-weight: 500
+          --f7-card-footer-min-height: "=props.footerShow == 'true' ? '25px' : '20px'"
+          --f7-card-footer-text-color: "=props.footerTextColor ? props.footerTextColor :
+            (themeOptions.dark === 'dark' ? 'white' : 'black')"
+          margin-bottom: 5px
+          margin-top: 5px
+      slots:
+        default:
+          - component: Label
+            config:
+              text: "=props.footerText ? props.footerText : 'Footer'"
+              visible: "=props.footerShow ? props.footerShow : props.footerShow"
