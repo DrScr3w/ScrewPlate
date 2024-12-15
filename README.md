@@ -1,2 +1,2 @@
 # ScrewPlate
-Customizable Widget Templates für openHAB 
+Customizable widget templates for openHAB 
