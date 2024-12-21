@@ -1,23 +1,44 @@
 uid: Card_Basis_Template
 tags:
-  - Customizable Template
   - Card Basis Template
-  - Version 0.1
+  - Customizable Template
   - ScrewPlate
+  - Version 0.3
 props:
   parameters:
-    - label: Card Border Radius (px)
+    - description: "Input without 'px' (Default: 0px)"
+      label: Card Border Radius
       name: cardBorderRadius
       required: false
       type: TEXT
       groupName: cardGroup
-    - label: Card Border Color
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Card Border Color
       name: cardBorderColor
       required: false
       type: TEXT
       groupName: cardGroup
-    - label: Card Background Color
+    - description: "Input without 'px' (Default: 3px)"
+      label: Card Border Size
+      name: cardBorderSize
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Card Background Color
       name: cardBgColor
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - default: "false"
+      label: Card Background Image - Show on Card
+      name: cardBgImageShow
+      required: false
+      type: BOOLEAN
+      groupName: cardGroup
+    - description: Input file name for Background Image (uploaded to /html/ folder)
+      label: Card Background Image
+      name: cardBgImage
       required: false
       type: TEXT
       groupName: cardGroup
@@ -27,17 +48,21 @@ props:
       required: false
       type: BOOLEAN
       groupName: iconGroup
-    - label: Icon
+    - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
+        material:iconName (Material icon) or iconify:iconSet:iconName
+      label: Icon
       name: iconName
       required: false
       type: TEXT
       groupName: iconGroup
-    - label: Icon Color
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Icon Color
       name: iconColor
       required: false
       type: TEXT
       groupName: iconGroup
-    - label: Icon  Size
+    - description: "Input without 'px' (Default: 25px)"
+      label: Icon  Size
       name: iconSize
       required: false
       type: TEXT
@@ -96,48 +121,54 @@ props:
       groupName: contentGroup
   parameterGroups:
     - name: cardGroup
-      label: Card Setting
+      label: Card Settings
       description: All settings to customize the card layout
     - name: iconGroup
-      label: Icon Setting
+      label: Icon Settings
       description: All settings to customize the icon
     - name: headerGroup
-      label: Header Setting
+      label: Header Settings
       description: All settings to customize the header area
     - name: footerGroup
-      label: Footer Setting
+      label: Footer Settings
       description: All settings to customize the content area
     - name: contentGroup
-      label: Content Setting
+      label: Content Settings
       description: All settings to customize the content area
-timestamp: Dec 15, 2024, 12:33:09 PM
+timestamp: Dec 21, 2024, 12:30:12 PM
 component: f7-card
 config:
   style:
     --f7-card-bg-color: "=props.cardBgColor ? props.cardBgColor : (themeOptions.dark
       === 'dark' ? 'black' : 'white')"
-    --f7-card-border-radius: "=props.cardBorderRadius ? (props.cardBorderRadius) + 'px' : '0px'"
-    --f7-card-margin-horizontal: 0px
-    --f7-card-margin-vertical: 0px
+    --f7-card-border-radius: "=props.cardBorderRadius ? (props.cardBorderRadius) + 'px' : '20px'"
+    --f7-card-margin-horizontal: 4px
+    --f7-card-margin-vertical: 4px
     --f7-card-outline-border-color: "=props.cardBorderColor ? props.cardBorderColor
-      : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+      : (themeOptions.dark === 'dark' ? '#c95826' : '#c95826')"
     background-color: var(--f7-card-bg-color)
-    border: 2px solid var(--f7-card-outline-border-color)
+    background-image: "=props.cardBgImageShow== 'false' ? '' :
+      'linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+      url(/static/' + props.cardBgImage + ')'"
+    border: "=props.cardBorderSize ? (props.cardBorderSize)+'px solid
+      var(--f7-card-outline-border-color)' : '6px solid
+      var(--f7-card-outline-border-color)'"
     color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark
       === 'dark' ? 'white' : 'black')"
-    font-size: "=props.contentTextSize ? (props.contentTextSize)+'px' : '14px'"
+    font-size: "=props.contentTextSize ? (props.contentTextSize)+'px' : '20px'"
 slots:
   default:
     - component: f7-card-header
       config:
         style:
           --f7-card-header-border-color: transparent
-          --f7-card-header-font-size: "=props.headerTextSize ? (props.headerTextSize) + 'px' : '14px'"
+          --f7-card-header-font-size: "=props.headerTextSize ? (props.headerTextSize) + 'px' : '25px'"
           --f7-card-header-font-weight: 800
-          --f7-card-header-min-height: "=props.headerShow == 'true' ? '50px' : '15px'"
+          --f7-card-header-min-height: "=props.headerShow == 'true' ? '35px' : '0px'"
           --f7-card-header-text-color: "=props.headerTextColor ? props.headerTextColor :
             (themeOptions.dark === 'dark' ? 'white' : 'black')"
           justify-content: flex-start
+          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' : (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
       slots:
         default:
           - component: oh-icon
@@ -148,12 +179,15 @@ slots:
                   'white' : 'black')"
                 padding-right: 10px
               visible: "=props.iconShow ? props.iconShow : props.iconShow"
-              width: "=props.iconSize ? (props.iconSize) + 'px' : '25px'"
+              width: "=props.iconSize ? (props.iconSize) + 'px' : '30px'"
           - component: Label
             config:
               text: "=props.headerText ? props.headerText : 'Header'"
               visible: "=props.headerShow ? props.headerShow : props.headerShow"
     - component: f7-card-content
+      config:
+        style:
+          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' : (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
       slots:
         default:
           - component: f7-block
@@ -169,13 +203,12 @@ slots:
       config:
         style:
           --f7-card-footer-border-color: transparent
-          --f7-card-footer-font-size: "=props.footerTextSize ? (props.footerTextSize) + 'px' : '14px'"
+          --f7-card-footer-font-size: "=props.footerTextSize ? (props.footerTextSize) + 'px' : '16px'"
           --f7-card-footer-font-weight: 500
-          --f7-card-footer-min-height: "=props.footerShow == 'true' ? '25px' : '20px'"
+          --f7-card-footer-min-height: "=props.footerShow == 'true' ? '20px' : '0px'"
           --f7-card-footer-text-color: "=props.footerTextColor ? props.footerTextColor :
             (themeOptions.dark === 'dark' ? 'white' : 'black')"
-          margin-bottom: 5px
-          margin-top: 5px
+          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' : (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
       slots:
         default:
           - component: Label
