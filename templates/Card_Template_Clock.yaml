@@ -1,12 +1,12 @@
-uid: Card_Basis_Template
+uid: Card_Template_Clock
 tags:
-  - Card Basis Template
+  - Card Template Clock
   - Customizable Template
   - ScrewPlate
-  - Version 0.3
+  - Version 0.1
 props:
   parameters:
-    - description: "Input without 'px' (Default: 0px)"
+    - description: "Input without 'px' (Default: 20px)"
       label: Card Border Radius
       name: cardBorderRadius
       required: false
@@ -61,7 +61,7 @@ props:
       required: false
       type: TEXT
       groupName: iconGroup
-    - description: "Input without 'px' (Default: 25px)"
+    - description: "Input without 'px' (Default: 30px)"
       label: Icon  Size
       name: iconSize
       required: false
@@ -73,17 +73,20 @@ props:
       required: false
       type: BOOLEAN
       groupName: headerGroup
-    - label: Header
+    - description: Input Text to diplay on Header
+      label: Header
       name: headerText
       required: false
       type: TEXT
       groupName: headerGroup
-    - label: Header Text Color
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Header Text Color
       name: headerTextColor
       required: false
       type: TEXT
       groupName: headerGroup
-    - label: Header Text Size
+    - description: "Input without 'px' (Default: 25px)"
+      label: Header Text Size
       name: headerTextSize
       required: false
       type: TEXT
@@ -94,28 +97,48 @@ props:
       required: false
       type: BOOLEAN
       groupName: footerGroup
-    - label: Footer
+    - description: Input Text to diplay on Footer
+      label: Footer
       name: footerText
       required: false
       type: TEXT
       groupName: footerGroup
-    - label: Footer Text Color
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Footer Text Color
       name: footerTextColor
       required: false
       type: TEXT
       groupName: footerGroup
-    - label: Footer Text Size
+    - description: "Input without 'px' (Default: 16px)"
+      label: Footer Text Size
       name: footerTextSize
       required: false
       type: TEXT
       groupName: footerGroup
-    - label: Content Text Color
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Content Text Color
       name: contentTextColor
       required: false
       type: TEXT
       groupName: contentGroup
-    - label: Content Text Size
+    - description: "Input without 'px' (Default: 20px)"
+      label: Content Text Size
       name: contentTextSize
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - label: Time Text Size
+      name: timeTextSize
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - label: Day Text Size
+      name: dayTextSize
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - label: Date Text Size
+      name: dayTextSize
       required: false
       type: TEXT
       groupName: contentGroup
@@ -135,7 +158,7 @@ props:
     - name: contentGroup
       label: Content Settings
       description: All settings to customize the content area
-timestamp: Dec 21, 2024, 12:30:12 PM
+timestamp: Dec 21, 2024, 1:50:10 PM
 component: f7-card
 config:
   style:
@@ -168,7 +191,8 @@ slots:
           --f7-card-header-text-color: "=props.headerTextColor ? props.headerTextColor :
             (themeOptions.dark === 'dark' ? 'white' : 'black')"
           justify-content: flex-start
-          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' : (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
+          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' :
+            (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
       slots:
         default:
           - component: oh-icon
@@ -187,18 +211,45 @@ slots:
     - component: f7-card-content
       config:
         style:
-          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' : (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
+          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' :
+            (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
       slots:
         default:
           - component: f7-block
             config:
               style:
                 margin-top: -10px
+                text-align: center
             slots:
               default:
-                - component: Label
+                - component: oh-clock
                   config:
-                    text: The status or other things are displayed here later
+                    format: HH:mm:ss
+                    showTime: true
+                    style:
+                      color: "=props.contentTextColor ? props.contentTextColor  : (themeOptions.dark
+                        === 'dark' ? 'white' : 'black')"
+                      font-size: "=props.timeTextSize ? (props.timeTextSize) + 'px' : '50px'"
+                      font-weight: 700
+                - component: oh-clock
+                  config:
+                    dateFormat: LL
+                    datePos: below
+                    format: dddd
+                    showDate: true
+                    style:
+                      color: "=props.contentTextColor ? props.contentTextColor  : (themeOptions.dark
+                        === 'dark' ? 'white' : 'black')"
+                      font-size: "=props.dayTextSize ? (props.dayTextSize) + 'px' : '35px'"
+                      font-weight: 500
+                - component: oh-clock
+                  config:
+                    format: DD.MM.YYYY
+                    style:
+                      color: "=props.contentTextColor ? props.contentTextColor  : (themeOptions.dark
+                        === 'dark' ? 'white' : 'black')"
+                      font-size: "=props.dateTextSize ? (props.dateTextSize) + 'px' : '35px'"
+                      font-weight: 500
     - component: f7-card-footer
       config:
         style:
@@ -208,7 +259,8 @@ slots:
           --f7-card-footer-min-height: "=props.footerShow == 'true' ? '20px' : '0px'"
           --f7-card-footer-text-color: "=props.footerTextColor ? props.footerTextColor :
             (themeOptions.dark === 'dark' ? 'white' : 'black')"
-          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' : (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
+          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' :
+            (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
       slots:
         default:
           - component: Label
