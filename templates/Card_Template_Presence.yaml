@@ -3,7 +3,7 @@ tags:
   - Card Template Presence
   - Customizable Template
   - ScrewPlate
-  - Version 0.1
+  - Version 0.2
 props:
   parameters:
     - description: "Input without 'px' (Default: 20px)"
@@ -139,13 +139,13 @@ props:
       required: false
       type: TEXT
       groupName: contentGroup
-    - description: "Input text value for present (Default: Anwesend)"
+    - description: "Input text value for present (Default: present)"
       label: Present Text Value
       name: presentTextValue
       required: false
       type: TEXT
       groupName: contentGroup
-    - description: "Input text value for absence (Default: Abwesend)"
+    - description: "Input text value for absence (Default: absent)"
       label: Absence Text Value
       name: absenceTextValue
       required: false
@@ -165,7 +165,7 @@ props:
       type: TEXT
       groupName: contentGroup
     - context: item
-      description: Absence person 1 - to display State and Name
+      description: Absence person 1 - to display State
       name: person1Item
       required: false
       type: TEXT
@@ -449,8 +449,7 @@ slots:
                               config:
                                 style:
                                   margin-top: 5px
-                                text: "=items[props.person1Item].state == 'ON' ? 'Anwesend' :
-                                  items[props.person1ItemLastUpdate].state"
+                                text: "=props.person1Item ? (items[props.person1Item].state == 'ON' ? (props.presentTextValue ? props.presentTextValue : 'present') : (props.person1ItemLastUpdate ? items[props.person1ItemLastUpdate].state : (props.absenceTextValue ? props.absenceTextValue : 'absent'))) : '-'"
                       - component: f7-col
                         slots:
                           default:
@@ -458,8 +457,7 @@ slots:
                               config:
                                 style:
                                   margin-top: 5px
-                                text: "=items[props.person2Item].state == 'ON' ? 'Anwesend' :
-                                  items[props.person2ItemLastUpdate].state"
+                                text: "=props.person2Item ? (items[props.person2Item].state == 'ON' ? (props.presentTextValue ? props.presentTextValue : 'present') : (props.person2ItemLastUpdate ? items[props.person2ItemLastUpdate].state : (props.absenceTextValue ? props.absenceTextValue : 'absent'))) : '-'"
                       - component: f7-col
                         slots:
                           default:
@@ -467,8 +465,7 @@ slots:
                               config:
                                 style:
                                   margin-top: 5px
-                                text: "=items[props.person3Item].state == 'ON' ? 'Anwesend' :
-                                  items[props.person3ItemLastUpdate].state"
+                                text: "=props.person3Item ? (items[props.person3Item].state == 'ON' ? (props.presentTextValue ? props.presentTextValue : 'present') : (props.person4ItemLastUpdate ? items[props.person4ItemLastUpdate].state : (props.absenceTextValue ? props.absenceTextValue : 'absent'))) : '-'"
                       - component: f7-col
                         slots:
                           default:
@@ -476,8 +473,7 @@ slots:
                               config:
                                 style:
                                   margin-top: 5px
-                                text: "=items[props.person4Item].state == 'ON' ? 'Anwesend' :
-                                  items[props.person4ItemLastUpdate].state"
+                                text: "=props.person4Item ? (items[props.person4Item].state == 'ON' ? (props.presentTextValue ? props.presentTextValue : 'present') : (props.person4ItemLastUpdate ? items[props.person4ItemLastUpdate].state : (props.absenceTextValue ? props.absenceTextValue : 'absent'))) : '-'"
     - component: f7-card-footer
       config:
         style:
