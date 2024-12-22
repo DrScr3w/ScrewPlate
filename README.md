@@ -2,7 +2,7 @@
 Customizable widget templates for [openHAB](https://www.openhab.org/)
 
 ## 🚀&nbsp; Introduction
-**ScrewPlate** is intended to be a collection of widget templates. The focus of the widgets should be on customizability so that a harmonized design can be easily created.
+**ScrewPlate** is intended to be a collection of widget templates. The focus of the widgets should be on customizability so that a harmonized design can be easily created and no more customizations need to be made in the widget code.
 
 **Default customizable options**
 |**Card Settings**|**Icon Settings**|**Header Settings**|**Footer Settings**|**Content Settings**|
