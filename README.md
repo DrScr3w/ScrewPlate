@@ -17,7 +17,7 @@ Customizable widget templates for [openHAB](https://www.openhab.org/)
   
 |**Examples**|
 | ------------- |
-|![image](https://github.com/user-attachments/assets/b4793ea1-fc6e-4542-8cf6-df20a9f87382)|
+|![image](https://github.com/user-attachments/assets/2077d6bc-0656-4c4e-b33e-f18a01165621)|
 
 **Default Theme**
 |**Light Theme**|**Dark Theme**
