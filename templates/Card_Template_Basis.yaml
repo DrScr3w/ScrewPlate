@@ -3,7 +3,7 @@ tags:
   - Card Template Basis
   - Customizable Template
   - ScrewPlate
-  - Version 0.5
+  - Version 0.7
 props:
   parameters:
     - description: "Input without 'px' (Default: 20px)"
@@ -121,7 +121,7 @@ props:
       required: false
       type: TEXT
       groupName: contentGroup
-    - description: "Input without 'px' (Default: 20px)"
+    - description: "Input without 'px' (Default: 18px)"
       label: Content Text Size
       name: contentTextSize
       required: false
@@ -143,12 +143,12 @@ props:
     - name: contentGroup
       label: Content Settings
       description: All settings to customize the content area
-timestamp: Dec 21, 2024, 1:44:59 PM
+timestamp: Dec 22, 2024, 10:08:33 AM
 component: f7-card
 config:
   style:
     --f7-card-bg-color: "=props.cardBgColor ? props.cardBgColor : (themeOptions.dark
-      === 'dark' ? 'black' : 'white')"
+      === 'dark' ? '#232324' : 'white')"
     --f7-card-border-radius: "=props.cardBorderRadius ? (props.cardBorderRadius) + 'px' : '20px'"
     --f7-card-margin-horizontal: 4px
     --f7-card-margin-vertical: 4px
@@ -163,7 +163,7 @@ config:
       var(--f7-card-outline-border-color)'"
     color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark
       === 'dark' ? 'white' : 'black')"
-    font-size: "=props.contentTextSize ? (props.contentTextSize)+'px' : '20px'"
+    font-size: "=props.contentTextSize ? (props.contentTextSize)+'px' : '18px'"
 slots:
   default:
     - component: f7-card-header

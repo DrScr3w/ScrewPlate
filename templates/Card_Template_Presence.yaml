@@ -1,0 +1,497 @@
+uid: Card_Template_Presence
+tags:
+  - Card Template Presence
+  - Customizable Template
+  - ScrewPlate
+  - Version 0.1
+props:
+  parameters:
+    - description: "Input without 'px' (Default: 20px)"
+      label: Card Border Radius
+      name: cardBorderRadius
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Card Border Color
+      name: cardBorderColor
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - description: "Input without 'px' (Default: 3px)"
+      label: Card Border Size
+      name: cardBorderSize
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Card Background Color
+      name: cardBgColor
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - default: "false"
+      label: Card Background Image - Show on Card
+      name: cardBgImageShow
+      required: false
+      type: BOOLEAN
+      groupName: cardGroup
+    - description: Input file name for Background Image (uploaded to /html/ folder)
+      label: Card Background Image
+      name: cardBgImage
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - default: "false"
+      label: Icon - Show on Card
+      name: iconShow
+      required: false
+      type: BOOLEAN
+      groupName: iconGroup
+    - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
+        material:iconName (Material icon) or iconify:iconSet:iconName
+      label: Icon
+      name: iconName
+      required: false
+      type: TEXT
+      groupName: iconGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Icon Color
+      name: iconColor
+      required: false
+      type: TEXT
+      groupName: iconGroup
+    - description: "Input without 'px' (Default: 30px)"
+      label: Icon  Size
+      name: iconSize
+      required: false
+      type: TEXT
+      groupName: iconGroup
+    - default: "false"
+      label: Header - Show on Card
+      name: headerShow
+      required: false
+      type: BOOLEAN
+      groupName: headerGroup
+    - description: Input Text to diplay on Header
+      label: Header
+      name: headerText
+      required: false
+      type: TEXT
+      groupName: headerGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Header Text Color
+      name: headerTextColor
+      required: false
+      type: TEXT
+      groupName: headerGroup
+    - description: "Input without 'px' (Default: 25px)"
+      label: Header Text Size
+      name: headerTextSize
+      required: false
+      type: TEXT
+      groupName: headerGroup
+    - default: "false"
+      label: Footer - Show on Card
+      name: footerShow
+      required: false
+      type: BOOLEAN
+      groupName: footerGroup
+    - description: Input Text to diplay on Footer
+      label: Footer
+      name: footerText
+      required: false
+      type: TEXT
+      groupName: footerGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Footer Text Color
+      name: footerTextColor
+      required: false
+      type: TEXT
+      groupName: footerGroup
+    - description: "Input without 'px' (Default: 16px)"
+      label: Footer Text Size
+      name: footerTextSize
+      required: false
+      type: TEXT
+      groupName: footerGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Content Text Color
+      name: contentTextColor
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: "Input without 'px' (Default: 18px)"
+      label: Content Text Size
+      name: contentTextSize
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: "Input without 'px' (Default: 30px)"
+      label: Content Icon Size
+      name: contentIconSize
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Content Icon Color
+      name: contentIconColor
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: "Input text value for present (Default: Anwesend)"
+      label: Present Text Value
+      name: presentTextValue
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: "Input text value for absence (Default: Abwesend)"
+      label: Absence Text Value
+      name: absenceTextValue
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: Label person 1 - to display Name
+      label: Person 1 Label
+      name: person1Label
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
+        material:iconName (Material icon) or iconify:iconSet:iconName
+      label: Person 1 Icon
+      name: person1Icon
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - context: item
+      description: Absence person 1 - to display State and Name
+      name: person1Item
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - context: item
+      description: Absence person 1 - to display Last Update
+      name: person1ItemLastUpdate
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: Label person 2 - to display Name
+      label: Person 2 Label
+      name: person2Label
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
+        material:iconName (Material icon) or iconify:iconSet:iconName
+      label: Person 2 Icon
+      name: person2Icon
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - context: item
+      description: Absence person 2 - to display State
+      name: person2Item
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - context: item
+      description: Absence person 2 - to display Last Update
+      name: person2ItemLastUpdate
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: Label person 3 - to display Name
+      label: Person 3 Label
+      name: person3Label
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
+        material:iconName (Material icon) or iconify:iconSet:iconName
+      label: Person 3 Icon
+      name: person3Icon
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - context: item
+      description: Absence person 3 - to display State
+      name: person1Item
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - context: item
+      description: Absence person 3 - to display Last Update
+      name: person1ItemLastUpdate
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
+        material:iconName (Material icon) or iconify:iconSet:iconName
+      label: Person 4 Icon
+      name: person4Icon
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: Label person 4 - to display Name
+      label: Person 4 Label
+      name: person4Label
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - context: item
+      description: Absence person 4 - to display State
+      name: person2Item
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - context: item
+      description: Absence person 4 - to display Last Update
+      name: person2ItemLastUpdate
+      required: false
+      type: TEXT
+      groupName: contentGroup
+  parameterGroups:
+    - name: cardGroup
+      label: Card Settings
+      description: All settings to customize the card layout
+    - name: iconGroup
+      label: Icon Settings
+      description: All settings to customize the icon
+    - name: headerGroup
+      label: Header Settings
+      description: All settings to customize the header area
+    - name: footerGroup
+      label: Footer Settings
+      description: All settings to customize the content area
+    - name: contentGroup
+      label: Content Settings
+      description: All settings to customize the content area
+timestamp: Dec 22, 2024, 10:24:48 AM
+component: f7-card
+config:
+  style:
+    --f7-card-bg-color: "=props.cardBgColor ? props.cardBgColor : (themeOptions.dark
+      === 'dark' ? '#232324' : 'white')"
+    --f7-card-border-radius: "=props.cardBorderRadius ? (props.cardBorderRadius) + 'px' : '20px'"
+    --f7-card-margin-horizontal: 4px
+    --f7-card-margin-vertical: 4px
+    --f7-card-outline-border-color: "=props.cardBorderColor ? props.cardBorderColor
+      : (themeOptions.dark === 'dark' ? '#c95826' : '#c95826')"
+    background-color: var(--f7-card-bg-color)
+    background-image: "=props.cardBgImageShow== 'false' ? '' :
+      'linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+      url(/static/' + props.cardBgImage + ')'"
+    border: "=props.cardBorderSize ? (props.cardBorderSize)+'px solid
+      var(--f7-card-outline-border-color)' : '6px solid
+      var(--f7-card-outline-border-color)'"
+    color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark
+      === 'dark' ? 'white' : 'black')"
+    font-size: "=props.contentTextSize ? (props.contentTextSize)+'px' : '18px'"
+slots:
+  default:
+    - component: f7-card-header
+      config:
+        style:
+          --f7-card-header-border-color: transparent
+          --f7-card-header-font-size: "=props.headerTextSize ? (props.headerTextSize) + 'px' : '25px'"
+          --f7-card-header-font-weight: 800
+          --f7-card-header-min-height: "=props.headerShow == 'true' ? '35px' : '0px'"
+          --f7-card-header-text-color: "=props.headerTextColor ? props.headerTextColor :
+            (themeOptions.dark === 'dark' ? 'white' : 'black')"
+          justify-content: flex-start
+          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' :
+            (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
+      slots:
+        default:
+          - component: oh-icon
+            config:
+              icon: "=props.iconName ? props.iconName : 'f7:house'"
+              style:
+                color: "=props.iconColor ? props.iconColor : (themeOptions.dark === 'dark' ?
+                  'white' : 'black')"
+                padding-right: 10px
+              visible: "=props.iconShow ? props.iconShow : props.iconShow"
+              width: "=props.iconSize ? (props.iconSize) + 'px' : '30px'"
+          - component: Label
+            config:
+              text: "=props.headerText ? props.headerText : 'Header'"
+              visible: "=props.headerShow ? props.headerShow : props.headerShow"
+    - component: f7-card-content
+      config:
+        style:
+          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' :
+            (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
+      slots:
+        default:
+          - component: f7-block
+            config:
+              style:
+                margin-top: -10px
+            slots:
+              default:
+                - component: f7-row
+                  config:
+                    class:
+                      - text-align-center
+                  slots:
+                    default:
+                      - component: f7-col
+                        config:
+                          style:
+                            background: rgba(233, 196, 106, 0)
+                        slots:
+                          default:
+                            - component: Label
+                              config:
+                                text: "=props.person1Label ? (props.person1Label) : 'Person 1'"
+                      - component: f7-col
+                        config:
+                          style:
+                            background: rgba(233, 196, 106, 0)
+                        slots:
+                          default:
+                            - component: Label
+                              config:
+                                text: "=props.person2Label ? (props.person2Label) : 'Person 2'"
+                      - component: f7-col
+                        config:
+                          style:
+                            background: rgba(233, 196, 106, 0)
+                        slots:
+                          default:
+                            - component: Label
+                              config:
+                                text: "=props.person3Label ? (props.person3Label) : 'Person 3'"
+                      - component: f7-col
+                        config:
+                          style:
+                            background: rgba(233, 196, 106, 0)
+                        slots:
+                          default:
+                            - component: Label
+                              config:
+                                text: "=props.person4Label ? (props.person4Label) : 'Person 4'"
+                - component: f7-row
+                  config:
+                    class:
+                      - text-align-center
+                    style:
+                      margin-top: 0px
+                  slots:
+                    default:
+                      - component: f7-col
+                        config:
+                          style:
+                            background: rgba(233, 196, 106, 0)
+                        slots:
+                          default:
+                            - component: oh-icon
+                              config:
+                                height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
+                                icon: "=props.person1Icon ? (props.person1Icon) : 'f7:person_circle'"
+                                style:
+                                  margin-top: 5px
+                                  color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark
+                                    === 'dark' ? 'white' : 'black')"
+                      - component: f7-col
+                        config:
+                          style:
+                            background: rgba(233, 196, 106, 0)
+                        slots:
+                          default:
+                            - component: oh-icon
+                              config:
+                                height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
+                                icon: "=props.person2Icon ? (props.person2Icon) : 'f7:person_circle'"
+                                style:
+                                  margin-top: 5px
+                                  color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark
+                                    === 'dark' ? 'white' : 'black')"
+                      - component: f7-col
+                        config:
+                          style:
+                            background: rgba(233, 196, 106, 0)
+                        slots:
+                          default:
+                            - component: oh-icon
+                              config:
+                                height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
+                                icon: "=props.person3Icon ? (props.person3Icon) : 'f7:person_circle'"
+                                style:
+                                  margin-top: 5px
+                                  color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark
+                                    === 'dark' ? 'white' : 'black')"
+                      - component: f7-col
+                        config:
+                          style:
+                            background: rgba(233, 196, 106, 0)
+                        slots:
+                          default:
+                            - component: oh-icon
+                              config:
+                                height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
+                                icon: "=props.person4Icon ? (props.person4Icon) : 'f7:person_circle'"
+                                style:
+                                  margin-top: 5px
+                                  color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark
+                                    === 'dark' ? 'white' : 'black')"
+                - component: f7-row
+                  config:
+                    class:
+                      - text-align-center
+                  slots:
+                    default:
+                      - component: f7-col
+                        slots:
+                          default:
+                            - component: Label
+                              config:
+                                style:
+                                  margin-top: 5px
+                                text: "=items[props.person1Item].state == 'ON' ? 'Anwesend' :
+                                  items[props.person1ItemLastUpdate].state"
+                      - component: f7-col
+                        slots:
+                          default:
+                            - component: Label
+                              config:
+                                style:
+                                  margin-top: 5px
+                                text: "=items[props.person2Item].state == 'ON' ? 'Anwesend' :
+                                  items[props.person2ItemLastUpdate].state"
+                      - component: f7-col
+                        slots:
+                          default:
+                            - component: Label
+                              config:
+                                style:
+                                  margin-top: 5px
+                                text: "=items[props.person3Item].state == 'ON' ? 'Anwesend' :
+                                  items[props.person3ItemLastUpdate].state"
+                      - component: f7-col
+                        slots:
+                          default:
+                            - component: Label
+                              config:
+                                style:
+                                  margin-top: 5px
+                                text: "=items[props.person4Item].state == 'ON' ? 'Anwesend' :
+                                  items[props.person4ItemLastUpdate].state"
+    - component: f7-card-footer
+      config:
+        style:
+          --f7-card-footer-border-color: transparent
+          --f7-card-footer-font-size: "=props.footerTextSize ? (props.footerTextSize) + 'px' : '16px'"
+          --f7-card-footer-font-weight: 500
+          --f7-card-footer-min-height: "=props.footerShow == 'true' ? '20px' : '0px'"
+          --f7-card-footer-text-color: "=props.footerTextColor ? props.footerTextColor :
+            (themeOptions.dark === 'dark' ? 'white' : 'black')"
+          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' :
+            (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
+      slots:
+        default:
+          - component: Label
+            config:
+              text: "=props.footerText ? props.footerText : 'Footer'"
+              visible: "=props.footerShow ? props.footerShow : props.footerShow"
