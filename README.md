@@ -9,11 +9,15 @@ Customizable widget templates for [openHAB](https://www.openhab.org/)
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 |![image](https://github.com/user-attachments/assets/0aacc9ed-8857-4828-8056-99de0ccb2a0c)|![image](https://github.com/user-attachments/assets/afe4ff15-38a6-4263-9b86-6c9813b1ac49)|![image](https://github.com/user-attachments/assets/22482736-f67d-45d1-9df2-24e8e502e462)|![image](https://github.com/user-attachments/assets/a608257e-52f8-4787-b306-4a33f66d9641)|These are individual depending on the content|
 
+***In each widget there is a tag with version, please always make sure to use the latest version.***
+![image](https://github.com/user-attachments/assets/0552a4e9-1700-4567-8469-b9d5efd6f5cc)
+
+
 **Examples**
 - **Card_Template_Basis**: This forms the basis for all further cards.
 - **Card_Template_Clock**: A card to display the time, day and date.
 - **Card_Template_Presence**: A card to display whether people are present/absent and for how long.
-  **Card_Template_Switch_Single**: A card to switch individual devices like Light.
+- **Card_Template_Switch_Single**: A card to switch individual devices like Light.
 - **more cards will follow**: ...
   
 |**Examples**|
