@@ -3,7 +3,7 @@ tags:
   - Card Template Presence
   - Customizable Template
   - ScrewPlate
-  - Version 0.2
+  - Version 0.3
 props:
   parameters:
     - description: "Input without 'px' (Default: 20px)"
@@ -151,6 +151,12 @@ props:
       required: false
       type: TEXT
       groupName: contentGroup
+    - default: "false"
+      label: Person Label - Show on Card
+      name: personLabelShow
+      required: false
+      type: BOOLEAN
+      groupName: contentGroup      
     - description: Label person 1 - to display Name
       label: Person 1 Label
       name: person1Label
@@ -267,7 +273,7 @@ props:
     - name: contentGroup
       label: Content Settings
       description: All settings to customize the content area
-timestamp: Dec 22, 2024, 10:24:48 AM
+timestamp: Dec 22, 2024, 10:55:44 AM
 component: f7-card
 config:
   style:
@@ -345,6 +351,7 @@ slots:
                             - component: Label
                               config:
                                 text: "=props.person1Label ? (props.person1Label) : 'Person 1'"
+                                visible: "=props.personLabelShow ? props.personLabelShow : props.personLabelShow"
                       - component: f7-col
                         config:
                           style:
@@ -354,6 +361,7 @@ slots:
                             - component: Label
                               config:
                                 text: "=props.person2Label ? (props.person2Label) : 'Person 2'"
+                                visible: "=props.personLabelShow ? props.personLabelShow : props.personLabelShow"
                       - component: f7-col
                         config:
                           style:
@@ -363,6 +371,7 @@ slots:
                             - component: Label
                               config:
                                 text: "=props.person3Label ? (props.person3Label) : 'Person 3'"
+                                visible: "=props.personLabelShow ? props.personLabelShow : props.personLabelShow"
                       - component: f7-col
                         config:
                           style:
@@ -372,6 +381,7 @@ slots:
                             - component: Label
                               config:
                                 text: "=props.person4Label ? (props.person4Label) : 'Person 4'"
+                                visible: "=props.personLabelShow ? props.personLabelShow : props.personLabelShow"
                 - component: f7-row
                   config:
                     class:
@@ -391,9 +401,9 @@ slots:
                                 height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
                                 icon: "=props.person1Icon ? (props.person1Icon) : 'f7:person_circle'"
                                 style:
-                                  margin-top: 5px
                                   color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark
                                     === 'dark' ? 'white' : 'black')"
+                                  margin-top: 5px
                       - component: f7-col
                         config:
                           style:
@@ -405,9 +415,9 @@ slots:
                                 height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
                                 icon: "=props.person2Icon ? (props.person2Icon) : 'f7:person_circle'"
                                 style:
-                                  margin-top: 5px
                                   color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark
                                     === 'dark' ? 'white' : 'black')"
+                                  margin-top: 5px
                       - component: f7-col
                         config:
                           style:
@@ -419,9 +429,9 @@ slots:
                                 height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
                                 icon: "=props.person3Icon ? (props.person3Icon) : 'f7:person_circle'"
                                 style:
-                                  margin-top: 5px
                                   color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark
                                     === 'dark' ? 'white' : 'black')"
+                                  margin-top: 5px
                       - component: f7-col
                         config:
                           style:
@@ -433,9 +443,9 @@ slots:
                                 height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
                                 icon: "=props.person4Icon ? (props.person4Icon) : 'f7:person_circle'"
                                 style:
-                                  margin-top: 5px
                                   color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark
                                     === 'dark' ? 'white' : 'black')"
+                                  margin-top: 5px
                 - component: f7-row
                   config:
                     class:
@@ -449,7 +459,13 @@ slots:
                               config:
                                 style:
                                   margin-top: 5px
-                                text: "=props.person1Item ? (items[props.person1Item].state == 'ON' ? (props.presentTextValue ? props.presentTextValue : 'present') : (props.person1ItemLastUpdate ? items[props.person1ItemLastUpdate].state : (props.absenceTextValue ? props.absenceTextValue : 'absent'))) : '-'"
+                                text: "=props.person1Item ? (items[props.person1Item].state == 'ON' ?
+                                  (props.presentTextValue ?
+                                  props.presentTextValue : 'present') :
+                                  (props.person1ItemLastUpdate ?
+                                  items[props.person1ItemLastUpdate].state :
+                                  (props.absenceTextValue ?
+                                  props.absenceTextValue : 'absent'))) : '-'"
                       - component: f7-col
                         slots:
                           default:
@@ -457,7 +473,13 @@ slots:
                               config:
                                 style:
                                   margin-top: 5px
-                                text: "=props.person2Item ? (items[props.person2Item].state == 'ON' ? (props.presentTextValue ? props.presentTextValue : 'present') : (props.person2ItemLastUpdate ? items[props.person2ItemLastUpdate].state : (props.absenceTextValue ? props.absenceTextValue : 'absent'))) : '-'"
+                                text: "=props.person2Item ? (items[props.person2Item].state == 'ON' ?
+                                  (props.presentTextValue ?
+                                  props.presentTextValue : 'present') :
+                                  (props.person2ItemLastUpdate ?
+                                  items[props.person2ItemLastUpdate].state :
+                                  (props.absenceTextValue ?
+                                  props.absenceTextValue : 'absent'))) : '-'"
                       - component: f7-col
                         slots:
                           default:
@@ -465,7 +487,13 @@ slots:
                               config:
                                 style:
                                   margin-top: 5px
-                                text: "=props.person3Item ? (items[props.person3Item].state == 'ON' ? (props.presentTextValue ? props.presentTextValue : 'present') : (props.person4ItemLastUpdate ? items[props.person4ItemLastUpdate].state : (props.absenceTextValue ? props.absenceTextValue : 'absent'))) : '-'"
+                                text: "=props.person3Item ? (items[props.person3Item].state == 'ON' ?
+                                  (props.presentTextValue ?
+                                  props.presentTextValue : 'present') :
+                                  (props.person4ItemLastUpdate ?
+                                  items[props.person4ItemLastUpdate].state :
+                                  (props.absenceTextValue ?
+                                  props.absenceTextValue : 'absent'))) : '-'"
                       - component: f7-col
                         slots:
                           default:
@@ -473,7 +501,13 @@ slots:
                               config:
                                 style:
                                   margin-top: 5px
-                                text: "=props.person4Item ? (items[props.person4Item].state == 'ON' ? (props.presentTextValue ? props.presentTextValue : 'present') : (props.person4ItemLastUpdate ? items[props.person4ItemLastUpdate].state : (props.absenceTextValue ? props.absenceTextValue : 'absent'))) : '-'"
+                                text: "=props.person4Item ? (items[props.person4Item].state == 'ON' ?
+                                  (props.presentTextValue ?
+                                  props.presentTextValue : 'present') :
+                                  (props.person4ItemLastUpdate ?
+                                  items[props.person4ItemLastUpdate].state :
+                                  (props.absenceTextValue ?
+                                  props.absenceTextValue : 'absent'))) : '-'"
     - component: f7-card-footer
       config:
         style:
