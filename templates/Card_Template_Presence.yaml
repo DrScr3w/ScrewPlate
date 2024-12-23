@@ -3,7 +3,7 @@ tags:
   - Card Template Presence
   - Customizable Template
   - ScrewPlate
-  - Version 0.3
+  - Version 0.4
 props:
   parameters:
     - description: "Input without 'px' (Default: 20px)"
@@ -156,7 +156,7 @@ props:
       name: personLabelShow
       required: false
       type: BOOLEAN
-      groupName: contentGroup      
+      groupName: contentGroup
     - description: Label person 1 - to display Name
       label: Person 1 Label
       name: person1Label
@@ -232,16 +232,16 @@ props:
       required: false
       type: TEXT
       groupName: contentGroup
+    - description: Label person 4 - to display Name
+      label: Person 4 Label
+      name: person4Label
+      required: false
+      type: TEXT
+      groupName: contentGroup      
     - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
         material:iconName (Material icon) or iconify:iconSet:iconName
       label: Person 4 Icon
       name: person4Icon
-      required: false
-      type: TEXT
-      groupName: contentGroup
-    - description: Label person 4 - to display Name
-      label: Person 4 Label
-      name: person4Label
       required: false
       type: TEXT
       groupName: contentGroup
@@ -273,7 +273,7 @@ props:
     - name: contentGroup
       label: Content Settings
       description: All settings to customize the content area
-timestamp: Dec 22, 2024, 10:55:44 AM
+timestamp: Dec 23, 2024, 12:17:58 PM
 component: f7-card
 config:
   style:
@@ -351,7 +351,8 @@ slots:
                             - component: Label
                               config:
                                 text: "=props.person1Label ? (props.person1Label) : 'Person 1'"
-                                visible: "=props.personLabelShow ? props.personLabelShow : props.personLabelShow"
+                                visible: "=props.personLabelShow ? props.personLabelShow :
+                                  props.personLabelShow"
                       - component: f7-col
                         config:
                           style:
@@ -361,7 +362,8 @@ slots:
                             - component: Label
                               config:
                                 text: "=props.person2Label ? (props.person2Label) : 'Person 2'"
-                                visible: "=props.personLabelShow ? props.personLabelShow : props.personLabelShow"
+                                visible: "=props.personLabelShow ? props.personLabelShow :
+                                  props.personLabelShow"
                       - component: f7-col
                         config:
                           style:
@@ -371,7 +373,8 @@ slots:
                             - component: Label
                               config:
                                 text: "=props.person3Label ? (props.person3Label) : 'Person 3'"
-                                visible: "=props.personLabelShow ? props.personLabelShow : props.personLabelShow"
+                                visible: "=props.personLabelShow ? props.personLabelShow :
+                                  props.personLabelShow"
                       - component: f7-col
                         config:
                           style:
@@ -381,7 +384,8 @@ slots:
                             - component: Label
                               config:
                                 text: "=props.person4Label ? (props.person4Label) : 'Person 4'"
-                                visible: "=props.personLabelShow ? props.personLabelShow : props.personLabelShow"
+                                visible: "=props.personLabelShow ? props.personLabelShow :
+                                  props.personLabelShow"
                 - component: f7-row
                   config:
                     class:
