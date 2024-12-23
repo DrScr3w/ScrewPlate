@@ -1,9 +1,9 @@
 uid: Card_Template_Switch_Single
 tags:
-  - Card Template Basis
+  - Card Template Switch Single
   - Customizable Template
   - ScrewPlate
-  - Version 0.1
+  - Version 0.2
 props:
   parameters:
     - description: "Input without 'px' (Default: 20px)"
