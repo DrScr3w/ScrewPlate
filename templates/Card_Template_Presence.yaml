@@ -3,7 +3,7 @@ tags:
   - Card Template Presence
   - Customizable Template
   - ScrewPlate
-  - Version 0.4
+  - Version 0.5
 props:
   parameters:
     - description: "Input without 'px' (Default: 20px)"
@@ -152,6 +152,7 @@ props:
       type: TEXT
       groupName: contentGroup
     - default: "false"
+      description: Display your own labels for the people
       label: Person Label - Show on Card
       name: personLabelShow
       required: false
@@ -176,8 +177,15 @@ props:
       required: false
       type: TEXT
       groupName: contentGroup
+    - description: "Absence person 1 - display time since absent or display the
+        absence text (default: false)"
+      label: Absence Time Person - Show on Card
+      name: person1ItemShowAbsentTime
+      required: false
+      type: BOOLEAN
+      groupName: contentGroup
     - context: item
-      description: Absence person 1 - to display Last Update
+      description: Absence person 1 - to display time since absence
       name: person1ItemLastUpdate
       required: false
       type: TEXT
@@ -201,8 +209,15 @@ props:
       required: false
       type: TEXT
       groupName: contentGroup
+    - description: "Absence person 2 - display time since absent or display the
+        absence text (default: false)"
+      label: Absence Time Person - Show on Card
+      name: person2ItemShowAbsentTime
+      required: false
+      type: BOOLEAN
+      groupName: contentGroup
     - context: item
-      description: Absence person 2 - to display Last Update
+      description: Absence person 2 - to display time since absence
       name: person2ItemLastUpdate
       required: false
       type: TEXT
@@ -226,9 +241,16 @@ props:
       required: false
       type: TEXT
       groupName: contentGroup
+    - description: "Absence person 3 - display time since absent or display the
+        absence text (default: false)"
+      label: Absence Time Person - Show on Card
+      name: person3ItemShowAbsentTime
+      required: false
+      type: BOOLEAN
+      groupName: contentGroup
     - context: item
-      description: Absence person 3 - to display Last Update
-      name: person1ItemLastUpdate
+      description: Absence person 3 - to display time since absence
+      name: person3ItemLastUpdate
       required: false
       type: TEXT
       groupName: contentGroup
@@ -237,7 +259,7 @@ props:
       name: person4Label
       required: false
       type: TEXT
-      groupName: contentGroup      
+      groupName: contentGroup
     - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
         material:iconName (Material icon) or iconify:iconSet:iconName
       label: Person 4 Icon
@@ -251,9 +273,16 @@ props:
       required: false
       type: TEXT
       groupName: contentGroup
+    - description: "Absence person 4 - display time since absent or display the
+        absence text (default: false)"
+      label: Absence Time Person - Show on Card
+      name: person4ItemShowAbsentTime
+      required: false
+      type: BOOLEAN
+      groupName: contentGroup
     - context: item
-      description: Absence person 4 - to display Last Update
-      name: person2ItemLastUpdate
+      description: Absence person 4 - to display time since absence
+      name: person4ItemLastUpdate
       required: false
       type: TEXT
       groupName: contentGroup
@@ -273,7 +302,7 @@ props:
     - name: contentGroup
       label: Content Settings
       description: All settings to customize the content area
-timestamp: Dec 23, 2024, 12:17:58 PM
+timestamp: Dec 25, 2024, 7:50:33 AM
 component: f7-card
 config:
   style:
@@ -395,9 +424,6 @@ slots:
                   slots:
                     default:
                       - component: f7-col
-                        config:
-                          style:
-                            background: rgba(233, 196, 106, 0)
                         slots:
                           default:
                             - component: oh-icon
@@ -409,9 +435,6 @@ slots:
                                     === 'dark' ? 'white' : 'black')"
                                   margin-top: 5px
                       - component: f7-col
-                        config:
-                          style:
-                            background: rgba(233, 196, 106, 0)
                         slots:
                           default:
                             - component: oh-icon
@@ -423,9 +446,6 @@ slots:
                                     === 'dark' ? 'white' : 'black')"
                                   margin-top: 5px
                       - component: f7-col
-                        config:
-                          style:
-                            background: rgba(233, 196, 106, 0)
                         slots:
                           default:
                             - component: oh-icon
@@ -437,9 +457,6 @@ slots:
                                     === 'dark' ? 'white' : 'black')"
                                   margin-top: 5px
                       - component: f7-col
-                        config:
-                          style:
-                            background: rgba(233, 196, 106, 0)
                         slots:
                           default:
                             - component: oh-icon
@@ -465,9 +482,9 @@ slots:
                                   margin-top: 5px
                                 text: "=props.person1Item ? (items[props.person1Item].state == 'ON' ?
                                   (props.presentTextValue ?
-                                  props.presentTextValue : 'present') :
-                                  (props.person1ItemLastUpdate ?
-                                  items[props.person1ItemLastUpdate].state :
+                                  props.presentTextValue : 'present')
+                                  :(props.person1ItemShowAbsentTime
+                                  ?  items[props.person1ItemLastUpdate].state :
                                   (props.absenceTextValue ?
                                   props.absenceTextValue : 'absent'))) : '-'"
                       - component: f7-col
@@ -477,11 +494,11 @@ slots:
                               config:
                                 style:
                                   margin-top: 5px
-                                text: "=props.person2Item ? (items[props.person2Item].state == 'ON' ?
+                                text: "=props.person1Item ? (items[props.person2Item].state == 'ON' ?
                                   (props.presentTextValue ?
-                                  props.presentTextValue : 'present') :
-                                  (props.person2ItemLastUpdate ?
-                                  items[props.person2ItemLastUpdate].state :
+                                  props.presentTextValue : 'present')
+                                  :(props.person2ItemShowAbsentTime
+                                  ?  items[props.person2ItemLastUpdate].state :
                                   (props.absenceTextValue ?
                                   props.absenceTextValue : 'absent'))) : '-'"
                       - component: f7-col
@@ -491,11 +508,11 @@ slots:
                               config:
                                 style:
                                   margin-top: 5px
-                                text: "=props.person3Item ? (items[props.person3Item].state == 'ON' ?
+                                text: "=props.person1Item ? (items[props.person3Item].state == 'ON' ?
                                   (props.presentTextValue ?
-                                  props.presentTextValue : 'present') :
-                                  (props.person4ItemLastUpdate ?
-                                  items[props.person4ItemLastUpdate].state :
+                                  props.presentTextValue : 'present')
+                                  :(props.person3ItemShowAbsentTime
+                                  ?  items[props.person3ItemLastUpdate].state :
                                   (props.absenceTextValue ?
                                   props.absenceTextValue : 'absent'))) : '-'"
                       - component: f7-col
@@ -505,11 +522,11 @@ slots:
                               config:
                                 style:
                                   margin-top: 5px
-                                text: "=props.person4Item ? (items[props.person4Item].state == 'ON' ?
+                                text: "=props.person1Item ? (items[props.person4Item].state == 'ON' ?
                                   (props.presentTextValue ?
-                                  props.presentTextValue : 'present') :
-                                  (props.person4ItemLastUpdate ?
-                                  items[props.person4ItemLastUpdate].state :
+                                  props.presentTextValue : 'present')
+                                  :(props.person4ItemShowAbsentTime
+                                  ?  items[props.person4ItemLastUpdate].state :
                                   (props.absenceTextValue ?
                                   props.absenceTextValue : 'absent'))) : '-'"
     - component: f7-card-footer
