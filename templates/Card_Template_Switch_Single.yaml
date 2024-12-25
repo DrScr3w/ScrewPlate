@@ -3,7 +3,7 @@ tags:
   - Card Template Switch Single
   - Customizable Template
   - ScrewPlate
-  - Version 0.2
+  - Version 0.3
 props:
   parameters:
     - description: "Input without 'px' (Default: 20px)"
@@ -152,6 +152,13 @@ props:
       required: false
       type: BOOLEAN
       groupName: contentGroup
+    - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
+        material:iconName (Material icon) or iconify:iconSet:iconName
+      label: Icon
+      name: buttonIconName
+      required: false
+      type: TEXT
+      groupName: contentGroup      
     - description: "Input without 'px' (Default: 80px)"
       label: Switch Icon Size
       name: buttonIconSize
@@ -198,7 +205,7 @@ props:
     - name: contentGroup
       label: Content Settings
       description: All settings to customize the content area
-timestamp: Dec 23, 2024, 1:20:19 PM
+timestamp: Dec 23, 2024, 1:39:33 PM
 component: f7-card
 config:
   style:
@@ -297,7 +304,7 @@ slots:
                             - component: oh-icon
                               config:
                                 height: "=props.buttonIconSize ? (props.buttonIconSize) + 'px' : '80px'"
-                                icon: "=props.buttonIcon ? (props.buttonIcon) :
+                                icon: "=props.buttonIconName ? (props.buttonIconName) :
                                   'iconify:ic:twotone-emoji-objects'"
                                 visible: "=props.switchIconShow ? props.switchIconShow : props.switchIconShow"
                                 style:
