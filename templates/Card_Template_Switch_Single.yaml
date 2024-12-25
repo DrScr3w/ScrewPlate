@@ -154,11 +154,11 @@ props:
       groupName: contentGroup
     - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
         material:iconName (Material icon) or iconify:iconSet:iconName
-      label: Icon
+      label: Switch Icon
       name: buttonIconName
       required: false
       type: TEXT
-      groupName: contentGroup      
+      groupName: contentGroup
     - description: "Input without 'px' (Default: 80px)"
       label: Switch Icon Size
       name: buttonIconSize
@@ -205,7 +205,7 @@ props:
     - name: contentGroup
       label: Content Settings
       description: All settings to customize the content area
-timestamp: Dec 23, 2024, 1:39:33 PM
+timestamp: Dec 25, 2024, 8:17:55 AM
 component: f7-card
 config:
   style:
