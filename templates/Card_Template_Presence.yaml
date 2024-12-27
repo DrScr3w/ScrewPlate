@@ -3,7 +3,7 @@ tags:
   - Card Template Presence
   - Customizable Template
   - ScrewPlate
-  - Version 0.6
+  - Version 0.7
 props:
   parameters:
     - description: "Input without 'px' (Default: 20px)"
@@ -302,7 +302,7 @@ props:
     - name: contentGroup
       label: Content Settings
       description: All settings to customize the content area
-timestamp: Dec 25, 2024, 7:50:33 AM
+timestamp: Dec 27, 2024, 2:02:52 PM
 component: f7-card
 config:
   style:
@@ -372,9 +372,6 @@ slots:
                   slots:
                     default:
                       - component: f7-col
-                        config:
-                          style:
-                            background: rgba(233, 196, 106, 0)
                         slots:
                           default:
                             - component: Label
@@ -383,9 +380,6 @@ slots:
                                 visible: "=props.personLabelShow ? props.personLabelShow :
                                   props.personLabelShow"
                       - component: f7-col
-                        config:
-                          style:
-                            background: rgba(233, 196, 106, 0)
                         slots:
                           default:
                             - component: Label
@@ -394,9 +388,6 @@ slots:
                                 visible: "=props.personLabelShow ? props.personLabelShow :
                                   props.personLabelShow"
                       - component: f7-col
-                        config:
-                          style:
-                            background: rgba(233, 196, 106, 0)
                         slots:
                           default:
                             - component: Label
@@ -405,9 +396,6 @@ slots:
                                 visible: "=props.personLabelShow ? props.personLabelShow :
                                   props.personLabelShow"
                       - component: f7-col
-                        config:
-                          style:
-                            background: rgba(233, 196, 106, 0)
                         slots:
                           default:
                             - component: Label
@@ -508,7 +496,9 @@ slots:
                               config:
                                 style:
                                   margin-top: 5px
-                                text: "=props.person3Item ? (items[props.person3Item].state == 'ON' ? (props.presentTextValue ? props.presentTextValue : 'present')
+                                text: "=props.person3Item ? (items[props.person3Item].state == 'ON' ?
+                                  (props.presentTextValue ?
+                                  props.presentTextValue : 'present')
                                   :(props.person3ItemShowAbsentTime
                                   ?  items[props.person3ItemLastUpdate].state :
                                   (props.absenceTextValue ?
@@ -520,7 +510,9 @@ slots:
                               config:
                                 style:
                                   margin-top: 5px
-                                text: "=props.person4Item ? (items[props.person3Item].state == 'ON' ? (props.presentTextValue ? props.presentTextValue : 'present')
+                                text: "=props.person4Item ? (items[props.person3Item].state == 'ON' ?
+                                  (props.presentTextValue ?
+                                  props.presentTextValue : 'present')
                                   :(props.person3ItemShowAbsentTime
                                   ?  items[props.person3ItemLastUpdate].state :
                                   (props.absenceTextValue ?
