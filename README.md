@@ -19,17 +19,18 @@ The widget can be installed via ***openHAB -> Add-on Store -> User Interfaces***
 - **Card_Template_Basis**: This forms the basis for all further cards.
 - **Card_Template_Clock**: A card to display the time, day and date.
 - **Card_Template_Presence**: A card to display whether people are present/absent and for how long.
+- **Card_Template_Room_Compact**: A Card that can be used to display the temperature, humidity, light and windows in a compact design.
 - **Card_Template_Switch_Single**: A card to switch individual devices like Light.
 - **more cards will follow**: ...
   
 |**Examples**|
 | ------------- |
-|![image](https://github.com/user-attachments/assets/f95290a0-3dca-4235-be9c-2b26bcbfd49a)|
+|![image](https://github.com/user-attachments/assets/5ca09c69-6152-4fe5-adff-ae5ef3c9b735)|
 
-**Default Theme**
-|**Light Theme**|**Dark Theme**
-| ------------- | ------------- |
-|<img src="https://github.com/user-attachments/assets/8c796a0d-f0be-4a81-856f-ee7aa3d432ee" height="800">|<img src="https://github.com/user-attachments/assets/d32dd77b-bf34-454c-b28e-163c57de8ce0" height="800">|
+
+*Default Theme*
+
+The standard design distinguishes between dark and light themes
 
 ## 🤝&nbsp; Found a bug or missing feature?
 If you’ve encountered an issue or identified an area for improvement, please file a new issue on our [GitHub issues page](https://github.com/DrScr3w/ScrewPlate/issues).
