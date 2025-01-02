@@ -3,7 +3,7 @@ tags:
   - Card Template Room Compact
   - Customizable Template
   - ScrewPlate
-  - Version 0.1
+  - Version 0.2
 props:
   parameters:
     - description: "Input without 'px' (Default: 20px)"
@@ -151,7 +151,7 @@ props:
       name: iconTemperature
       required: false
       type: TEXT
-      groupName: contentGroup      
+      groupName: contentGroup
     - context: item
       description: to diplay the room humidity
       name: itemHumidity
@@ -164,33 +164,33 @@ props:
       name: iconHumidity
       required: false
       type: TEXT
-      groupName: contentGroup 
+      groupName: contentGroup
     - context: item
       description: Group Item to diplay the room light state
       name: itemLightGroup
       required: false
       type: TEXT
-      groupName: contentGroup      
+      groupName: contentGroup
     - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
         material:iconName (Material icon) or iconify:iconSet:iconName
       label: Icon for Light
       name: iconLight
       required: false
       type: TEXT
-      groupName: contentGroup       
+      groupName: contentGroup
     - context: item
       description: Group Item to diplay the room window count
       name: itemWindowGroup
       required: false
       type: TEXT
-      groupName: contentGroup 
+      groupName: contentGroup
     - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
         material:iconName (Material icon) or iconify:iconSet:iconName
       label: Icon for Window
       name: iconWindow
       required: false
       type: TEXT
-      groupName: contentGroup    
+      groupName: contentGroup
   parameterGroups:
     - name: cardGroup
       label: Card Settings
@@ -207,7 +207,7 @@ props:
     - name: contentGroup
       label: Content Settings
       description: All settings to customize the content area
-timestamp: Dec 31, 2024, 10:16:33 AM
+timestamp: Dec 31, 2024, 12:35:08 PM
 component: f7-card
 config:
   style:
@@ -269,51 +269,54 @@ slots:
               style:
                 margin-top: -10px
             slots:
-              default:                              
+              default:
                 - component: f7-row
                   config:
                     class:
                       - text-align-center
-                    style:
-
                   slots:
-                    default:                     
+                    default:
                       - component: f7-col
                         slots:
                           default:
                             - component: oh-link
                               config:
                                 action: analyzer
-                                actionAnalyzerItems : =props.itemTemperature
                                 actionAnalyzerChartType: day
                                 actionAnalyzerCoordSystem: time
+                                actionAnalyzerItems: =props.itemTemperature
                               slots:
                                 default:
                                   - component: oh-icon
                                     config:
+                                      color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark
+                                        === 'dark' ? 'white' : 'black')"
                                       height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
-                                      icon: "=props.iconTemperature ? (props.iconTemperature) : 'iconify:oui:temperature'"
-                                      color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+                                      icon: "=props.iconTemperature ? (props.iconTemperature) :
+                                        'iconify:oui:temperature'"
                                       style:
-                                        margin-top: 5px                                    
+                                        margin-top: 5px
                       - component: f7-col
                         slots:
                           default:
                             - component: oh-link
                               config:
                                 action: analyzer
-                                actionAnalyzerItems : =props.itemHumidity
                                 actionAnalyzerChartType: day
                                 actionAnalyzerCoordSystem: time
+                                actionAnalyzerItems: =props.itemHumidity
                               slots:
                                 default:
                                   - component: oh-icon
                                     config:
+                                      color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark
+                                        === 'dark' ? 'white' : 'black')"
                                       height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
-                                      icon: "=props.iconHumidity ? (props.iconHumidity) : 'iconify:material-symbols:humidity-percentage-rounded'"
-                                      color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+                                      icon: "=props.iconHumidity ? (props.iconHumidity) :
+                                        'iconify:material-symbols:humidity-perc\
+                                        entage-rounded'"
                                       style:
-                                        margin-top: 5px                                    
+                                        margin-top: 5px
                       - component: f7-col
                         slots:
                           default:
@@ -325,11 +328,15 @@ slots:
                                 default:
                                   - component: oh-icon
                                     config:
+                                      color: "=(Number(items[props.itemLightGroup].state) > 0) ? '#f0ca59' :
+                                        (props.contentIconColor ?
+                                        props.contentIconColor :
+                                        (themeOptions.dark === 'dark' ? 'white'
+                                        : 'black'))"
                                       height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
                                       icon: "=props.iconLight ? (props.iconLight) : 'iconify:ion:bulb'"
-                                      color: "=(Number(items[props.itemLightGroup].state) > 0) ? '#f0ca59' : (props.contentIconColor ? props.contentIconColor : (themeOptions.dark === 'dark' ? 'white' : 'black'))"
                                       style:
-                                        margin-top: 5px                                 
+                                        margin-top: 5px
                       - component: f7-col
                         slots:
                           default:
@@ -341,17 +348,19 @@ slots:
                                 default:
                                   - component: oh-icon
                                     config:
+                                      color: "=(Number(items[props.itemWindowGroup].state) > 0) ? '#f0ca59' :
+                                        (props.contentIconColor ?
+                                        props.contentIconColor :
+                                        (themeOptions.dark === 'dark' ? 'white'
+                                        : 'black'))"
                                       height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
                                       icon: "=props.iconWindow ? (props.iconWindow) : 'iconify:ic:outline-window'"
-                                      color: "=(Number(items[props.itemWindowGroup].state) > 0) ? '#f0ca59' : (props.contentIconColor ? props.contentIconColor : (themeOptions.dark === 'dark' ? 'white' : 'black'))"
                                       style:
                                         margin-top: 5px
                 - component: f7-row
                   config:
                     class:
                       - text-align-center
-                    style:
-
                   slots:
                     default:
                       - component: f7-col
@@ -359,25 +368,33 @@ slots:
                           default:
                             - component: Label
                               config:
-                                text: "=props.itemTemperature ? (items[props.itemTemperature].displayState  ? items[props.itemTemperature].displayState : items[props.itemTemperature].state) : 'n/a'"
+                                style:
+                                  min-width: 85px
+                                text: "=props.itemTemperature ? (items[props.itemTemperature].displayState  ?
+                                  items[props.itemTemperature].displayState :
+                                  items[props.itemTemperature].state) : 'n/a'"
                       - component: f7-col
                         slots:
                           default:
                             - component: Label
                               config:
-                                text: "=props.itemHumidity ? (items[props.itemHumidity].displayState  ? items[props.itemHumidity].displayState : items[props.itemHumidity].state) : 'n/a'"  
+                                text: "=props.itemHumidity ? (items[props.itemHumidity].displayState  ?
+                                  items[props.itemHumidity].displayState :
+                                  items[props.itemHumidity].state) : 'n/a'"
                       - component: f7-col
                         slots:
                           default:
                             - component: Label
                               config:
-                                text: "=(Number(items[props.itemLightGroup].state) > 0) ? items[props.itemLightGroup].state : '0'"
+                                text: "=(Number(items[props.itemLightGroup].state) > 0) ?
+                                  items[props.itemLightGroup].state : '0'"
                       - component: f7-col
                         slots:
                           default:
                             - component: Label
                               config:
-                                text: "=(Number(items[props.itemWindowGroup].state) > 0) ? items[props.itemWindowGroup].state : '0' "                                   
+                                text: "=(Number(items[props.itemWindowGroup].state) > 0) ?
+                                  items[props.itemWindowGroup].state : '0' "
     - component: f7-card-footer
       config:
         style:
