@@ -3,7 +3,7 @@ tags:
   - Card Template Room Compact
   - Customizable Template
   - ScrewPlate
-  - Version 0.2
+  - Version 0.3
 props:
   parameters:
     - description: "Input without 'px' (Default: 20px)"
@@ -144,53 +144,53 @@ props:
       name: itemTemperature
       required: false
       type: TEXT
-      groupName: contentGroup
+      groupName: customGroup
     - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
         material:iconName (Material icon) or iconify:iconSet:iconName
       label: Icon for Temperature
       name: iconTemperature
       required: false
       type: TEXT
-      groupName: contentGroup
+      groupName: customGroup
     - context: item
       description: to diplay the room humidity
       name: itemHumidity
       required: false
       type: TEXT
-      groupName: contentGroup
+      groupName: customGroup
     - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
         material:iconName (Material icon) or iconify:iconSet:iconName
       label: Icon for Humidity
       name: iconHumidity
       required: false
       type: TEXT
-      groupName: contentGroup
+      groupName: customGroup
     - context: item
       description: Group Item to diplay the room light state
       name: itemLightGroup
       required: false
       type: TEXT
-      groupName: contentGroup
+      groupName: customGroup
     - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
         material:iconName (Material icon) or iconify:iconSet:iconName
       label: Icon for Light
       name: iconLight
       required: false
       type: TEXT
-      groupName: contentGroup
+      groupName: customGroup
     - context: item
       description: Group Item to diplay the room window count
       name: itemWindowGroup
       required: false
       type: TEXT
-      groupName: contentGroup
+      groupName: customGroup
     - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
         material:iconName (Material icon) or iconify:iconSet:iconName
       label: Icon for Window
       name: iconWindow
       required: false
       type: TEXT
-      groupName: contentGroup
+      groupName: customGroup
   parameterGroups:
     - name: cardGroup
       label: Card Settings
@@ -207,7 +207,10 @@ props:
     - name: contentGroup
       label: Content Settings
       description: All settings to customize the content area
-timestamp: Dec 31, 2024, 12:35:08 PM
+    - name: customGroup
+      label: Custom Settings
+      description: All settings to customize the custom objects        
+timestamp: Jan 2, 2025, 6:15:41 PM
 component: f7-card
 config:
   style:
