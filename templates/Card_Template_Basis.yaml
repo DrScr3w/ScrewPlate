@@ -3,7 +3,7 @@ tags:
   - Card Template Basis
   - Customizable Template
   - ScrewPlate
-  - Version 0.7
+  - Version 0.8
 props:
   parameters:
     - description: "Input without 'px' (Default: 20px)"
@@ -127,6 +127,18 @@ props:
       required: false
       type: TEXT
       groupName: contentGroup
+    - description: "Input without 'px' (Default: 30px)"
+      label: Content Icon Size
+      name: contentIconSize
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Content Icon Color
+      name: contentIconColor
+      required: false
+      type: TEXT
+      groupName: contentGroup      
   parameterGroups:
     - name: cardGroup
       label: Card Settings
@@ -143,7 +155,10 @@ props:
     - name: contentGroup
       label: Content Settings
       description: All settings to customize the content area
-timestamp: Dec 22, 2024, 10:08:33 AM
+    - name: customGroup
+      label: Custom Settings
+      description: All settings to customize the custom objects        
+timestamp: Dec 22, 2024, 10:10:15 AM
 component: f7-card
 config:
   style:
