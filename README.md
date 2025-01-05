@@ -5,9 +5,13 @@ Customizable widget templates for [openHAB](https://www.openhab.org/)
 **ScrewPlate** is intended to be a collection of widget templates. The focus of the widgets should be on customizability so that a harmonized design can be easily created and no more customizations need to be made in the widget code.
 
 **Default customizable options**
-|**Card Settings**|**Icon Settings**|**Header Settings**|**Footer Settings**|**Content Settings**|
-| ------------- | ------------- | ------------- | ------------- | ------------- |
-|![image](https://github.com/user-attachments/assets/0aacc9ed-8857-4828-8056-99de0ccb2a0c)|![image](https://github.com/user-attachments/assets/afe4ff15-38a6-4263-9b86-6c9813b1ac49)|![image](https://github.com/user-attachments/assets/22482736-f67d-45d1-9df2-24e8e502e462)|![image](https://github.com/user-attachments/assets/a608257e-52f8-4787-b306-4a33f66d9641)|These are individual depending on the content|
+|**Card Settings**|**Icon Settings**|**Header Settings**|**Footer Settings**|**Content Settings**|**Custom Settings**|
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+|![image](https://github.com/user-attachments/assets/0aacc9ed-8857-4828-8056-99de0ccb2a0c)|![image](https://github.com/user-attachments/assets/afe4ff15-38a6-4263-9b86-6c9813b1ac49)|![image](https://github.com/user-attachments/assets/22482736-f67d-45d1-9df2-24e8e502e462)|![image](https://github.com/user-attachments/assets/a608257e-52f8-4787-b306-4a33f66d9641)|![image](https://github.com/user-attachments/assets/f6156b78-f221-46a2-a14c-76eff256faa5)|These are individual depending on the custom Objects|
+
+
+
+
 
 ## 📦&nbsp; Installation
 The widget can be installed via ***openHAB -> Add-on Store -> User Interfaces*** and then search for ScrewPlate. Or you can copy the respective widget code from the templates folder in ***openHAB -> Developer Tools -> Widgets -> (+)*** and then paste the copied code.
@@ -25,7 +29,7 @@ The widget can be installed via ***openHAB -> Add-on Store -> User Interfaces***
   
 |**Examples**|
 | ------------- |
-|![image](https://github.com/user-attachments/assets/5ca09c69-6152-4fe5-adff-ae5ef3c9b735)|
+|![image](https://github.com/user-attachments/assets/23f7e0f7-c8af-43a9-802d-f096714b26ce)|
 
 
 *Default Theme*
