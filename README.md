@@ -22,9 +22,11 @@ The widget can be installed via ***openHAB -> Add-on Store -> User Interfaces***
 ## ❤️&nbsp;  Examples
 - **Card_Template_Basis**: This forms the basis for all further cards.
 - **Card_Template_Clock**: A card to display the time, day and date.
+- **Card_Template_Security_Compact**: A card to display the Alarm System State (ON/OFF) and whether a door, window or the garage is OPEN/CLOSED.
 - **Card_Template_Presence**: A card to display whether people are present/absent and for how long.
 - **Card_Template_Room_Compact**: A Card that can be used to display the temperature, humidity, light and windows in a compact design.
 - **Card_Template_Switch_Single**: A card to switch individual devices like Light.
+- 
 - **more cards will follow**: ...
   
 |**Examples**|
