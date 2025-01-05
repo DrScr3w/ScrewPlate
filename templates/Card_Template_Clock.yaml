@@ -3,7 +3,7 @@ tags:
   - Card Template Clock
   - Customizable Template
   - ScrewPlate
-  - Version 0.3
+  - Version 0.4
 props:
   parameters:
     - description: "Input without 'px' (Default: 20px)"
@@ -127,21 +127,33 @@ props:
       required: false
       type: TEXT
       groupName: contentGroup
+    - description: "Input without 'px' (Default: 30px)"
+      label: Content Icon Size
+      name: contentIconSize
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Content Icon Color
+      name: contentIconColor
+      required: false
+      type: TEXT
+      groupName: contentGroup        
     - label: Time Text Size
       name: timeTextSize
       required: false
       type: TEXT
-      groupName: contentGroup
+      groupName: customGroup
     - label: Day Text Size
       name: dayTextSize
       required: false
       type: TEXT
-      groupName: contentGroup
+      groupName: customGroup
     - label: Date Text Size
       name: dayTextSize
       required: false
       type: TEXT
-      groupName: contentGroup
+      groupName: customGroup      
   parameterGroups:
     - name: cardGroup
       label: Card Settings
@@ -158,6 +170,9 @@ props:
     - name: contentGroup
       label: Content Settings
       description: All settings to customize the content area
+    - name: customGroup
+      label: Custom Settings
+      description: All settings to customize the custom objects        
 timestamp: Dec 22, 2024, 10:08:21 AM
 component: f7-card
 config:
