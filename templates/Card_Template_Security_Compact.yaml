@@ -73,7 +73,7 @@ props:
       required: false
       type: BOOLEAN
       groupName: headerGroup
-    - description: Input Text to diplay on Header
+    - description: Input Text to display on Header
       label: Header
       name: headerText
       required: false
@@ -97,7 +97,7 @@ props:
       required: false
       type: BOOLEAN
       groupName: footerGroup
-    - description: Input Text to diplay on Footer
+    - description: Input Text to display on Footer
       label: Footer
       name: footerText
       required: false
@@ -172,13 +172,13 @@ props:
       type: TEXT
       groupName: customGroup
     - context: item
-      description: Group Item to diplay all Doors state (OPEN/CLOSED)
+      description: Group Item to display all Doors state (OPEN/CLOSED)
       name: itemDoorGroup
       required: false
       type: TEXT
       groupName: customGroup
     - context: item
-      description: Group Item to diplay all Windows state (OPEN/CLOSED)
+      description: Group Item to display all Windows state (OPEN/CLOSED)
       name: itemWindowGroup
       required: false
       type: TEXT
@@ -190,7 +190,7 @@ props:
       type: BOOLEAN
       groupName: customGroup
     - context: item
-      description: Group Item to diplay the Garage state (OPEN/CLOSED)
+      description: Group Item to display the Garage state (OPEN/CLOSED)
       name: itemGarageGroup
       required: false
       type: TEXT
