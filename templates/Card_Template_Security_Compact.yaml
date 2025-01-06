@@ -3,7 +3,7 @@ tags:
   - Card Template Security Compact
   - Customizable Template
   - ScrewPlate
-  - Version 0.1
+  - Version 0.2
 props:
   parameters:
     - description: "Input without 'px' (Default: 20px)"
@@ -140,43 +140,61 @@ props:
       type: TEXT
       groupName: contentGroup
     - context: item
-      description: "Item for display the Alarm System State (State: ON/OFF)"
+      description: Item for display the Alarm System State (ON/OFF)
       label: Alarm System State
-      name: aaStateItem
+      name: itemAlarmSystemState
       required: false
       type: TEXT
-      groupName: contentGroup
+      groupName: customGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Alarm System State Icon Color for State (ON)
+      name: itemAlarmSystemIconActiveColor
+      required: false
+      type: TEXT
+      groupName: customGroup
     - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
         material:iconName (Material icon) or iconify:iconSet:iconName
       label: Icon for Alarm System State
-      name: aaStateIcon
+      name: itemAlarmSystemIcon
       required: false
       type: TEXT
-      groupName: contentGroup
+      groupName: customGroup
     - description: "Input without 'px' (Default: 80px)"
       label: Icon Size for Alarm System State
-      name: aaStateIconSize
+      name: itemAlarmSystemIconSize
       required: false
       type: TEXT
-      groupName: contentGroup
+      groupName: customGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Alarm System State Icon Color for State (OPEN)
+      name: itemStateActiveColor
+      required: false
+      type: TEXT
+      groupName: customGroup
     - context: item
-      description: Group Item to diplay the doors state (OPEN/CLOSED)
+      description: Group Item to diplay all Doors state (OPEN/CLOSED)
       name: itemDoorGroup
       required: false
       type: TEXT
-      groupName: contentGroup
+      groupName: customGroup
     - context: item
-      description: Group Item to diplay the windows state (OPEN/CLOSED)
+      description: Group Item to diplay all Windows state (OPEN/CLOSED)
       name: itemWindowGroup
       required: false
       type: TEXT
-      groupName: contentGroup
+      groupName: customGroup
+    - default: "false"
+      label: Garage - Show on Card
+      name: switchGarageShow
+      required: false
+      type: BOOLEAN
+      groupName: customGroup
     - context: item
-      description: Group Item to diplay the gates state (OPEN/CLOSED)
-      name: itemGateGroup
+      description: Group Item to diplay the Garage state (OPEN/CLOSED)
+      name: itemGarageGroup
       required: false
       type: TEXT
-      groupName: contentGroup
+      groupName: customGroup
   parameterGroups:
     - name: cardGroup
       label: Card Settings
@@ -193,7 +211,10 @@ props:
     - name: contentGroup
       label: Content Settings
       description: All settings to customize the content area
-timestamp: Jan 2, 2025, 6:59:03 PM
+    - name: customGroup
+      label: Custom Settings
+      description: All settings to customize the custom objects
+timestamp: Jan 5, 2025, 12:33:06 PM
 component: f7-card
 config:
   style:
@@ -270,21 +291,24 @@ slots:
                           class:
                             - text-align-right
                           style:
-                            width: "=props.aaStateIconSize ? (props.aaStateIconSize + 10) + 'px' : '80px'"
+                            width: "=props.itemAlarmSystemIconSize ? (props.itemAlarmSystemIconSize + 10) +
+                              'px' : '80px'"
                         slots:
                           default:
                             - component: oh-icon
                               config:
-                                icon: "=props.aaStateIcon ? (items[props.aaStateItem].state == ON ?
-                                  'f7:shield_fill' : 'shield_slash_fill' ) :
-                                  'f7:shield'"
+                                icon: "=props.itemAlarmSystemState ? (items[props.itemAlarmSystemState].state ==
+                                  'OFF' ? 'f7:checkmark_shield_fill' :
+                                  'f7:shield_slash_fill' ) : 'f7:shield'"
                                 style:
-                                  color: "=props.aaStateIconColorActive ? (items[props.aaStateItem].state == ON ?
-                                    props.aaStateIconColorActive :'#b1c75f' :
-                                    (items[props.aaStateItem].state == ON ?
-                                    props.aaStateIconColorActive : '#a4463e')) :
-                                    'f7:shield'"
-                                width: "=props.aaStateIconSize ? (props.aaStateIconSize) + 'px' : '80px'"
+                                  color: "=items[props.itemAlarmSystemState].state == 'OFF' ?
+                                    (props.itemAlarmSystemIconActiveColor ?
+                                    props.itemAlarmSystemIconActiveColor :
+                                    '#4f772d') : (props.contentIconColor ?
+                                    props.contentIconColor : (themeOptions.dark
+                                    === 'dark' ? 'white' : 'black'))"
+                                width: "=props.itemAlarmSystemIconSize ? (props.itemAlarmSystemIconSize) + 'px'
+                                  : '80px'"
                       - component: f7-col
                         config:
                           style:
@@ -300,26 +324,37 @@ slots:
                                     config:
                                       style:
                                         display: flex
-                                        padding-left: 15px
+                                        padding-left: 20px
                                     slots:
                                       default:
-                                        - component: oh-icon
+                                        - component: oh-link
                                           config:
-                                            color: "=(items[props.itemDoorGroup].state === 'OPEN' ?  '#9e7157' :
-                                              (props.contentIconColor ?
-                                              props.contentIconColor :
-                                              (themeOptions.dark === 'dark' ?
-                                              'white' : 'black')))"
-                                            icon: "=items[props.itemDoorGroup].state == 'OPEN' ? 'iconify:mdi:door-open' :
-                                              'iconify:mdi:door'"
-                                            height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
-                                        - component: Label
-                                          config:
-                                            style:
-                                              padding-left: 15px
-                                              color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark
-                                                === 'dark' ? 'white' : 'black')"
-                                            text: "=items[props.itemDoorGroup].state == 'OPEN' ? 'OPEN' : 'CLOSED'"
+                                            action: group
+                                            actionGroupPopupItem: =props.itemDoorGroup
+                                          slots:
+                                            default:
+                                              - component: oh-icon
+                                                config:
+                                                  color: "=items[props.itemDoorGroup].state == 'OPEN' ?
+                                                    (props.itemStateActiveColor
+                                                    ? props.itemStateActiveColor
+                                                    : '#e5cb63') :
+                                                    (props.contentIconColor ?
+                                                    props.contentIconColor :
+                                                    (themeOptions.dark ===
+                                                    'dark' ? 'white' :
+                                                    'black'))"
+                                                  height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
+                                                  icon: "=items[props.itemDoorGroup].state == 'OPEN' ? 'iconify:mdi:door-open' :
+                                                    'iconify:mdi:door'"
+                                              - component: Label
+                                                config:
+                                                  style:
+                                                    color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark
+                                                      === 'dark' ? 'white' :
+                                                      'black')"
+                                                    padding-left: 15px
+                                                  text: "=items[props.itemDoorGroup].state == 'OPEN' ? 'OPEN' : 'CLOSED'"
                             - component: f7-row
                               slots:
                                 default:
@@ -327,29 +362,38 @@ slots:
                                     config:
                                       style:
                                         display: flex
-                                        padding-left: 15px
+                                        padding-left: 20px
                                     slots:
                                       default:
-                                        - component: oh-icon
+                                        - component: oh-link
                                           config:
-                                            color: "=(items[props.itemWindowGroup].state == 'OPEN') ? '#6dacfc' :
-                                              (props.contentIconColor ?
-                                              props.contentIconColor :
-                                              (themeOptions.dark === 'dark' ?
-                                              'white' : 'black'))"
-                                            icon: "=items[props.itemWindowGroup].state == 'OPEN' ?
-                                              'iconify:mdi:window-open-variant'
-                                              :
-                                              'iconify:mdi:window-closed-varian\
-                                              t'"
-                                            height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
-                                        - component: Label
-                                          config:
-                                            style:
-                                              padding-left: 15px
-                                              color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark
-                                                === 'dark' ? 'white' : 'black')"
-                                            text: "=items[props.itemWindowGroup].state == 'OPEN' ? 'OPEN' : 'CLOSED'"
+                                            action: group
+                                            actionGroupPopupItem: =props.itemWindowGroup
+                                          slots:
+                                            default:
+                                              - component: oh-icon
+                                                config:
+                                                  color: "=items[props.itemWindowGroup].state == 'OPEN' ?
+                                                    (props.itemStateActiveColor
+                                                    ? props.itemStateActiveColor
+                                                    : '#e5cb63') :
+                                                    (props.contentIconColor ?
+                                                    props.contentIconColor :
+                                                    (themeOptions.dark ===
+                                                    'dark' ? 'white' :
+                                                    'black'))"
+                                                  height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
+                                                  icon: =items[props.itemWindowGroup].state == 'OPEN' ?
+                                                    'iconify:mdi:window-open-variant'
+                                                    :'iconify:mdi:window-closed-variant'
+                                              - component: Label
+                                                config:
+                                                  style:
+                                                    color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark
+                                                      === 'dark' ? 'white' :
+                                                      'black')"
+                                                    padding-left: 15px
+                                                  text: "=items[props.itemWindowGroup].state == 'OPEN' ? 'OPEN' : 'CLOSED'"
                             - component: f7-row
                               slots:
                                 default:
@@ -357,28 +401,44 @@ slots:
                                     config:
                                       style:
                                         display: flex
-                                        padding-left: 15px
+                                        padding-left: 20px
                                     slots:
                                       default:
-                                        - component: oh-icon
+                                        - component: oh-link
                                           config:
-                                            color: "=(items[props.itemGateGroup].state === 'OPEN' ? '#9e7157' :
-                                              (props.contentIconColor ?
-                                              props.contentIconColor :
-                                              (themeOptions.dark === 'dark' ?
-                                              'white' : 'black')))"
-                                            icon: "=items[props.itemGateGroup].state == 'OPEN' ?
-                                              'iconify:mdi:garage-open-variant'
-                                              :
-                                              'iconify:mdi:garage-variant-lock'"
-                                            height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
-                                        - component: Label
-                                          config:
-                                            style:
-                                              padding-left: 15px
-                                              color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark
-                                                === 'dark' ? 'white' : 'black')"
-                                            text: "=items[props.itemGateGroup].state == 'OPEN' ? 'OPEN' : 'CLOSED'"
+                                            action: group
+                                            actionGroupPopupItem: =props.itemGarageGroup
+                                          slots:
+                                            default:
+                                              - component: oh-icon
+                                                config:
+                                                  visible: "=props.switchGarageShow ? props.switchGarageShow :
+                                                    props.switchGarageShow"
+                                                  color: "=items[props.itemGarageGroup].state == 'OPEN' ?
+                                                    (props.itemStateActiveColor
+                                                    ? props.itemStateActiveColor
+                                                    : '#e5cb63') :
+                                                    (props.contentIconColor ?
+                                                    props.contentIconColor :
+                                                    (themeOptions.dark ===
+                                                    'dark' ? 'white' :
+                                                    'black'))"
+                                                  height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
+                                                  icon: "=items[props.itemGarageGroup].state == 'OPEN' ?
+                                                    'iconify:mdi:garage-open-va\
+                                                    riant' :
+                                                    'iconify:mdi:garage-variant\
+                                                    -lock'"
+                                              - component: Label
+                                                config:
+                                                  style:
+                                                    color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark
+                                                      === 'dark' ? 'white' :
+                                                      'black')"
+                                                    padding-left: 15px
+                                                  text: "=items[props.itemGarageGroup].state == 'OPEN' ? 'OPEN' : 'CLOSED'"
+                                                  visible: "=props.switchGarageShow ? props.switchGarageShow :
+                                                    props.switchGarageShow"
     - component: f7-card-footer
       config:
         style:
