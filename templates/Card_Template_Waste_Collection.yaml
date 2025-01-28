@@ -1,0 +1,390 @@
+uid: Card_Template_Waste_Collection
+tags:
+  - Card Template Waste Collection
+  - Customizable Template
+  - ScrewPlate
+  - Version 0.1
+props:
+  parameters:
+    - description: "Input without 'px' (Default: none)"
+      label: Card Height
+      name: cardHeight
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - description: "Input without 'px' (Default: 20px)"
+      label: Card Border Radius
+      name: cardBorderRadius
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Card Border Color
+      name: cardBorderColor
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - description: "Input without 'px' (Default: 3px)"
+      label: Card Border Size
+      name: cardBorderSize
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Card Background Color
+      name: cardBgColor
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - default: "false"
+      label: Card Background Image - Show on Card
+      name: cardBgImageShow
+      required: false
+      type: BOOLEAN
+      groupName: cardGroup
+    - description: Input file name for Background Image (uploaded to /html/ folder)
+      label: Card Background Image
+      name: cardBgImage
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - default: "false"
+      label: Icon - Show on Card
+      name: iconShow
+      required: false
+      type: BOOLEAN
+      groupName: iconGroup
+    - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
+        material:iconName (Material icon) or iconify:iconSet:iconName
+      label: Icon
+      name: iconName
+      required: false
+      type: TEXT
+      groupName: iconGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Icon Color
+      name: iconColor
+      required: false
+      type: TEXT
+      groupName: iconGroup
+    - description: "Input without 'px' (Default: 30px)"
+      label: Icon  Size
+      name: iconSize
+      required: false
+      type: TEXT
+      groupName: iconGroup
+    - default: "false"
+      label: Header - Show on Card
+      name: headerShow
+      required: false
+      type: BOOLEAN
+      groupName: headerGroup
+    - description: Input Text to diplay on Header
+      label: Header
+      name: headerText
+      required: false
+      type: TEXT
+      groupName: headerGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Header Text Color
+      name: headerTextColor
+      required: false
+      type: TEXT
+      groupName: headerGroup
+    - description: "Input without 'px' (Default: 25px)"
+      label: Header Text Size
+      name: headerTextSize
+      required: false
+      type: TEXT
+      groupName: headerGroup
+    - default: "false"
+      label: Footer - Show on Card
+      name: footerShow
+      required: false
+      type: BOOLEAN
+      groupName: footerGroup
+    - description: Input Text to diplay on Footer
+      label: Footer
+      name: footerText
+      required: false
+      type: TEXT
+      groupName: footerGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Footer Text Color
+      name: footerTextColor
+      required: false
+      type: TEXT
+      groupName: footerGroup
+    - description: "Input without 'px' (Default: 16px)"
+      label: Footer Text Size
+      name: footerTextSize
+      required: false
+      type: TEXT
+      groupName: footerGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Content Text Color
+      name: contentTextColor
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: "Input without 'px' (Default: 18px)"
+      label: Content Text Size
+      name: contentTextSize
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: "Input without 'px' (Default: 30px)"
+      label: Content Icon Size
+      name: contentIconSize
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Content Icon Color
+      name: contentIconColor
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - context: item
+      description: Group Item for waste collection dates
+      label: Group for waste collection dates
+      name: itemGroupWasteCollection
+      required: true
+      type: TEXT
+      groupName: customGroup
+    - description: Input text value for today
+      label: "Text value for today (Default: today)"
+      name: itemGroupWasteCollectionToday
+      required: false
+      type: TEXT
+      groupName: customGroup   
+    - description: Input like 'red', 'yellow' etc.
+      label: Color for Badge for today
+      name: itemGroupWasteCollectionTodayColor
+      required: false
+      type: TEXT
+      groupName: customGroup
+    - description: Input text value for tomorrow
+      label: "Text value for tomorrow (Default: tomorrow)"
+      name: itemGroupWasteCollectionTomorrow
+      required: false
+      type: TEXT
+      groupName: customGroup   
+    - description: Input like 'red', 'yellow' etc.
+      label: Color for Badge for tomorrow
+      name: itemGroupWasteCollectionTomorrowColor
+      required: false
+      type: TEXT
+      groupName: customGroup
+    - description: Input like 'red', 'yellow' etc.
+      label: Text Color for Badge
+      name: badgeTextColor
+      required: false
+      type: TEXT
+      groupName: customGroup         
+    - description: Input text to filter to paper waste to set color
+      label: Input text to filter to paper waste to set color
+      name: filterPaper
+      required: false
+      type: TEXT
+      groupName: customGroup
+    - description: Input like 'red', 'yellow' etc.
+      label: Input color for paper waste
+      name: filterPaperColor
+      required: false
+      type: TEXT
+      groupName: customGroup
+    - description: Input text to filter to residual waste to set color
+      label: Input text to filter to residual waste to set color
+      name: filterResidual
+      required: false
+      type: TEXT
+      groupName: customGroup
+    - description: Input like 'red', 'yellow' etc.
+      label: Input color for residual waste
+      name: filterResidualColor
+      required: false
+      type: TEXT
+      groupName: customGroup
+    - description: Input text to filter to recycling waste to set color
+      label: Input text to filter to recycling waste to set color
+      name: filterRecycling
+      required: false
+      type: TEXT
+      groupName: customGroup
+    - description: Input like 'red', 'yellow' etc.
+      label: Input color for recycling waste
+      name: filterRecyclingColor
+      required: false
+      type: TEXT
+      groupName: customGroup
+  parameterGroups:
+    - name: cardGroup
+      label: Card Settings
+      description: All settings to customize the card layout
+    - name: iconGroup
+      label: Icon Settings
+      description: All settings to customize the icon
+    - name: headerGroup
+      label: Header Settings
+      description: All settings to customize the header area
+    - name: footerGroup
+      label: Footer Settings
+      description: All settings to customize the content area
+    - name: contentGroup
+      label: Content Settings
+      description: All settings to customize the content area
+    - name: customGroup
+      label: Custom Settings
+      description: All settings to customize the custom objects
+timestamp: Jan 11, 2025, 12:05:09 AM
+component: f7-card
+config:
+  style:
+    --f7-card-bg-color: "=props.cardBgColor ? props.cardBgColor : (themeOptions.dark
+      === 'dark' ? '#232324' : 'white')"
+    --f7-card-border-radius: "=props.cardBorderRadius ? (props.cardBorderRadius) + 'px' : '20px'"
+    --f7-card-margin-horizontal: 4px
+    --f7-card-margin-vertical: 4px
+    --f7-card-outline-border-color: "=props.cardBorderColor ? props.cardBorderColor
+      : (themeOptions.dark === 'dark' ? '#c95826' : '#c95826')"
+    background-color: var(--f7-card-bg-color)
+    background-image: "=props.cardBgImageShow== 'false' ? '' :
+      'linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+      url(/static/' + props.cardBgImage + ')'"
+    border: "=props.cardBorderSize ? (props.cardBorderSize)+'px solid
+      var(--f7-card-outline-border-color)' : '6px solid
+      var(--f7-card-outline-border-color)'"
+    color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark
+      === 'dark' ? 'white' : 'black')"
+    font-size: "=props.contentTextSize ? (props.contentTextSize)+'px' : '18px'"
+slots:
+  default:
+    - component: f7-card-header
+      config:
+        style:
+          --f7-card-header-border-color: transparent
+          --f7-card-header-font-size: "=props.headerTextSize ? (props.headerTextSize) + 'px' : '25px'"
+          --f7-card-header-font-weight: 800
+          --f7-card-header-min-height: "=props.headerShow == 'true' ? '35px' : '0px'"
+          --f7-card-header-text-color: "=props.headerTextColor ? props.headerTextColor :
+            (themeOptions.dark === 'dark' ? 'white' : 'black')"
+          justify-content: flex-start
+          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' :
+            (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
+      slots:
+        default:
+          - component: oh-icon
+            config:
+              icon: "=props.iconName ? props.iconName : 'f7:house'"
+              style:
+                color: "=props.iconColor ? props.iconColor : (themeOptions.dark === 'dark' ?
+                  'white' : 'black')"
+                padding-right: 10px
+              visible: "=props.iconShow ? props.iconShow : props.iconShow"
+              width: "=props.iconSize ? (props.iconSize) + 'px' : '30px'"
+          - component: Label
+            config:
+              text: "=props.headerText ? props.headerText : 'Header'"
+              visible: "=props.headerShow ? props.headerShow : props.headerShow"
+    - component: f7-card-content
+      config:
+        style:
+          align-items: center
+          display: flex
+          height: "=props.cardHeight ? (props.cardHeight) + 'px' : ''"
+          justify-content: center
+          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' :
+            (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
+          margin-top: -10px
+      slots:
+        default:
+          - component: f7-block
+            config:
+              style:
+                margin-top: -10px
+                width: 100%
+            slots:
+              default:
+                - component: oh-list
+                  config:
+                    noHairlinesBetween: true
+                    stylesheet: >
+                      .icon{
+                        width: 30px !important
+                        height: 30px !important
+                        font-size: 30px !important
+                      }                    
+                  slots:
+                    default:
+                      - component: oh-list
+                        slots:
+                          default:
+                            - component: oh-repeater
+                              config:
+                                for: item
+                                groupItem: =[props.itemGroupWasteCollection]
+                                sourceType: itemsInGroup                             
+                              slots:
+                                default:
+                                  - component: oh-list-item
+                                    config:
+                                      badge: '=((dayjs(loop.item.state).diff(dayjs().startOf("day"), "days")) == 0 ?
+                                        (props.itemGroupWasteCollectionToday ?
+                                        props.itemGroupWasteCollectionToday :
+                                        "Today") :
+                                        (dayjs(loop.item.state).diff(dayjs().startOf("day"),"days"))
+                                        == 1 ?
+                                        (props.itemGroupWasteCollectionTomorrow
+                                        ? props.itemGroupWasteCollectionTomorrow
+                                        : "Tomorrow") : false)'
+                                      badgeColor: '=((dayjs(loop.item.state).diff(dayjs().startOf("day"), "days")) ==
+                                        0 ?
+                                        (props.itemGroupWasteCollectionTodayColor
+                                        ?
+                                        props.itemGroupWasteCollectionTodayColor
+                                        : (themeOptions.dark === "dark" ?
+                                        "black" : "black")) :
+                                        (props.itemGroupWasteCollectionTomorrowColor
+                                        ?
+                                        props.itemGroupWasteCollectionTomorrowColor
+                                        : (themeOptions.dark === "dark" ?
+                                        "black" : "black")))'
+                                      footer: =items[loop.item.name].displayState
+                                      icon: f7:trash
+                                      iconColor: "=loop.item.label.includes(props.filterPaper) ?
+                                        props.filterPaperColor :
+                                        (loop.item.label.includes(props.filterR\
+                                        esidual) ? props.filterResidualColor :
+                                        (loop.item.label.includes(props.filterR\
+                                        ecycling) ? props.filterRecyclingColor :
+                                        (props.contentIconColor ?
+                                        props.contentIconColor :
+                                        (themeOptions.dark === 'dark' ? 'black'
+                                        : 'black'))))"
+                                      style:
+                                        --f7-badge-text-color: "=props.badgeTextColor ? props.badgeTextColor :(themeOptions.dark === 'dark' ?'white' : 'white')"
+                                        margin-left: -50px
+                                        font-size: "=props.contentTextSize ? (props.contentTextSize)+'px' : '18px'"
+                                        --f7-list-item-footer-font-size: "=props.contentTextSize ? (props.contentTextSize)+'px' : '18px'"
+                                        --f7-list-item-footer-text-color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+                                        --f7-list-item-media-margin: 10px
+                                      title: =loop.item.label
+                                      visible: =loop.item.state != "UNDEF"
+    - component: f7-card-footer
+      config:
+        style:
+          --f7-card-footer-border-color: transparent
+          --f7-card-footer-font-size: "=props.footerTextSize ? (props.footerTextSize) + 'px' : '16px'"
+          --f7-card-footer-font-weight: 500
+          --f7-card-footer-min-height: "=props.footerShow == 'true' ? '20px' : '0px'"
+          --f7-card-footer-text-color: "=props.footerTextColor ? props.footerTextColor :
+            (themeOptions.dark === 'dark' ? 'white' : 'black')"
+          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' :
+            (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
+      slots:
+        default:
+          - component: Label
+            config:
+              text: "=props.footerText ? props.footerText : 'Footer'"
+              visible: "=props.footerShow ? props.footerShow : props.footerShow"
