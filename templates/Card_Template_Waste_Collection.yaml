@@ -3,7 +3,7 @@ tags:
   - Card Template Waste Collection
   - Customizable Template
   - ScrewPlate
-  - Version 0.1
+  - Version 0.2
 props:
   parameters:
     - description: "Input without 'px' (Default: none)"
@@ -157,7 +157,7 @@ props:
       name: itemGroupWasteCollectionToday
       required: false
       type: TEXT
-      groupName: customGroup   
+      groupName: customGroup
     - description: Input like 'red', 'yellow' etc.
       label: Color for Badge for today
       name: itemGroupWasteCollectionTodayColor
@@ -169,7 +169,7 @@ props:
       name: itemGroupWasteCollectionTomorrow
       required: false
       type: TEXT
-      groupName: customGroup   
+      groupName: customGroup
     - description: Input like 'red', 'yellow' etc.
       label: Color for Badge for tomorrow
       name: itemGroupWasteCollectionTomorrowColor
@@ -181,7 +181,7 @@ props:
       name: badgeTextColor
       required: false
       type: TEXT
-      groupName: customGroup         
+      groupName: customGroup
     - description: Input text to filter to paper waste to set color
       label: Input text to filter to paper waste to set color
       name: filterPaper
@@ -237,7 +237,7 @@ props:
     - name: customGroup
       label: Custom Settings
       description: All settings to customize the custom objects
-timestamp: Jan 11, 2025, 12:05:09 AM
+timestamp: Jan 28, 2025, 8:54:42 PM
 component: f7-card
 config:
   style:
@@ -309,7 +309,7 @@ slots:
                 - component: oh-list
                   config:
                     noHairlinesBetween: true
-                    stylesheet: >
+                    stylesheet: |
                       .icon{
                         width: 30px !important
                         height: 30px !important
@@ -324,7 +324,9 @@ slots:
                               config:
                                 for: item
                                 groupItem: =[props.itemGroupWasteCollection]
-                                sourceType: itemsInGroup                             
+                                sourceType: itemsInGroup
+                                map: "loop.item_source.sort((x,y) => (x.state).localeCompare(y.state,
+                                  undefined,{ numeric: true }))[loop.item_idx]"
                               slots:
                                 default:
                                   - component: oh-list-item
@@ -363,11 +365,17 @@ slots:
                                         (themeOptions.dark === 'dark' ? 'black'
                                         : 'black'))))"
                                       style:
-                                        --f7-badge-text-color: "=props.badgeTextColor ? props.badgeTextColor :(themeOptions.dark === 'dark' ?'white' : 'white')"
+                                        --f7-badge-text-color: "=props.badgeTextColor ? props.badgeTextColor
+                                          :(themeOptions.dark === 'dark'
+                                          ?'white' : 'white')"
                                         margin-left: -50px
                                         font-size: "=props.contentTextSize ? (props.contentTextSize)+'px' : '18px'"
-                                        --f7-list-item-footer-font-size: "=props.contentTextSize ? (props.contentTextSize)+'px' : '18px'"
-                                        --f7-list-item-footer-text-color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+                                        --f7-list-item-footer-font-size: "=props.contentTextSize ?
+                                          (props.contentTextSize)+'px' : '18px'"
+                                        --f7-list-item-footer-text-color: "=props.contentTextColor ?
+                                          props.contentTextColor :
+                                          (themeOptions.dark === 'dark' ?
+                                          'white' : 'black')"
                                         --f7-list-item-media-margin: 10px
                                       title: =loop.item.label
                                       visible: =loop.item.state != "UNDEF"
