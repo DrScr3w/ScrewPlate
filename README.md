@@ -27,12 +27,15 @@ The widget can be installed via ***openHAB -> Add-on Store -> User Interfaces***
 - **Card_Template_Room_Compact**: A Card that can be used to display the temperature, humidity, light and windows in a compact design.
 - **Card_Template_Switch_Single**: A card to switch individual devices like Light.
 - **Card_Template_Weather**: A card to display the current weather. The icons/values can be displayed/hidden individually.
+- **Card_Template_Waste_Collection**: A card to show the garbage collection dates.
 - **more cards will follow**: ...
 
 |**Examples**|
 | ------------- |
 |![image](https://github.com/user-attachments/assets/23f7e0f7-c8af-43a9-802d-f096714b26ce)|
 ![image](https://github.com/user-attachments/assets/9039ffed-d3ba-4442-91ad-421be841a550)
+![image](https://github.com/user-attachments/assets/584a5558-ebca-463e-82c0-5934a1d56781)
+
 
 
 *Default Theme*
