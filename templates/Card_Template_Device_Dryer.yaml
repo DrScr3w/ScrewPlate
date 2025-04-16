@@ -1,0 +1,485 @@
+uid: Card_Template_Device_Dryer
+tags:
+  - Card Device Dryer
+  - Customizable Template
+  - ScrewPlate
+  - Version 0.1
+props:
+  parameters:
+    - description: "Input without 'px' (Default: none)"
+      label: Card Height
+      name: cardHeight
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - description: "Input without 'px' (Default: 20px)"
+      label: Card Border Radius
+      name: cardBorderRadius
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Card Border Color
+      name: cardBorderColor
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - description: "Input without 'px' (Default: 3px)"
+      label: Card Border Size
+      name: cardBorderSize
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Card Background Color
+      name: cardBgColor
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - default: "false"
+      label: Card Background Image - Show on Card
+      name: cardBgImageShow
+      required: false
+      type: BOOLEAN
+      groupName: cardGroup
+    - description: Input file name for Background Image (uploaded to /html/ folder)
+      label: Card Background Image
+      name: cardBgImage
+      required: false
+      type: TEXT
+      groupName: cardGroup
+    - default: "false"
+      label: Icon - Show on Card
+      name: iconShow
+      required: false
+      type: BOOLEAN
+      groupName: iconGroup
+    - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
+        material:iconName (Material icon) or iconify:iconSet:iconName
+      label: Icon
+      name: iconName
+      required: false
+      type: TEXT
+      groupName: iconGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Icon Color
+      name: iconColor
+      required: false
+      type: TEXT
+      groupName: iconGroup
+    - description: "Input without 'px' (Default: 30px)"
+      label: Icon  Size
+      name: iconSize
+      required: false
+      type: TEXT
+      groupName: iconGroup
+    - default: "false"
+      label: Header - Show on Card
+      name: headerShow
+      required: false
+      type: BOOLEAN
+      groupName: headerGroup
+    - description: Input Text to diplay on Header
+      label: Header
+      name: headerText
+      required: false
+      type: TEXT
+      groupName: headerGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Header Text Color
+      name: headerTextColor
+      required: false
+      type: TEXT
+      groupName: headerGroup
+    - description: "Input without 'px' (Default: 25px)"
+      label: Header Text Size
+      name: headerTextSize
+      required: false
+      type: TEXT
+      groupName: headerGroup
+    - default: "false"
+      label: Footer - Show on Card
+      name: footerShow
+      required: false
+      type: BOOLEAN
+      groupName: footerGroup
+    - description: Input Text to diplay on Footer
+      label: Footer
+      name: footerText
+      required: false
+      type: TEXT
+      groupName: footerGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Footer Text Color
+      name: footerTextColor
+      required: false
+      type: TEXT
+      groupName: footerGroup
+    - description: "Input without 'px' (Default: 16px)"
+      label: Footer Text Size
+      name: footerTextSize
+      required: false
+      type: TEXT
+      groupName: footerGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Content Text Color
+      name: contentTextColor
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: "Input without 'px' (Default: 18px)"
+      label: Content Text Size
+      name: contentTextSize
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: "Input without 'px' (Default: 30px)"
+      label: Content Icon Size
+      name: contentIconSize
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+      label: Content Icon Color
+      name: contentIconColor
+      required: false
+      type: TEXT
+      groupName: contentGroup
+    - context: item
+      description: Item for Dryer State
+      name: deviceItemState
+      required: false
+      type: TEXT
+      groupName: customGroup
+    - description: Set State for DONE
+      label: Set State for DONE
+      name: deviceStateDONE
+      required: false
+      type: TEXT
+      groupName: customGroup
+    - description: Set State for RUNS
+      label: Set State for RUNS
+      name: deviceStateRuns
+      required: false
+      type: TEXT
+      groupName: customGroup
+    - description: State for OFF
+      label: Set State for OFF
+      name: deviceStateOff
+      required: false
+      type: TEXT
+      groupName: customGroup
+    - description: "Input without 'px' (Default: 20px)"
+      label: Device State Text Size
+      name: deviceStateTextSize
+      required: false
+      type: TEXT
+      groupName: customGroup
+    - context: item
+      description: Item for Dryer Runtime (If no element is set, use fixed runtime)
+      name: deviceItemRuntime
+      required: false
+      type: TEXT
+      groupName: customGroup
+    - description: "Item for Dryer Runtime (Default: 210 Min.)"
+      label: Fix Runtime in Minutes
+      name: deviceItemRuntimeFix
+      required: false
+      type: TEXT
+      groupName: customGroup
+    - description: Input like without %
+      label: Increase the device icon by x %
+      name: deviceIconSize
+      required: false
+      type: TEXT
+      groupName: customGroup
+  parameterGroups:
+    - name: cardGroup
+      label: Card Settings
+      description: All settings to customize the card layout
+    - name: iconGroup
+      label: Icon Settings
+      description: All settings to customize the icon
+    - name: headerGroup
+      label: Header Settings
+      description: All settings to customize the header area
+    - name: footerGroup
+      label: Footer Settings
+      description: All settings to customize the content area
+    - name: contentGroup
+      label: Content Settings
+      description: All settings to customize the content area
+    - name: customGroup
+      label: Custom Settings
+      description: All settings to customize the custom objects
+timestamp: Apr 16, 2025, 8:57:09 AM
+component: f7-card
+config:
+  style:
+    --f7-card-bg-color: "=props.cardBgColor ? props.cardBgColor : (themeOptions.dark
+      === 'dark' ? '#232324' : 'white')"
+    --f7-card-border-radius: "=props.cardBorderRadius ? (props.cardBorderRadius) + 'px' : '20px'"
+    --f7-card-margin-horizontal: 4px
+    --f7-card-margin-vertical: 4px
+    --f7-card-outline-border-color: "=props.cardBorderColor ? props.cardBorderColor
+      : (themeOptions.dark === 'dark' ? '#c95826' : '#c95826')"
+    background-color: var(--f7-card-bg-color)
+    background-image: "=props.cardBgImageShow== 'false' ? '' :
+      'linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+      url(/static/' + props.cardBgImage + ')'"
+    border: "=props.cardBorderSize ? (props.cardBorderSize)+'px solid
+      var(--f7-card-outline-border-color)' : '6px solid
+      var(--f7-card-outline-border-color)'"
+    color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark
+      === 'dark' ? 'white' : 'black')"
+    font-size: "=props.contentTextSize ? (props.contentTextSize)+'px' : '18px'"
+slots:
+  default:
+    - component: f7-card-header
+      config:
+        style:
+          --f7-card-header-border-color: transparent
+          --f7-card-header-font-size: "=props.headerTextSize ? (props.headerTextSize) + 'px' : '25px'"
+          --f7-card-header-font-weight: 800
+          --f7-card-header-min-height: "=props.headerShow == 'true' ? '35px' : '0px'"
+          --f7-card-header-text-color: "=props.headerTextColor ? props.headerTextColor :
+            (themeOptions.dark === 'dark' ? 'white' : 'black')"
+          justify-content: flex-start
+          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' :
+            (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
+      slots:
+        default:
+          - component: oh-icon
+            config:
+              icon: "=props.iconName ? props.iconName : 'f7:house'"
+              style:
+                color: "=props.iconColor ? props.iconColor : (themeOptions.dark === 'dark' ?
+                  'white' : 'black')"
+                padding-right: 10px
+              visible: "=props.iconShow ? props.iconShow : props.iconShow"
+              width: "=props.iconSize ? (props.iconSize) + 'px' : '30px'"
+          - component: Label
+            config:
+              text: "=props.headerText ? props.headerText : 'Header'"
+              visible: "=props.headerShow ? props.headerShow : props.headerShow"
+    - component: f7-card-content
+      config:
+        style:
+          align-items: center
+          display: flex
+          height: "=props.cardHeight ? (props.cardHeight) + 'px' : ''"
+          justify-content: center
+          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' :
+            (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
+          margin-top: -10px
+      slots:
+        default:
+          - component: f7-block
+            config:
+              style:
+                margin-top: -10px
+            slots:
+              default:
+                - component: f7-row
+                  config:
+                    class:
+                      - display-flex
+                      - justify-content-center
+                  slots:
+                    default:
+                      - component: f7-col
+                        config:
+                          class:
+                            - display-flex
+                            - flex-direction-column
+                            - align-items-center
+                          style:
+                            height: 100%
+                        slots:
+                          default:
+                            - component: f7-block-header
+                              slots:
+                                default:
+                                  - component: Label
+                                    config:
+                                      style:
+                                        font-weight: 700
+                                        font-size: "=props.deviceStateTextSize ? (props.deviceStateTextSize) + 'px' :
+                                          '20px'"
+                                        color: "=props.contentTextColor ? props.contentTextColor  : (themeOptions.dark
+                                          === 'dark' ? 'white' : 'black')"
+                                      text: =items[props.deviceItemState].state
+                            - component: f7-block
+                              config:
+                                class:
+                                  - display-flex
+                                  - flex-direction-column
+                                  - align-items-center
+                                style:
+                                  background: rgba(255,255,255,1)
+                                  border-radius: 2px 2px 4px 4px
+                                  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px
+                                  height: "=props.deviceIconSize ? (120 + (120 / 100 * props.deviceIconSize)+'px')
+                                    : 120+'px'"
+                                  width: "=props.deviceIconSize ? (90 + (90 / 100 * props.deviceIconSize)+'px') :
+                                    90+'px'"
+                              slots:
+                                default:
+                                  - component: f7-block
+                                    config:
+                                      class:
+                                        - display-flex
+                                        - justify-content-flex-end
+                                        - align-items-center
+                                        - flex-shrink-0
+                                        - no-margin
+                                      style:
+                                        border-bottom: 1pt solid lightgray
+                                        height: "=props.deviceIconSize ? (28 + (28 / 100 * props.deviceIconSize)+'px') :
+                                          28+'px'"
+                                        padding-right: "=props.deviceIconSize ? (5 + (5 / 100 *
+                                          props.deviceIconSize)+'px') : 5+'px'"
+                                        width: "=props.deviceIconSize ? (90 + (90 / 100 * props.deviceIconSize)+'px') :
+                                          90+'px'"
+                                    slots:
+                                      default:
+                                        - component: f7-icon
+                                          config:
+                                            color: gray
+                                            f7: circle_fill
+                                            size: "=props.deviceIconSize ? (15 + (15 / 100 * props.deviceIconSize)+'px') :
+                                              15+'px'"
+                                        - component: f7-icon
+                                          config:
+                                            color: gray
+                                            f7: circle_fill
+                                            size: "=props.deviceIconSize ? (15 + (15 / 100 * props.deviceIconSize)+'px') :
+                                              15+'px'"
+                                        - component: f7-icon
+                                          config:
+                                            f7: '=items[props.deviceItemState].state == props.deviceStateOff ? "circle_fill"
+                                              : "sun_min"'
+                                            size: "=props.deviceIconSize ? (15 + (15 / 100 * props.deviceIconSize)+'px') :
+                                              15+'px'"
+                                            style:
+                                              color: '=items[props.deviceItemState].state == props.deviceStateOff ? "gray" :
+                                                "red"'
+                                  - component: f7-block
+                                    config:
+                                      class:
+                                        - display-flex
+                                        - justify-content-center
+                                        - align-items-center
+                                      style:
+                                        border: 5pt solid lightgray
+                                        border-radius: 50%
+                                        height: "=props.deviceIconSize ? (70 + (70 / 100 * props.deviceIconSize)+'px') :
+                                          70+'px'"
+                                        margin-top: "=props.deviceIconSize ? (12 + (12 / 100 *
+                                          props.deviceIconSize)+'px') : 12+'px'"
+                                        width: "=props.deviceIconSize ? (70 + (70 / 100 * props.deviceIconSize)+'px') :
+                                          70+'px'"
+                                    slots:
+                                      default:
+                                        - component: f7-block
+                                          config:
+                                            style:
+                                              --f7-preloader-color: red
+                                              --f7-preloader-size: 60px
+                                              display: '=items[props.deviceItemState].state == props.deviceStateRuns ? "" :
+                                                "none"'
+                                              left: 50%
+                                              margin: 0
+                                              padding: 0
+                                              position: absolute
+                                              top: 50%
+                                              transform: translate(-50%, -50%)
+                                          slots:
+                                            default:
+                                              - component: f7-block
+                                                config:
+                                                  style:
+                                                    height: var(--f7-preloader-size)
+                                                    margin: 0
+                                                    padding: 0
+                                                    width: var(--f7-preloader-size)
+                                                slots:
+                                                  default:
+                                                    - component: f7-block
+                                                      config:
+                                                        style:
+                                                          height: 100%
+                                                          left: 0
+                                                          margin: 0
+                                                          padding: 0
+                                                          position: absolute
+                                                          top: 0
+                                                          width: 100%
+                                                      slots:
+                                                        default:
+                                                          - component: f7-block
+                                                            config:
+                                                              style:
+                                                                animation: aurora-preloader-rotate 1s linear infinite
+                                                                border: calc(var(--f7-preloader-size)/8) solid var(--f7-preloader-color)
+                                                                border-radius: 50%
+                                                                border-top-color: transparent
+                                                                box-sizing: border-box
+                                                                height: 100%
+                                                                left: 0
+                                                                margin: 0
+                                                                padding: 0
+                                                                position: absolute
+                                                                top: 0
+                                                                width: 100%
+                                        - component: f7-icon
+                                          config:
+                                            f7: '=items[props.deviceItemState].state == props.deviceStateDONE ?
+                                              "circle_bottomthird_split" :
+                                              "circle"'
+                                            size: "=props.deviceIconSize ? (50 + (50 / 100 * props.deviceIconSize)+'px') :
+                                              50+'px'"
+                                            style:
+                                              border-radius: 50%
+                                              box-shadow: 0 0 16px 8px rgba(0, 0, 0, 0.25) inset
+                                              color: =items[props.deviceItemState].state == props.deviceStateOff ? "white"
+                                                :"lightblue"
+                                        - component: f7-block-header
+                                          config:
+                                            class:
+                                              - no-margin
+                                            style:
+                                              position: absolute
+                                            visible: =items[props.deviceItemState].state == props.deviceStateRuns
+                                          slots:
+                                            default:
+                                              - component: Label
+                                                config:
+                                                  style:
+                                                    color: black
+                                                  text: '=props.deviceItemRuntime ? items[props.deviceItemRuntime].displayState :
+                                                    (Math.floor(props.deviceItemRuntimeFix
+                                                    / 60) + ":"
+                                                    +((props.deviceItemRuntimeFix
+                                                    % 60) < 10 ? ("0"
+                                                    +props.deviceItemRuntimeFix
+                                                    % 60)
+                                                    :(props.deviceItemRuntimeFix
+                                                    % 60)))'
+    - component: f7-card-footer
+      config:
+        style:
+          --f7-card-footer-border-color: transparent
+          --f7-card-footer-font-size: "=props.footerTextSize ? (props.footerTextSize) + 'px' : '16px'"
+          --f7-card-footer-font-weight: 500
+          --f7-card-footer-min-height: "=props.footerShow == 'true' ? '20px' : '0px'"
+          --f7-card-footer-text-color: "=props.footerTextColor ? props.footerTextColor :
+            (themeOptions.dark === 'dark' ? 'white' : 'black')"
+          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' :
+            (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
+      slots:
+        default:
+          - component: Label
+            config:
+              text: "=props.footerText ? props.footerText : 'Footer'"
+              visible: "=props.footerShow ? props.footerShow : props.footerShow"
