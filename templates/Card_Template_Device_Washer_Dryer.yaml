@@ -187,7 +187,7 @@ props:
       required: false
       type: TEXT
       groupName: customGroup
-    - description: Input like without %
+    - description: Input Value like 10 without %
       label: Increase the device icon by x %
       name: deviceIconSize
       required: false
@@ -212,7 +212,7 @@ props:
     - name: customGroup
       label: Custom Settings
       description: All settings to customize the custom objects
-timestamp: Apr 16, 2025, 10:53:27 AM
+timestamp: Apr 16, 2025, 10:58:46 AM
 component: f7-card
 config:
   style:

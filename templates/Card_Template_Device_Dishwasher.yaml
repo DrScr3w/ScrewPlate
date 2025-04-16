@@ -181,7 +181,7 @@ props:
       required: false
       type: TEXT
       groupName: customGroup
-    - description: Input like without %
+    - description: Input Value like 10 without %
       label: Increase the device icon by x %
       name: deviceIconSize
       required: false
@@ -206,7 +206,7 @@ props:
     - name: customGroup
       label: Custom Settings
       description: All settings to customize the custom objects
-timestamp: Apr 16, 2025, 9:10:28 AM
+timestamp: Apr 16, 2025, 11:28:35 AM
 component: f7-card
 config:
   style:
@@ -366,7 +366,7 @@ slots:
                                         background: whitesmoke
                                         bottom: 0px
                                         height: "=props.deviceIconSize ? (23 + (23 / 100 * props.deviceIconSize)+'px') :
-                                              23+'px'"
+                                          23+'px'"
                                         position: absolute
                                         width: 100%
                                   - component: f7-block
@@ -516,9 +516,13 @@ slots:
                                                   style:
                                                     backgroundColor: gray
                                                     border-radius: 2px 2px 0px 0px
-                                                    height:     "=props.deviceIconSize ? (5 + (5 / 100 * props.deviceIconSize)+'px') : 5+'px'"
-                                                    margin-top: "=props.deviceIconSize ? (10 + (10 / 100 * props.deviceIconSize)+'px') : 10+'px'"
-                                                    width:      "=props.deviceIconSize ? (30 + (30 / 100 * props.deviceIconSize)+'px') : 30+'px'"
+                                                    height: "=props.deviceIconSize ? (5 + (5 / 100 * props.deviceIconSize)+'px') :
+                                                      5+'px'"
+                                                    margin-top: "=props.deviceIconSize ? (10 + (10 / 100 *
+                                                      props.deviceIconSize)+'px\
+                                                      ') : 10+'px'"
+                                                    width: "=props.deviceIconSize ? (30 + (30 / 100 * props.deviceIconSize)+'px') :
+                                                      30+'px'"
                                               - component: f7-block
                                                 config:
                                                   class:
