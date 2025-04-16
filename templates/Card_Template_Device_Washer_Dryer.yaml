@@ -1,9 +1,9 @@
-uid: Card_Template_Device_Dryer
+uid: Card_Template_Device_Washer_Dryer
 tags:
-  - Card Device Dryer
+  - Card Device Washer and Dryer
   - Customizable Template
   - ScrewPlate
-  - Version 0.1
+  - Version 0.2
 props:
   parameters:
     - description: "Input without 'px' (Default: none)"
@@ -145,15 +145,21 @@ props:
       required: false
       type: TEXT
       groupName: contentGroup
+    - default: "false"
+      label: Select Washer (FALSE) or Dryer (TRUE)
+      name: devicesChoice
+      required: false
+      type: BOOLEAN
+      groupName: customGroup
     - context: item
-      description: Item for Dryer State
+      description: Item for Washer State
       name: deviceItemState
       required: false
       type: TEXT
       groupName: customGroup
     - description: Set State for DONE
       label: Set State for DONE
-      name: deviceStateDONE
+      name: deviceStateDone
       required: false
       type: TEXT
       groupName: customGroup
@@ -169,19 +175,13 @@ props:
       required: false
       type: TEXT
       groupName: customGroup
-    - description: "Input without 'px' (Default: 20px)"
-      label: Device State Text Size
-      name: deviceStateTextSize
-      required: false
-      type: TEXT
-      groupName: customGroup
     - context: item
-      description: Item for Dryer Runtime (If no element is set, use fixed runtime)
+      description: Item for Washer Runtime (If no element is set, use fixed runtime)
       name: deviceItemRuntime
       required: false
       type: TEXT
       groupName: customGroup
-    - description: "Item for Dryer Runtime (Default: 210 Min.)"
+    - description: "Item for Washer Runtime (Default: 210 Min.)"
       label: Fix Runtime in Minutes
       name: deviceItemRuntimeFix
       required: false
@@ -212,7 +212,7 @@ props:
     - name: customGroup
       label: Custom Settings
       description: All settings to customize the custom objects
-timestamp: Apr 16, 2025, 8:57:09 AM
+timestamp: Apr 16, 2025, 10:53:27 AM
 component: f7-card
 config:
   style:
@@ -384,7 +384,7 @@ slots:
                                         - component: f7-block
                                           config:
                                             style:
-                                              --f7-preloader-color: red
+                                              --f7-preloader-color: '=props.devicesChoice == true ? "red" : "blue"'
                                               --f7-preloader-size: 60px
                                               display: '=items[props.deviceItemState].state == props.deviceStateRuns ? "" :
                                                 "none"'
@@ -434,7 +434,7 @@ slots:
                                                                 width: 100%
                                         - component: f7-icon
                                           config:
-                                            f7: '=items[props.deviceItemState].state == props.deviceStateDONE ?
+                                            f7: '=items[props.deviceItemState].state == props.deviceStateDone ?
                                               "circle_bottomthird_split" :
                                               "circle"'
                                             size: "=props.deviceIconSize ? (50 + (50 / 100 * props.deviceIconSize)+'px') :
