@@ -3,7 +3,7 @@ tags:
   - Card Template Home Consumption
   - Customizable Template
   - ScrewPlate
-  - Version 0.1
+  - Version 0.2
 props:
   parameters:
     - description: "Input without 'px' (Default: none)"
