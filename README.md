@@ -28,8 +28,9 @@ The widget can be installed via ***openHAB -> Add-on Store -> User Interfaces***
 - **Card_Template_Switch_Single**: A card to switch individual devices like Light.
 - **Card_Template_Weather**: A card to display the current weather. The icons/values can be displayed/hidden individually.
 - **Card_Template_Waste_Collection**: A card to show the garbage collection dates.
-- **Device Dishwasher**: A card to show the Dishwasher State.
-- **Device Washer_Dryer**: A card to show the Washer or Dryer State.
+- **Card_Template_Device_Dishwasher**: A card to show the Dishwasher State.
+- **Card_Template_Device_Washer_Dryer**: A card to show the Washer or Dryer State.
+- **Card_Template_Card_Template_Home_Consumption**: A card to show electricity, gas and water consumption.
 - **more cards will follow**: ...
 
 |**Examples**|
@@ -38,6 +39,8 @@ The widget can be installed via ***openHAB -> Add-on Store -> User Interfaces***
 ![image](https://github.com/user-attachments/assets/9039ffed-d3ba-4442-91ad-421be841a550)
 ![image](https://github.com/user-attachments/assets/584a5558-ebca-463e-82c0-5934a1d56781)
 ![image](https://github.com/user-attachments/assets/b31513ee-c730-4ae1-a7bf-3324fdd67cca)
+![image](https://github.com/user-attachments/assets/ac2fe4b7-5ee3-4b1c-9a93-f47dfb870a9c)
+
 
 
 
