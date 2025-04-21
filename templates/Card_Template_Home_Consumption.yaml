@@ -3,7 +3,7 @@ tags:
   - Card Template Home Consumption
   - Customizable Template
   - ScrewPlate
-  - Version 0.1
+  - Version 0.2
 props:
   parameters:
     - description: "Input without 'px' (Default: none)"
@@ -640,7 +640,7 @@ slots:
                                                   xlink:href: "#path7"
                                   - component: f7-row
                                     config:
-                                      d: M64,0 V60
+                                      d: M64,64 V-60
                                       fill: none
                                       id: path8
                                       stroke: rgb(156, 163, 113)
@@ -656,7 +656,7 @@ slots:
                                       r: 1
                                       tag: circle
                                       vectorEffect: non-scaling-stroke
-                                      visible: true
+                                      visible: "=((Number.parseFloat(items[props.itemProductionToGridPower].state) > 0 )) ? true : false"
                                     slots:
                                       default:
                                         - component: f7-row
@@ -1196,25 +1196,21 @@ slots:
                                                   xlink:href: "#path4"
                                   - component: f7-row
                                     config:
-                                      d: "=((Number.parseFloat(items[props.itemSolarBatteryPower].state) < 0 )) ?
-                                        'M64,0 V20' : 'M64,64 V-20'"
+                                      d: "=((Number.parseFloat(items[props.itemSolarBatteryPower].state) > 0 )) ? 'M64,0 V20' : 'M64,64 V-20'"
                                       fill: none
                                       id: path5
                                       stroke: rgb(156, 163, 113)
                                       stroke-width: 5
                                       tag: path
                                       vector-effect: non-scaling-stroke
-                                      visible: "=@props.itemSolarBatteryPower || @props.itemSolarBatterySOC ?
-                                        ((Number.parseFloat(items[props.itemSol\
-                                        arBatteryPower].state) != 0 )) ? true :
-                                        false : false"
+                                      visible: "=@props.itemSolarBatteryPower || @props.itemSolarBatterySOC ? true : false"
                                   - component: f7-row
                                     config:
                                       fill: rgb(156, 163, 113)
                                       r: 1
                                       tag: circle
                                       vectorEffect: non-scaling-stroke
-                                      visible: true
+                                      visible: "=((Number.parseFloat(items[props.itemSolarBatteryPower].state) != 0 )) ? true : false"
                                     slots:
                                       default:
                                         - component: f7-row
@@ -1332,10 +1328,10 @@ slots:
                             - component: oh-link
                               config:
                                 iconColor: purple
-                                iconF7: "=((Number.parseFloat(items[props.itemSolarBatteryPower].state) < 0 )) ?
+                                iconF7: "=((Number.parseFloat(items[props.itemSolarBatteryPower].state) > 0 )) ?
                                   'arrowtriangle_down_fill' :
                                   ((Number.parseFloat(items[props.itemSolarBatt\
-                                  eryPower].state) > 0 )) ?
+                                  eryPower].state) < 0 )) ?
                                   'arrowtriangle_up_fill' : 'stop_fill'"
                                 iconSize: 20px
                                 text: = @props.itemSolarBatteryPower
