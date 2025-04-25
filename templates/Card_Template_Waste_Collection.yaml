@@ -3,7 +3,7 @@ tags:
   - Card Template Waste Collection
   - Customizable Template
   - ScrewPlate
-  - Version 0.2
+  - Version 0.3
 props:
   parameters:
     - description: "Input without 'px' (Default: none)"
@@ -237,7 +237,7 @@ props:
     - name: customGroup
       label: Custom Settings
       description: All settings to customize the custom objects
-timestamp: Jan 28, 2025, 8:54:42 PM
+timestamp: Jan 28, 2025, 9:03:57 PM
 component: f7-card
 config:
   style:
@@ -324,9 +324,9 @@ slots:
                               config:
                                 for: item
                                 groupItem: =[props.itemGroupWasteCollection]
-                                sourceType: itemsInGroup
                                 map: "loop.item_source.sort((x,y) => (x.state).localeCompare(y.state,
                                   undefined,{ numeric: true }))[loop.item_idx]"
+                                sourceType: itemsInGroup
                               slots:
                                 default:
                                   - component: oh-list-item
@@ -368,8 +368,6 @@ slots:
                                         --f7-badge-text-color: "=props.badgeTextColor ? props.badgeTextColor
                                           :(themeOptions.dark === 'dark'
                                           ?'white' : 'white')"
-                                        margin-left: -50px
-                                        font-size: "=props.contentTextSize ? (props.contentTextSize)+'px' : '18px'"
                                         --f7-list-item-footer-font-size: "=props.contentTextSize ?
                                           (props.contentTextSize)+'px' : '18px'"
                                         --f7-list-item-footer-text-color: "=props.contentTextColor ?
@@ -377,8 +375,10 @@ slots:
                                           (themeOptions.dark === 'dark' ?
                                           'white' : 'black')"
                                         --f7-list-item-media-margin: 10px
+                                        font-size: "=props.contentTextSize ? (props.contentTextSize)+'px' : '18px'"
+                                        margin-left: -50px
                                       title: =loop.item.label
-                                      visible: =loop.item.state != "UNDEF"
+                                      visible: '=loop.item.state != "UNDEF" && ((dayjs(loop.item.state).diff(dayjs().startOf("day"), "days")) > -14 ? true : false)'
     - component: f7-card-footer
       config:
         style:
