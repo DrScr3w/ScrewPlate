@@ -3,7 +3,7 @@ tags:
   - Card Template Home Consumption
   - Customizable Template
   - ScrewPlate
-  - Version 0.2
+  - Version 0.3
 props:
   parameters:
     - description: "Input without 'px' (Default: none)"
@@ -315,7 +315,7 @@ props:
     - name: customGroup
       label: Custom Settings
       description: All settings to customize the custom objects
-timestamp: Apr 21, 2025, 4:29:47 PM
+timestamp: Apr 21, 2025, 7:52:40 PM
 component: f7-card
 config:
   style:
@@ -656,7 +656,8 @@ slots:
                                       r: 1
                                       tag: circle
                                       vectorEffect: non-scaling-stroke
-                                      visible: "=((Number.parseFloat(items[props.itemProductionToGridPower].state) > 0 )) ? true : false"
+                                      visible: "=((Number.parseFloat(items[props.itemProductionToGridPower].state) > 0
+                                        )) ? true : false"
                                     slots:
                                       default:
                                         - component: f7-row
@@ -1196,14 +1197,14 @@ slots:
                                                   xlink:href: "#path4"
                                   - component: f7-row
                                     config:
-                                      d: "=((Number.parseFloat(items[props.itemSolarBatteryPower].state) > 0 )) ? 'M64,0 V20' : 'M64,64 V-20'"
+                                      d: "=((Number.parseFloat(items[props.itemSolarBatteryPower].state) > 0 )) ? 'M64,0 V64' : 'M64,64 V-20'"
                                       fill: none
                                       id: path5
                                       stroke: rgb(156, 163, 113)
                                       stroke-width: 5
                                       tag: path
                                       vector-effect: non-scaling-stroke
-                                      visible: "=@props.itemSolarBatteryPower || @props.itemSolarBatterySOC ? true : false"
+                                      visible: "=@props.itemSolarBatteryPower || @props.itemSolarBatterySOC ? true :false"
                                   - component: f7-row
                                     config:
                                       fill: rgb(156, 163, 113)
