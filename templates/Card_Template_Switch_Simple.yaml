@@ -3,7 +3,7 @@ tags:
   - Card Template Switch Simple
   - Customizable Template
   - ScrewPlate
-  - Version 1.0
+  - Version 1.1
 props:
   parameters:
     - description: "Input without 'px' (Default: none)"
@@ -181,7 +181,7 @@ props:
       label: Switch Handle Color
       name: switchHandleColor
       required: false
-      type: TEXT 
+      type: TEXT
       groupName: customGroup
     - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
       label: Switch Active Color
@@ -194,8 +194,8 @@ props:
       name: switchInactiveColor
       required: false
       type: TEXT
-      groupName: customGroup      
-    - default: "false"    
+      groupName: customGroup
+    - default: "false"
       label: Title - Show on Card
       name: switchItemTitleShow
       required: false
@@ -238,7 +238,7 @@ props:
     - name: customGroup
       label: Custom Settings
       description: All settings to customize the custom objects
-timestamp: May 3, 2025, 2:10:16 PM
+timestamp: May 3, 2025, 2:52:35 PM
 component: f7-card
 config:
   style:
@@ -322,8 +322,6 @@ slots:
                             - flex-direction-row
                             - align-items-center
                             - justify-content-center
-                          style:
-                            background: rgba(233, 196, 106, 0)
                         slots:
                           default:
                             - component: oh-toggle-card
@@ -335,11 +333,16 @@ slots:
                                 noShadow: true
                                 outline: false
                                 style:
-                                  --f7-toggle-handle-color: "=props.switchHandleColor ? props.switchHandleColor : '#b1602e'"
-                                  --f7-toggle-inactive-color: "=props.switchInactiveColor ? props.switchInactiveColor : '#edede9'"
-                                  --f7-toggle-active-color: "=props.switchActiveColor ? props.switchActiveColor : '#e5cb63'"
-                                  --f7-toggle-width: "=props.switchIconSize ? (props.switchIconSize / 2) + 'px' : '40px'"
-                                  --f7-toggle-height: "=props.switchIconSize ? (props.switchIconSize / 4) + 'px' : '20px'"
+                                  --f7-toggle-handle-color: "=props.switchHandleColor ? props.switchHandleColor :
+                                    '#b1602e'"
+                                  --f7-toggle-inactive-color: "=props.switchInactiveColor ?
+                                    props.switchInactiveColor : '#edede9'"
+                                  --f7-toggle-active-color: "=props.switchActiveColor ? props.switchActiveColor :
+                                    '#e5cb63'"
+                                  --f7-toggle-width: "=props.switchIconSize ? (props.switchIconSize / 2) + 'px' :
+                                    '40px'"
+                                  --f7-toggle-height: "=props.switchIconSize ? (props.switchIconSize / 4) + 'px' :
+                                    '20px'"
                             - component: oh-link
                               config:
                                 action: toggle
@@ -347,17 +350,18 @@ slots:
                                 actionCommand: toggle
                               slots:
                                 default:
-                                - component: oh-icon
-                                  config:
-                                    height: "=props.switchIconSize ? (props.switchIconSize) + 'px' : '80px'"
-                                    icon: "=props.switchIconName ? (props.switchIconName) :
-                                      'iconify:ic:twotone-emoji-objects'"
-                                    style:
-                                      color: "=items[props.switchItem].state == 'ON' ? (props.switchActiveColor ?
-                                        props.switchActiveColor : '#e5cb63') :
-                                        (props.switchInactiveColor ?
-                                        props.switchInactiveColor : '#edede9')"
-                                    visible: "=props.switchIconShow ? props.switchIconShow : props.switchIconShow"
+                                  - component: oh-icon
+                                    config:
+                                      height: "=props.switchIconSize ? (props.switchIconSize) + 'px' : '80px'"
+                                      icon: "=props.switchIconName ? (props.switchIconName) :
+                                        'iconify:ic:twotone-emoji-objects'"
+                                      style:
+                                        color: "=items[props.switchItem].state == 'ON' ? (props.switchActiveColor ?
+                                          props.switchActiveColor : '#e5cb63') :
+                                          (props.switchInactiveColor ?
+                                          props.switchInactiveColor :
+                                          '#edede9')"
+                                      visible: "=props.switchIconShow ? props.switchIconShow : props.switchIconShow"
                 - component: f7-row
                   config:
                     class:
