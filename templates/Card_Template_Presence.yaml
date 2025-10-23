@@ -3,7 +3,7 @@ tags:
   - Card Template Presence
   - Customizable Template
   - ScrewPlate
-  - Version 1.1
+  - Version 1.2
 props:
   parameters:
     - description: "Input without 'px' (Default: none)"
@@ -323,7 +323,7 @@ props:
     - name: customGroup
       label: Custom Settings
       description: All settings to customize the custom objects
-timestamp: Oct 23, 2025, 5:25:24 PM
+timestamp: Oct 23, 2025, 5:44:01 PM
 component: f7-card
 config:
   style:
@@ -519,7 +519,7 @@ slots:
                                   (props.presentTextValue ?
                                   props.presentTextValue : 'present')
                                   :(props.person1ItemShowAbsentTime
-                                  ?  items[props.person1ItemLastUpdate].state :
+                                  ?  dayjs(items[props.person1ItemLastUpdate].state).fromNow() :
                                   (props.absenceTextValue ?
                                   props.absenceTextValue : 'absent'))) : '-'"
                       - component: f7-col
@@ -533,7 +533,7 @@ slots:
                                   (props.presentTextValue ?
                                   props.presentTextValue : 'present')
                                   :(props.person2ItemShowAbsentTime
-                                  ?  items[props.person2ItemLastUpdate].state :
+                                  ?  dayjs(items[props.person2ItemLastUpdate].state).fromNow() :
                                   (props.absenceTextValue ?
                                   props.absenceTextValue : 'absent'))) : '-'"
                       - component: f7-col
@@ -547,7 +547,7 @@ slots:
                                   (props.presentTextValue ?
                                   props.presentTextValue : 'present')
                                   :(props.person3ItemShowAbsentTime
-                                  ?  items[props.person3ItemLastUpdate].state :
+                                  ?  dayjs(items[props.person3ItemLastUpdate].state :
                                   (props.absenceTextValue ?
                                   props.absenceTextValue : 'absent'))) : '-'"
                       - component: f7-col
@@ -561,7 +561,7 @@ slots:
                                   (props.presentTextValue ?
                                   props.presentTextValue : 'present')
                                   :(props.person4ItemShowAbsentTime
-                                  ?  items[props.person4ItemLastUpdate].state :
+                                  ?  dayjs(items[props.person4ItemLastUpdate].state :
                                   (props.absenceTextValue ?
                                   props.absenceTextValue : 'absent'))) : '-'"
     - component: f7-card-footer
