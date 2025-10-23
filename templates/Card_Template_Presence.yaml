@@ -3,7 +3,7 @@ tags:
   - Card Template Presence
   - Customizable Template
   - ScrewPlate
-  - Version 1.0
+  - Version 1.1
 props:
   parameters:
     - description: "Input without 'px' (Default: none)"
