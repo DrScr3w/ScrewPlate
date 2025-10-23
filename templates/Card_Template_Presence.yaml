@@ -3,7 +3,7 @@ tags:
   - Card Template Presence
   - Customizable Template
   - ScrewPlate
-  - Version 1.2
+  - Version 1.3
 props:
   parameters:
     - description: "Input without 'px' (Default: none)"
@@ -195,8 +195,7 @@ props:
       required: false
       type: TEXT
       groupName: customGroup
-    - description: "Absence person 1 - display time since absent or display the
-        absence text (default: false)"
+    - description: "Absence person 1 - display time since absent or display the absence text (default: false)"
       label: Absence Time Person - Show on Card
       name: person1ItemShowAbsentTime
       required: false
@@ -547,7 +546,7 @@ slots:
                                   (props.presentTextValue ?
                                   props.presentTextValue : 'present')
                                   :(props.person3ItemShowAbsentTime
-                                  ?  dayjs(items[props.person3ItemLastUpdate].state :
+                                  ?  dayjs(items[props.person3ItemLastUpdate].state).fromNow() :
                                   (props.absenceTextValue ?
                                   props.absenceTextValue : 'absent'))) : '-'"
                       - component: f7-col
@@ -561,7 +560,7 @@ slots:
                                   (props.presentTextValue ?
                                   props.presentTextValue : 'present')
                                   :(props.person4ItemShowAbsentTime
-                                  ?  dayjs(items[props.person4ItemLastUpdate].state :
+                                  ?  dayjs(items[props.person4ItemLastUpdate].state).fromNow() :
                                   (props.absenceTextValue ?
                                   props.absenceTextValue : 'absent'))) : '-'"
     - component: f7-card-footer
