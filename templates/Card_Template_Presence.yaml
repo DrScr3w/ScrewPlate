@@ -255,7 +255,7 @@ props:
       groupName: customGroup
     - context: item
       description: Absence person 3 - to display State
-      name: person1Item
+      name: person3Item
       required: false
       type: TEXT
       groupName: customGroup
@@ -287,7 +287,7 @@ props:
       groupName: customGroup
     - context: item
       description: Absence person 4 - to display State
-      name: person2Item
+      name: person4Item
       required: false
       type: TEXT
       groupName: customGroup
@@ -557,7 +557,7 @@ slots:
                               config:
                                 style:
                                   margin-top: 5px
-                                text: "=props.person4Item ? (items[props.person3Item].state == 'ON' ?
+                                text: "=props.person4Item ? (items[props.person4Item].state == 'ON' ?
                                   (props.presentTextValue ?
                                   props.presentTextValue : 'present')
                                   :(props.person4ItemShowAbsentTime
