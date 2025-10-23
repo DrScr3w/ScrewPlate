@@ -323,7 +323,7 @@ props:
     - name: customGroup
       label: Custom Settings
       description: All settings to customize the custom objects
-timestamp: Oct 23, 2025, 4:33:20 PM
+timestamp: Oct 23, 2025, 5:25:24 PM
 component: f7-card
 config:
   style:
@@ -442,7 +442,13 @@ slots:
                                 height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
                                 icon: "=props.person1Icon ? (props.person1Icon) : 'f7:person_circle'"
                                 style:
-                                  color: "=props.person1Item ? (items[props.person1Item].state == 'ON' ? (props.presentIconColor ? props.presentIconColor : 'green') : (props.absenceIconColor ? props.absenceIconColor : 'red')) : props.contentIconColor ? props.contentIconColor : (themeOptions.dark
+                                  color: "=props.person1Item ? (items[props.person1Item].state == 'ON' ?
+                                    (props.presentIconColor ?
+                                    props.presentIconColor : 'green') :
+                                    (props.absenceIconColor ?
+                                    props.absenceIconColor : 'red')) :
+                                    props.contentIconColor ?
+                                    props.contentIconColor : (themeOptions.dark
                                     === 'dark' ? 'white' : 'black')"
                                   margin-top: 5px
                       - component: f7-col
@@ -453,7 +459,13 @@ slots:
                                 height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
                                 icon: "=props.person2Icon ? (props.person2Icon) : 'f7:person_circle'"
                                 style:
-                                  color: "=props.person2Item ? (items[props.person2Item].state == 'ON' ? (props.presentIconColor ? props.presentIconColor : 'green') : (props.absenceIconColor ? props.absenceIconColor : 'red')) : props.contentIconColor ? props.contentIconColor : (themeOptions.dark
+                                  color: "=props.person2Item ? (items[props.person2Item].state == 'ON' ?
+                                    (props.presentIconColor ?
+                                    props.presentIconColor : 'green') :
+                                    (props.absenceIconColor ?
+                                    props.absenceIconColor : 'red')) :
+                                    props.contentIconColor ?
+                                    props.contentIconColor : (themeOptions.dark
                                     === 'dark' ? 'white' : 'black')"
                                   margin-top: 5px
                       - component: f7-col
@@ -464,7 +476,13 @@ slots:
                                 height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
                                 icon: "=props.person3Icon ? (props.person3Icon) : 'f7:person_circle'"
                                 style:
-                                  color: "=props.person3Item ? (items[props.person3Item].state == 'ON' ? (props.presentIconColor ? props.presentIconColor : 'green') : (props.absenceIconColor ? props.absenceIconColor : 'red')) : props.contentIconColor ? props.contentIconColor : (themeOptions.dark
+                                  color: "=props.person3Item ? (items[props.person3Item].state == 'ON' ?
+                                    (props.presentIconColor ?
+                                    props.presentIconColor : 'green') :
+                                    (props.absenceIconColor ?
+                                    props.absenceIconColor : 'red')) :
+                                    props.contentIconColor ?
+                                    props.contentIconColor : (themeOptions.dark
                                     === 'dark' ? 'white' : 'black')"
                                   margin-top: 5px
                       - component: f7-col
@@ -475,7 +493,13 @@ slots:
                                 height: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
                                 icon: "=props.person4Icon ? (props.person4Icon) : 'f7:person_circle'"
                                 style:
-                                  color: "=props.person4Item ? (items[props.person4Item].state == 'ON' ? (props.presentIconColor ? props.presentIconColor : 'green') : (props.absenceIconColor ? props.absenceIconColor : 'red')) : props.contentIconColor ? props.contentIconColor : (themeOptions.dark
+                                  color: "=props.person4Item ? (items[props.person4Item].state == 'ON' ?
+                                    (props.presentIconColor ?
+                                    props.presentIconColor : 'green') :
+                                    (props.absenceIconColor ?
+                                    props.absenceIconColor : 'red')) :
+                                    props.contentIconColor ?
+                                    props.contentIconColor : (themeOptions.dark
                                     === 'dark' ? 'white' : 'black')"
                                   margin-top: 5px
                 - component: f7-row
@@ -536,8 +560,8 @@ slots:
                                 text: "=props.person4Item ? (items[props.person3Item].state == 'ON' ?
                                   (props.presentTextValue ?
                                   props.presentTextValue : 'present')
-                                  :(props.person3ItemShowAbsentTime
-                                  ?  items[props.person3ItemLastUpdate].state :
+                                  :(props.person4ItemShowAbsentTime
+                                  ?  items[props.person4ItemLastUpdate].state :
                                   (props.absenceTextValue ?
                                   props.absenceTextValue : 'absent'))) : '-'"
     - component: f7-card-footer
