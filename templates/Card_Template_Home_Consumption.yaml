@@ -3,7 +3,7 @@ tags:
   - Card Template Home Consumption
   - Customizable Template
   - ScrewPlate
-  - Version 0.3
+  - Version 0.4
 props:
   parameters:
     - description: "Input without 'px' (Default: none)"
@@ -326,23 +326,16 @@ timestamp: May 2, 2025, 10:31:58 AM
 component: f7-card
 config:
   style:
-    --f7-card-bg-color: "=props.cardBgColor ? props.cardBgColor : (themeOptions.dark
-      === 'dark' ? '#232324' : 'white')"
-    --f7-card-border-radius: "=props.cardBorderRadius ? (props.cardBorderRadius) + 'px' : '20px'"
+    --f7-card-bg-color: "=props.cardBgColor ? props.cardBgColor : (themeOptions.dark === 'dark' ? '#232324' : 'white')"
+    --f7-card-border-radius: "=props.cardBorderRadius ? props.cardBorderRadius + 'px' : '20px'"
     --f7-card-margin-horizontal: 4px
     --f7-card-margin-vertical: 4px
-    --f7-card-outline-border-color: "=props.cardBorderColor ? props.cardBorderColor
-      : (themeOptions.dark === 'dark' ? '#c95826' : '#c95826')"
+    --f7-card-outline-border-color: "=props.cardBorderColor ? props.cardBorderColor : '#c95826'"
     background-color: var(--f7-card-bg-color)
-    background-image: "=props.cardBgImageShow== 'false' ? '' :
-      'linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
-      url(/static/' + props.cardBgImage + ')'"
-    border: "=props.cardBorderSize ? (props.cardBorderSize)+'px solid
-      var(--f7-card-outline-border-color)' : '6px solid
-      var(--f7-card-outline-border-color)'"
-    color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark
-      === 'dark' ? 'white' : 'black')"
-    font-size: "=props.contentTextSize ? (props.contentTextSize)+'px' : '18px'"
+    background-image: "=props.cardBgImageShow && props.cardBgImage ? 'linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url(/static/' + props.cardBgImage + ')' : ''"
+    border: "=props.cardBorderSize ? props.cardBorderSize + 'px solid var(--f7-card-outline-border-color)' : '6px solid var(--f7-card-outline-border-color)'"
+    color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+    font-size: "=props.contentTextSize ? props.contentTextSize + 'px' : '18px'"
 slots:
   default:
     - component: f7-card-header
@@ -357,6 +350,7 @@ slots:
           justify-content: flex-start
           margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' :
             (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
+          padding-bottom: 0px
       slots:
         default:
           - component: oh-icon
