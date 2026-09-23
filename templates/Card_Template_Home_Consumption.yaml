@@ -1,1441 +1,1355 @@
-uid: Card_Template_Home_Consumption
-tags:
-  - Card Template Home Consumption
-  - Customizable Template
-  - ScrewPlate
-  - Version 0.4
-props:
-  parameters:
-    - description: "Input without 'px' (Default: none)"
-      label: Card Height
-      name: cardHeight
-      required: false
-      type: TEXT
-      groupName: cardGroup
-    - description: "Input without 'px' (Default: 20px)"
-      label: Card Border Radius
-      name: cardBorderRadius
-      required: false
-      type: TEXT
-      groupName: cardGroup
-    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
-      label: Card Border Color
-      name: cardBorderColor
-      required: false
-      type: TEXT
-      groupName: cardGroup
-    - description: "Input without 'px' (Default: 3px)"
-      label: Card Border Size
-      name: cardBorderSize
-      required: false
-      type: TEXT
-      groupName: cardGroup
-    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
-      label: Card Background Color
-      name: cardBgColor
-      required: false
-      type: TEXT
-      groupName: cardGroup
-    - default: "false"
-      label: Card Background Image - Show on Card
-      name: cardBgImageShow
-      required: false
-      type: BOOLEAN
-      groupName: cardGroup
-    - description: Input file name for Background Image (uploaded to /html/ folder)
-      label: Card Background Image
-      name: cardBgImage
-      required: false
-      type: TEXT
-      groupName: cardGroup
-    - default: "false"
-      label: Icon - Show on Card
-      name: iconShow
-      required: false
-      type: BOOLEAN
-      groupName: iconGroup
-    - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon),
-        material:iconName (Material icon) or iconify:iconSet:iconName
-      label: Icon
-      name: iconName
-      required: false
-      type: TEXT
-      groupName: iconGroup
-    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
-      label: Icon Color
-      name: iconColor
-      required: false
-      type: TEXT
-      groupName: iconGroup
-    - description: "Input without 'px' (Default: 30px)"
-      label: Icon  Size
-      name: iconSize
-      required: false
-      type: TEXT
-      groupName: iconGroup
-    - default: "false"
-      label: Header - Show on Card
-      name: headerShow
-      required: false
-      type: BOOLEAN
-      groupName: headerGroup
-    - description: Input Text to diplay on Header
-      label: Header
-      name: headerText
-      required: false
-      type: TEXT
-      groupName: headerGroup
-    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
-      label: Header Text Color
-      name: headerTextColor
-      required: false
-      type: TEXT
-      groupName: headerGroup
-    - description: "Input without 'px' (Default: 25px)"
-      label: Header Text Size
-      name: headerTextSize
-      required: false
-      type: TEXT
-      groupName: headerGroup
-    - default: "false"
-      label: Footer - Show on Card
-      name: footerShow
-      required: false
-      type: BOOLEAN
-      groupName: footerGroup
-    - description: Input Text to diplay on Footer
-      label: Footer
-      name: footerText
-      required: false
-      type: TEXT
-      groupName: footerGroup
-    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
-      label: Footer Text Color
-      name: footerTextColor
-      required: false
-      type: TEXT
-      groupName: footerGroup
-    - description: "Input without 'px' (Default: 16px)"
-      label: Footer Text Size
-      name: footerTextSize
-      required: false
-      type: TEXT
-      groupName: footerGroup
-    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
-      label: Content Text Color
-      name: contentTextColor
-      required: false
-      type: TEXT
-      groupName: contentGroup
-    - description: "Input without 'px' (Default: 18px)"
-      label: Content Text Size
-      name: contentTextSize
-      required: false
-      type: TEXT
-      groupName: contentGroup
-    - description: "Input without 'px' (Default: 30px)"
-      label: Content Icon Size
-      name: contentIconSize
-      required: false
-      type: TEXT
-      groupName: contentGroup
-    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
-      label: Content Icon Color
-      name: contentIconColor
-      required: false
-      type: TEXT
-      groupName: contentGroup
-    - description: "Input without 'px' (Default: 20px)"
-      label: Tiles Border Radius
-      name: tilesBorderRadius
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
-      label: Tiles Border Color
-      name: tilesBorderColor
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - description: "Input without 'px' (Default: 3px)"
-      label: Tiles Border Size
-      name: tilesBorderSize
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Consumption from Grid - Power (current Watt) (Consumption)
-      label: Consumption from Grid Item - Power (current Watt) (Consumption)
-      name: itemConsumptionFromGridPower
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Consumption from Grid - Energy (kWh per Day) (Consumption)
-      label: Consumption from Grid Item - Energy (kWh per Day) (Consumption)
-      name: itemConsumptionFromGridEnergy
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Price Level from Grid
-      label: Price Level from Grid
-      name: itemConsumptionFromGridPriceLevel
-      required: false
-      type: TEXT
-      groupName: customGroup      
-    - context: item
-      description: Production to Grid - Power (current Watt) (Surplus feed-in)
-      label: Production to Grid Item - Power (current Watt) (Surplus feed-in)
-      name: itemProductionToGridPower
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Production to Grid - Energy (kWh per Day) (Surplus feed-in)
-      label: Production to Grid Item - Energy (kWh per Day) (Surplus feed-in)
-      name: itemProductionToGridEnergy
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Solar Production - Power (current Watt) (Production)
-      label: Solar Production - Power (current Watt) (Production)
-      name: itemSolarProductionPower
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Solar Production - Energy (kWh per Day) (Production)
-      label: Solar Production - Energy (kWh per Day) (Production)
-      name: itemSolarProductionEnergy
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Solar Own Consumption -  (% per Day) (Own Consumption)
-      label: Solar Own Consumption -  (% per Day) (Own Consumption)
-      name: itemSolarOwnConsumption
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Solar Battery - Power (Load/Decharge)
-      label: Solar Battery - Power (Load/Decharge)
-      name: itemSolarBatteryPower
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Solar Battery - SOC (State of charge)
-      label: Solar Battery - SOC (State of charge)
-      name: itemSolarBatterySOC
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Home Consumption - Power (current Watt)
-      label: Home Consumption - Power (current Watt)
-      name: itemHomeConsumptionPower
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Home Consumption - Energy (kWh per Day)
-      label: Home Consumption - Energy (kWh per Day)
-      name: itemHomeConsumptionEnergy
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Car Battery - Power (Load/Decharge)
-      label: Car Battery - Power (Load/Decharge)
-      name: itemCarBatteryPower
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Car Battery - Energy (kWh)
-      label: Car Battery - Energy (kWh)
-      name: itemCarBatteryEnergy
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Car Battery - SOC (State of charge)
-      label: Car Battery - SOC (State of charge)
-      name: itemCarBatterySOC
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Main Gas Consumption - (m³ per Day)
-      label: Main Gas Consumption - (m³ per Day)
-      name: itemMainGasConsumption
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Main Water Consumption - (m³ per Day)
-      label: Main Water Consumption - (m³ per Day)
-      name: itemMainWaterConsumption
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Garden Water Consumption - (m³ per Day)
-      label: Garden Water Consumption - (m³ per Day)
-      name: itemGardenWaterConsumption
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Water Cisterne SoC (liter)
-      label: Water Cisterne SoC (liter)
-      name: itemWaterCisterneSoC
-      required: false
-      type: TEXT
-      groupName: customGroup
-    - context: item
-      description: Water Cisterne SoC (%)
-      label: Water Cisterne SoC (%)
-      name: itemWaterCisterneSoCPercent
-      required: false
-      type: TEXT
-      groupName: customGroup
-  parameterGroups:
-    - name: cardGroup
-      label: Card Settings
-      description: All settings to customize the card layout
-    - name: iconGroup
-      label: Icon Settings
-      description: All settings to customize the icon
-    - name: headerGroup
-      label: Header Settings
-      description: All settings to customize the header area
-    - name: footerGroup
-      label: Footer Settings
-      description: All settings to customize the content area
-    - name: contentGroup
-      label: Content Settings
-      description: All settings to customize the content area
-    - name: customGroup
-      label: Custom Settings
-      description: All settings to customize the custom objects
-timestamp: May 2, 2025, 10:31:58 AM
-component: f7-card
-config:
-  style:
-    --f7-card-bg-color: "=props.cardBgColor ? props.cardBgColor : (themeOptions.dark === 'dark' ? '#232324' : 'white')"
-    --f7-card-border-radius: "=props.cardBorderRadius ? props.cardBorderRadius + 'px' : '20px'"
-    --f7-card-margin-horizontal: 4px
-    --f7-card-margin-vertical: 4px
-    --f7-card-outline-border-color: "=props.cardBorderColor ? props.cardBorderColor : '#c95826'"
-    background-color: var(--f7-card-bg-color)
-    background-image: "=props.cardBgImageShow && props.cardBgImage ? 'linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url(/static/' + props.cardBgImage + ')' : ''"
-    border: "=props.cardBorderSize ? props.cardBorderSize + 'px solid var(--f7-card-outline-border-color)' : '6px solid var(--f7-card-outline-border-color)'"
-    color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
-    font-size: "=props.contentTextSize ? props.contentTextSize + 'px' : '18px'"
-slots:
-  default:
-    - component: f7-card-header
-      config:
-        style:
-          --f7-card-header-border-color: transparent
-          --f7-card-header-font-size: "=props.headerTextSize ? (props.headerTextSize) + 'px' : '25px'"
-          --f7-card-header-font-weight: 800
-          --f7-card-header-min-height: "=props.headerShow == 'true' ? '35px' : '0px'"
-          --f7-card-header-text-color: "=props.headerTextColor ? props.headerTextColor :
-            (themeOptions.dark === 'dark' ? 'white' : 'black')"
-          justify-content: flex-start
-          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' :
-            (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
-          padding-bottom: 0px
-      slots:
-        default:
-          - component: oh-icon
-            config:
-              icon: "=props.iconName ? props.iconName : 'f7:house'"
-              style:
-                color: "=props.iconColor ? props.iconColor : (themeOptions.dark === 'dark' ?
-                  'white' : 'black')"
-                padding-right: 10px
-              visible: "=props.iconShow ? props.iconShow : props.iconShow"
-              width: "=props.iconSize ? (props.iconSize) + 'px' : '30px'"
-          - component: Label
-            config:
-              text: "=props.headerText ? props.headerText : 'Header'"
-              visible: "=props.headerShow ? props.headerShow : props.headerShow"
-    - component: f7-card-content
-      config:
-        style:
-          align-items: center
-          display: flex
-          flex-direction: column
-          height: "=props.cardHeight ? (props.cardHeight) + 'px' : ''"
-          justify-content: center
-          margin-bottom: -15px
-          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' :
-            (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
-          margin-top: -15px
-          text-align: center
-      slots:
-        default:
-          - component: f7-row
-            config:
-              style:
-                disply: flex
-                justify-content: center
-            slots:
-              default:
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 150px
-                  slots:
-                    default:
-                      - component: f7-block
-                        config:
-                          style:
-                            align-items: center
-                            border: solid
-                            border-color: "=props.tilesBorderColor ? props.tilesBorderColor :
-                              (themeOptions.dark === 'dark' ? '#c95826' :
-                              '#c95826')"
-                            border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' :
-                              '20px'"
-                            border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
-                            display: flex
-                            flex-direction: column
-                            height: 150px
-                            justify-content: center
-                            margin: 0
-                            width: 150px
-                          visible: "=@props.itemMainWaterConsumption ? true : false"
-                        slots:
-                          default:
-                            - component: oh-icon
-                              config:
-                                color: rgb(91, 148, 240)
-                                height: 40px
-                                icon: if:mdi:water
-                            - component: Label
-                              config:
-                                style:
-                                  white-space: nowrap
-                                text: = @props.itemMainWaterConsumption
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 70px
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 150px
-                  slots:
-                    default:
-                      - component: f7-block
-                        config:
-                          style:
-                            align-items: center
-                            border: solid
-                            border-color: "=props.tilesBorderColor ? props.tilesBorderColor :
-                              (themeOptions.dark === 'dark' ? '#c95826' :
-                              '#c95826')"
-                            border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' :
-                              '20px'"
-                            border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
-                            display: flex
-                            flex-direction: column
-                            height: 150px
-                            justify-content: center
-                            margin: 0
-                            width: 150px
-                          visible: "=@props.itemMainGasConsumption ? true : false"
-                        slots:
-                          default:
-                            - component: oh-icon
-                              config:
-                                color: rgb(204, 55, 43)
-                                height: 40px
-                                icon: "=(props.itemMainGasConsumption) ? 'if:mdi:fire' : 'if:mdi:fire'"
-                            - component: Label
-                              config:
-                                text: = @props.itemMainGasConsumption
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 70px
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 150px
-                  slots:
-                    default:
-                      - component: f7-block
-                        config:
-                          style:
-                            align-items: center
-                            border: solid
-                            border-color: "=props.tilesBorderColor ? props.tilesBorderColor :
-                              (themeOptions.dark === 'dark' ? '#c95826' :
-                              '#c95826')"
-                            border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' :
-                              '20px'"
-                            border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
-                            display: flex
-                            flex-direction: column
-                            height: 150px
-                            justify-content: center
-                            margin: 0
-                            width: 150px
-                          visible: "=@props.itemConsumptionFromGridPower ||
-                            @props.itemConsumptionFromGridEnergy ||
-                            @props.itemProductionToGridPower ||
-                            @props.itemProductionToGridEnergy ? true : false"
-                        slots:
-                          default:
-                            - component: oh-icon
-                              config:
-                                color: rgb(156, 163, 113)
-                                height: 40px
-                                icon: if:mdi:transmission-tower
-                            - component: oh-link
-                              config:
-                                iconColor: purple
-                                iconF7: "=(props.itemProductionToGridPower) ? 'arrowtriangle_up_fill' : ''"
-                                iconSize: 20px
-                                text: "=((Number.parseFloat(@props.itemProductionToGridPower) > 0) ? '' : '') +
-                                  @props.itemProductionToGridPower"
-                                text-color: "=props.headerTextColor ? props.headerTextColor : (themeOptions.dark
-                                  === 'dark' ? 'white' : 'black')"
-                                visible: true
-                            - component: Label
-                              config:
-                                text: = @props.itemProductionToGridEnergy
-                                visible: true
-                            - component: oh-link
-                              config:
-                                iconColor: purple
-                                iconF7: "=(props.itemConsumptionFromGridPower) ? 'arrowtriangle_down_fill' : ''"
-                                iconSize: 20px
-                                text: = @props.itemConsumptionFromGridPower
-                                text-color: "=props.headerTextColor ? props.headerTextColor : (themeOptions.dark
-                                  === 'dark' ? 'white' : 'black')"
-                                visible: true
-                            - component: Label
-                              config:
-                                text: = @props.itemConsumptionFromGridEnergy
-                                visible: true
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 70px
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 150px
-                  slots:
-                    default:
-                      - component: f7-block
-                        config:
-                          style:
-                            align-items: center
-                            border: solid
-                            border-color: "=props.tilesBorderColor ? props.tilesBorderColor :
-                              (themeOptions.dark === 'dark' ? '#c95826' :
-                              '#c95826')"
-                            border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' :
-                              '20px'"
-                            border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
-                            display: flex
-                            flex-direction: column
-                            height: 150px
-                            justify-content: center
-                            margin: 0
-                            width: 150px
-                          visible: "=@props.itemConsumptionFromGridPriceLevel ? true : false"
-                        slots:
-                          default:
-                            - component: oh-icon
-                              config:
-                                color: "=items[props.itemConsumptionFromGridPriceLevel].state == 0 ? 'rgb(221, 204, 107)' : items[props.itemConsumptionFromGridPriceLevel].state > 0 ? 'rgb(204, 55, 43)' : items[props.itemConsumptionFromGridPriceLevel].state < 0 ? 'rgb(158, 162, 116)' : 'rgb(0, 0, 0)'"
-                                height: 45px
-                                icon: "=(props.itemConsumptionFromGridPriceLevel) ? 'if:streamline-freehand:advertising-money-idea' : 'if:streamline-freehand:advertising-money-idea'"
-                            - component: Label
-                              config:
-                                text: = @props.itemConsumptionFromGridPriceLevel                      
-          - component: f7-row
-            config:
-              style:
-                disply: flex
-                justify-content: center
-            slots:
-              default:
-                - component: f7-col
-                  config:
-                    style:
-                      height: 70px
-                      width: 800px
-                  slots:
-                    default:
-                      - component: f7-block
-                        config:
-                          style:
-                            display: flex
-                            flex-direction: column
-                            margin: 0
-                            padding: 0
-                          visible: true
-                        slots:
-                          default:
-                            - component: f7-col
-                              config:
-                                preserveAspectRatio: xMidYMid slice
-                                style:
-                                  height: 70px
-                                  width: 100%
-                                tag: svg
-                                viewBox: 0 0 100 100
-                                xmlns: http://www.w3.org/2000/svg
-                              slots:
-                                default:
-                                  - component: f7-row
-                                    config:
-                                      d: M9,0 V60
-                                      fill: none
-                                      id: path6
-                                      stroke: rgb(91, 148, 240)
-                                      stroke-width: 5
-                                      tag: path
-                                      vector-effect: non-scaling-stroke
-                                      visible: "=@props.itemGardenWaterConsumption ? true : false"
-                                  - component: f7-row
-                                    config:
-                                      fill: rgb(91, 148, 240)
-                                      r: 1
-                                      tag: circle
-                                      vectorEffect: non-scaling-stroke
-                                      visible: false
-                                    slots:
-                                      default:
-                                        - component: f7-row
-                                          config:
-                                            calcMode: linear
-                                            dur: 7s
-                                            repeatCount: indefinite
-                                            tag: animateMotion
-                                          slots:
-                                            default:
-                                              - component: f7-row
-                                                config:
-                                                  tag: mpath
-                                                  xlink:href: "#path6"
-                                  - component: f7-row
-                                    config:
-                                      d: M36,0 V60
-                                      fill: none
-                                      id: path7
-                                      stroke: rgb(204, 55, 43)
-                                      stroke-width: 5
-                                      tag: path
-                                      vector-effect: non-scaling-stroke
-                                      visible: "=@props.itemMainGasConsumption ? true : false"
-                                  - component: f7-row
-                                    config:
-                                      fill: rgb(204, 55, 43)
-                                      r: 1
-                                      tag: circle
-                                      vectorEffect: non-scaling-stroke
-                                      visible: false
-                                    slots:
-                                      default:
-                                        - component: f7-row
-                                          config:
-                                            calcMode: linear
-                                            dur: 7s
-                                            repeatCount: indefinite
-                                            tag: animateMotion
-                                          slots:
-                                            default:
-                                              - component: f7-row
-                                                config:
-                                                  tag: mpath
-                                                  xlink:href: "#path7"
-                                  - component: f7-row
-                                    config:
-                                      d: M64,64 V-60
-                                      fill: none
-                                      id: path8
-                                      stroke: rgb(156, 163, 113)
-                                      stroke-width: 5
-                                      tag: path
-                                      vector-effect: non-scaling-stroke
-                                      visible: "=@props.itemSolarProductionPower || @props.itemSolarProductionEnergy
-                                        || @props.itemSolarOwnConsumption ? true
-                                        : false"
-                                  - component: f7-row
-                                    config:
-                                      fill: rgb(156, 163, 113)
-                                      r: 1
-                                      tag: circle
-                                      vectorEffect: non-scaling-stroke
-                                      visible: "=((Number.parseFloat(items[props.itemProductionToGridPower].state) > 0
-                                        )) ? true : false"
-                                    slots:
-                                      default:
-                                        - component: f7-row
-                                          config:
-                                            calcMode: linear
-                                            dur: 7s
-                                            repeatCount: indefinite
-                                            tag: animateMotion
-                                          slots:
-                                            default:
-                                              - component: f7-row
-                                                config:
-                                                  tag: mpath
-                                                  xlink:href: "#path8"
-                                  - component: f7-row
-                                    config:
-                                      d: M9,0 V50 h25 v10
-                                      fill: none
-                                      id: path9
-                                      stroke: rgb(91, 148, 240)
-                                      stroke-width: 5
-                                      tag: path
-                                      vector-effect: non-scaling-stroke
-                                      visible: "=@props.itemMainWaterConsumption ? true : false"
-                                  - component: f7-row
-                                    config:
-                                      fill: rgb(91, 148, 240)
-                                      r: 1
-                                      tag: circle
-                                      vectorEffect: non-scaling-stroke
-                                      visible: false
-                                    slots:
-                                      default:
-                                        - component: f7-row
-                                          config:
-                                            calcMode: linear
-                                            dur: 7s
-                                            repeatCount: indefinite
-                                            tag: animateMotion
-                                          slots:
-                                            default:
-                                              - component: f7-row
-                                                config:
-                                                  tag: mpath
-                                                  xlink:href: "#path9"
-                                  - component: f7-row
-                                    config:
-                                      d: M64,0 V50 h-26 v10
-                                      fill: none
-                                      id: path10
-                                      stroke: rgb(156, 163, 113)
-                                      stroke-width: 5
-                                      tag: path
-                                      vector-effect: non-scaling-stroke
-                                      visible: "=@props.itemConsumptionFromGridPower ||
-                                        @props.itemConsumptionFromGridEnergy ||
-                                        @props.itemProductionToGridPower ||
-                                        @props.itemProductionToGridEnergy ? true
-                                        : false"
-                                  - component: f7-row
-                                    config:
-                                      fill: rgb(156, 163, 113)
-                                      r: 1
-                                      tag: circle
-                                      vectorEffect: non-scaling-stroke
-                                      visible: "=((Number.parseFloat(items[props.itemConsumptionFromGridPower].state)
-                                        > 0 )) ? true : false"
-                                    slots:
-                                      default:
-                                        - component: f7-row
-                                          config:
-                                            calcMode: linear
-                                            dur: 6s
-                                            repeatCount: indefinite
-                                            tag: animateMotion
-                                          slots:
-                                            default:
-                                              - component: f7-row
-                                                config:
-                                                  tag: mpath
-                                                  xlink:href: "#path10"
-                                  - component: f7-row
-                                    config:
-                                      d: M64,0 V50 h27 v10
-                                      fill: none
-                                      id: path11
-                                      stroke: rgb(156, 163, 113)
-                                      stroke-width: 5
-                                      tag: path
-                                      vector-effect: non-scaling-stroke
-                                      visible: "=@props.itemCarBatteryPower || @props.itemCarBatteryEnergy ? true :
-                                        false"
-                                  - component: f7-row
-                                    config:
-                                      fill: rgb(156, 163, 113)
-                                      r: 1
-                                      tag: circle
-                                      vectorEffect: non-scaling-stroke
-                                      visible: "=((Number.parseFloat(items[props.itemCarBatteryPower].state) > 0 )) ?
-                                        true : false"
-                                    slots:
-                                      default:
-                                        - component: f7-row
-                                          config:
-                                            calcMode: linear
-                                            dur: 7s
-                                            repeatCount: indefinite
-                                            tag: animateMotion
-                                          slots:
-                                            default:
-                                              - component: f7-row
-                                                config:
-                                                  tag: mpath
-                                                  xlink:href: "#path11"
-          - component: f7-row
-            config:
-              style:
-                disply: flex
-                justify-content: center
-            slots:
-              default:
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 150px
-                  slots:
-                    default:
-                      - component: f7-block
-                        config:
-                          style:
-                            align-items: center
-                            border: solid
-                            border-color: "=props.tilesBorderColor ? props.tilesBorderColor :
-                              (themeOptions.dark === 'dark' ? '#c95826' :
-                              '#c95826')"
-                            border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' :
-                              '20px'"
-                            border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
-                            display: flex
-                            flex-direction: column
-                            height: 150px
-                            justify-content: center
-                            margin: 0
-                            width: 150px
-                          visible: "=@props.itemGardenWaterConsumption ? true : false"
-                        slots:
-                          default:
-                            - component: oh-icon
-                              config:
-                                color: rgb(91, 148, 240)
-                                height: 40px
-                                icon: if:mdi:flower
-                            - component: Label
-                              config:
-                                text: = @props.itemGardenWaterConsumption
-                                visible: true
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 70px
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 150px
-                  slots:
-                    default:
-                      - component: f7-block
-                        config:
-                          style:
-                            align-items: center
-                            border: solid
-                            border-color: "=props.tilesBorderColor ? props.tilesBorderColor :
-                              (themeOptions.dark === 'dark' ? '#c95826' :
-                              '#c95826')"
-                            border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' :
-                              '20px'"
-                            border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
-                            display: flex
-                            flex-direction: column
-                            height: 150px
-                            justify-content: center
-                            margin: 0
-                            width: 150px
-                          visible: true
-                        slots:
-                          default:
-                            - component: oh-icon
-                              config:
-                                color: rgb(229, 203, 99)
-                                height: 40px
-                                icon: if:mdi:home
-                            - component: oh-link
-                              config:
-                                iconColor: purple
-                                iconF7: "=(props.itemConsumptionFromGridPower) ?
-                                  'arrow_2_circlepath_circle_fill' : ''"
-                                iconSize: 20px
-                                text: = @props.itemHomeConsumptionPower
-                                text-color: "=props.headerTextColor ? props.headerTextColor : (themeOptions.dark
-                                  === 'dark' ? 'white' : 'black')"
-                                visible: true
-                            - component: Label
-                              config:
-                                style:
-                                  white-space: nowrap
-                                text: = @props.itemHomeConsumptionEnergy
-                                visible: true
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 70px
-                  slots:
-                    default:
-                      - component: f7-block
-                        config:
-                          style:
-                            height: 155px
-                            margin: 0
-                            padding: 0
-                          visible: true
-                        slots:
-                          default:
-                            - component: f7-col
-                              config:
-                                preserveAspectRatio: xMidYMid slice
-                                style:
-                                  height: 100%
-                                tag: svg
-                                viewBox: 0 0 100 100
-                                xmlns: http://www.w3.org/2000/svg
-                              slots:
-                                default:
-                                  - component: f7-row
-                                    config:
-                                      d: M45,50 h-150
-                                      fill: none
-                                      id: path1
-                                      stroke: rgb(156, 163, 113)
-                                      stroke-width: 5
-                                      tag: path
-                                      vector-effect: non-scaling-stroke
-                                      visible: "=@props.itemSolarProductionPower || @props.itemSolarProductionEnergy
-                                        || @props.itemSolarOwnConsumption ? true
-                                        : false"
-                                  - component: f7-row
-                                    config:
-                                      fill: rgb(156, 163, 113)
-                                      r: 5
-                                      tag: circle
-                                      vectorEffect: non-scaling-stroke
-                                      visible: "=((Number.parseFloat(items[props.itemSolarProductionPower].state) > 0
-                                        )) ? true : false"
-                                    slots:
-                                      default:
-                                        - component: f7-row
-                                          config:
-                                            calcMode: linear
-                                            dur: 3s
-                                            repeatCount: indefinite
-                                            tag: animateMotion
-                                          slots:
-                                            default:
-                                              - component: f7-row
-                                                config:
-                                                  tag: mpath
-                                                  xlink:href: "#path1"
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 150px
-                  slots:
-                    default:
-                      - component: f7-block
-                        config:
-                          style:
-                            align-items: center
-                            border: solid
-                            border-color: "=props.tilesBorderColor ? props.tilesBorderColor :
-                              (themeOptions.dark === 'dark' ? '#c95826' :
-                              '#c95826')"
-                            border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' :
-                              '20px'"
-                            border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
-                            display: flex
-                            flex-direction: column
-                            height: 150px
-                            justify-content: center
-                            margin: 0
-                            width: 150px
-                          visible: "=@props.itemSolarProductionPower || @props.itemSolarProductionEnergy
-                            || @props.itemSolarOwnConsumption ? true : false"
-                        slots:
-                          default:
-                            - component: oh-icon
-                              config:
-                                color: rgb(156, 163, 113)
-                                height: 40px
-                                icon: if:mdi:solar-power
-                            - component: oh-link
-                              config:
-                                iconColor: purple
-                                iconF7: "=@props.itemSolarProductionPower || @props.itemSolarProductionEnergy ||
-                                  @props.itemSolarOwnConsumption ?
-                                  'arrowtriangle_down_fill' : ''"
-                                iconSize: 20px
-                                text: = @props.itemSolarProductionPower
-                                text-color: "=props.headerTextColor ? props.headerTextColor : (themeOptions.dark
-                                  === 'dark' ? 'white' : 'black')"
-                                visible: true
-                            - component: Label
-                              config:
-                                style:
-                                  white-space: nowrap
-                                text: = @props.itemSolarProductionEnergy
-                                visible: true
-                            - component: Label
-                              config:
-                                style:
-                                  white-space: nowrap
-                                text: = @props.itemSolarOwnConsumption
-                                visible: true
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 70px
-                  slots:
-                    default:
-                      - component: f7-block
-                        config:
-                          style:
-                            height: 150px
-                            margin: 0
-                            padding: 0
-                          visible: true
-                        slots:
-                          default:
-                            - component: f7-col
-                              config:
-                                preserveAspectRatio: xMidYMid slice
-                                style: height:100%
-                                tag: svg
-                                viewBox: 0 0 100 100
-                                xmlns: http://www.w3.org/2000/svg
-                              slots:
-                                default:
-                                  - component: f7-row
-                                    config:
-                                      d: M0,50 H47
-                                      fill: none
-                                      id: path2
-                                      stroke: rgb(156, 163, 113)
-                                      stroke-width: 5
-                                      tag: path
-                                      vector-effect: non-scaling-stroke
-                                      visible: "=@props.itemCarBatteryPower || @props.itemCarBatteryEnergy ? true :
-                                        false"
-                                  - component: f7-row
-                                    config:
-                                      fill: rgb(156, 163, 113)
-                                      r: 5
-                                      tag: circle
-                                      vectorEffect: non-scaling-stroke
-                                      visible: "=((Number.parseFloat(items[props.itemCarBatteryPower].state) > 0 )) ?
-                                        true : false"
-                                    slots:
-                                      default:
-                                        - component: f7-row
-                                          config:
-                                            calcMode: linear
-                                            dur: 3s
-                                            repeatCount: indefinite
-                                            tag: animateMotion
-                                          slots:
-                                            default:
-                                              - component: f7-row
-                                                config:
-                                                  tag: mpath
-                                                  xlink:href: "#path2"
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 150px
-                  slots:
-                    default:
-                      - component: f7-block
-                        config:
-                          style:
-                            align-items: center
-                            border: solid
-                            border-color: "=props.tilesBorderColor ? props.tilesBorderColor :
-                              (themeOptions.dark === 'dark' ? '#c95826' :
-                              '#c95826')"
-                            border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' :
-                              '20px'"
-                            border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
-                            display: flex
-                            flex-direction: column
-                            height: 150px
-                            justify-content: center
-                            margin: 0
-                            width: 150px
-                          visible: "=@props.itemCarBatteryPower || @props.itemCarBatteryEnergy ? true :
-                            false"
-                        slots:
-                          default:
-                            - component: oh-icon
-                              config:
-                                color: rgb(156, 163, 113)
-                                height: 40px
-                                icon: if:mdi:wallbox
-                            - component: oh-link
-                              config:
-                                iconColor: purple
-                                iconF7: "=((Number.parseFloat(items[props.itemCarBatteryPower].state) < 0 )) ?
-                                  'arrowtriangle_down_fill' :
-                                  ((Number.parseFloat(items[props.itemCarBatter\
-                                  yPower].state) > 0 )) ?
-                                  'arrowtriangle_up_fill' : 'stop_fill'"
-                                iconSize: 20px
-                                text: = @props.itemCarBatteryPower
-                                text-color: "=props.headerTextColor ? props.headerTextColor : (themeOptions.dark
-                                  === 'dark' ? 'white' : 'black')"
-                                visible: true
-                            - component: Label
-                              config:
-                                style:
-                                  white-space: nowrap
-                                text: = @props.itemCarBatteryEnergy
-                                visible: true
-          - component: f7-row
-            config:
-              style:
-                disply: flex
-                justify-content: center
-            slots:
-              default:
-                - component: f7-col
-                  config:
-                    style:
-                      height: 70px
-                      width: 800px
-                  slots:
-                    default:
-                      - component: f7-block
-                        config:
-                          style:
-                            display: flex
-                            flex-direction: column
-                            margin: 0
-                            padding: 0
-                          visible: true
-                        slots:
-                          default:
-                            - component: f7-col
-                              config:
-                                preserveAspectRatio: xMidYMid slice
-                                style:
-                                  height: 70px
-                                  width: 100%
-                                tag: svg
-                                viewBox: 0 0 100 100
-                                xmlns: http://www.w3.org/2000/svg
-                              slots:
-                                default:
-                                  - component: f7-row
-                                    config:
-                                      d: M9,55 v-55
-                                      fill: none
-                                      id: path3
-                                      stroke: rgb(91, 148, 240)
-                                      stroke-width: 5
-                                      tag: path
-                                      vector-effect: non-scaling-stroke
-                                      visible: "=@props.itemWaterCisterneSoCPercent || @props.itemWaterCisterneSoC ?
-                                        true : false"
-                                  - component: f7-row
-                                    config:
-                                      fill: rgb(91, 148, 240)
-                                      r: 1
-                                      tag: circle
-                                      vectorEffect: non-scaling-stroke
-                                      visible: false
-                                    slots:
-                                      default:
-                                        - component: f7-row
-                                          config:
-                                            calcMode: linear
-                                            dur: 7s
-                                            repeatCount: indefinite
-                                            tag: animateMotion
-                                          slots:
-                                            default:
-                                              - component: f7-row
-                                                config:
-                                                  tag: mpath
-                                                  xlink:href: "#path3"
-                                  - component: f7-row
-                                    config:
-                                      d: M91,91 V-60
-                                      fill: none
-                                      id: path4
-                                      stroke: rgb(156, 163, 113)
-                                      stroke-width: 5
-                                      tag: path
-                                      vector-effect: non-scaling-stroke
-                                      visible: "=@props.itemCarBatterySOC && @props.itemCarBatteryPower ||
-                                        @props.itemCarBatteryEnergy ? true :
-                                        false"
-                                  - component: f7-row
-                                    config:
-                                      fill: rgb(156, 163, 113)
-                                      r: 1
-                                      tag: circle
-                                      vectorEffect: non-scaling-stroke
-                                      visible: "=((Number.parseFloat(items[props.itemCarBatteryPower].state) > 0 )) ?
-                                        true : false"
-                                    slots:
-                                      default:
-                                        - component: f7-row
-                                          config:
-                                            calcMode: linear
-                                            dur: 7s
-                                            repeatCount: indefinite
-                                            tag: animateMotion
-                                          slots:
-                                            default:
-                                              - component: f7-row
-                                                config:
-                                                  tag: mpath
-                                                  xlink:href: "#path4"
-                                  - component: f7-row
-                                    config:
-                                      d: "=((Number.parseFloat(items[props.itemSolarBatteryPower].state) > 0 )) ?
-                                        'M64,0 V64' : 'M64,64 V-20'"
-                                      fill: none
-                                      id: path5
-                                      stroke: rgb(156, 163, 113)
-                                      stroke-width: 5
-                                      tag: path
-                                      vector-effect: non-scaling-stroke
-                                      visible: =@props.itemSolarBatteryPower || @props.itemSolarBatterySOC ? true
-                                        :false
-                                  - component: f7-row
-                                    config:
-                                      fill: rgb(156, 163, 113)
-                                      r: 1
-                                      tag: circle
-                                      vectorEffect: non-scaling-stroke
-                                      visible: "=((Number.parseFloat(items[props.itemSolarBatteryPower].state) != 0 ))
-                                        ? true : false"
-                                    slots:
-                                      default:
-                                        - component: f7-row
-                                          config:
-                                            calcMode: linear
-                                            dur: 5s
-                                            repeatCount: indefinite
-                                            tag: animateMotion
-                                          slots:
-                                            default:
-                                              - component: f7-row
-                                                config:
-                                                  tag: mpath
-                                                  xlink:href: "#path5"
-          - component: f7-row
-            config:
-              style:
-                disply: flex
-                justify-content: center
-            slots:
-              default:
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 150px
-                  slots:
-                    default:
-                      - component: f7-block
-                        config:
-                          style:
-                            align-items: center
-                            border: solid
-                            border-color: "=props.tilesBorderColor ? props.tilesBorderColor :
-                              (themeOptions.dark === 'dark' ? '#c95826' :
-                              '#c95826')"
-                            border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' :
-                              '20px'"
-                            border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
-                            display: flex
-                            flex-direction: column
-                            height: 150px
-                            justify-content: center
-                            margin: 0
-                            width: 150px
-                          visible: "=@props.itemWaterCisterneSoCPercent || @props.itemWaterCisterneSoC ?
-                            true : false"
-                        slots:
-                          default:
-                            - component: oh-icon
-                              config:
-                                color: rgb(91, 148, 240)
-                                height: 40px
-                                icon: if:game-icons:water-tank
-                            - component: Label
-                              config:
-                                style:
-                                  white-space: nowrap
-                                text: = @props.itemWaterCisterneSoCPercent
-                                visible: true
-                            - component: Label
-                              config:
-                                style:
-                                  white-space: nowrap
-                                text: = @props.itemWaterCisterneSoC
-                                visible: true
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 70px
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 150px
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 70px
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 150px
-                  slots:
-                    default:
-                      - component: f7-block
-                        config:
-                          style:
-                            align-items: center
-                            border: solid
-                            border-color: "=props.tilesBorderColor ? props.tilesBorderColor :
-                              (themeOptions.dark === 'dark' ? '#c95826' :
-                              '#c95826')"
-                            border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' :
-                              '20px'"
-                            border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
-                            display: flex
-                            flex-direction: column
-                            height: 150px
-                            justify-content: center
-                            margin: 0
-                            width: 150px
-                          visible: "=@props.itemSolarBatteryPower || @props.itemSolarBatterySOC ? true :
-                            false"
-                        slots:
-                          default:
-                            - component: oh-icon
-                              config:
-                                color: rgb(156, 163, 113)
-                                height: 40px
-                                icon: if:mdi:battery-charging
-                            - component: oh-link
-                              config:
-                                iconColor: purple
-                                iconF7: "=((Number.parseFloat(items[props.itemSolarBatteryPower].state) > 0 )) ?
-                                  'arrowtriangle_down_fill' :
-                                  ((Number.parseFloat(items[props.itemSolarBatt\
-                                  eryPower].state) < 0 )) ?
-                                  'arrowtriangle_up_fill' : 'stop_fill'"
-                                iconSize: 20px
-                                text: = @props.itemSolarBatteryPower
-                                text-color: "=props.headerTextColor ? props.headerTextColor : (themeOptions.dark
-                                  === 'dark' ? 'white' : 'black')"
-                                visible: true
-                            - component: Label
-                              config:
-                                style:
-                                  white-space: nowrap
-                                text: = @props.itemSolarBatterySOC
-                                visible: true
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 70px
-                - component: f7-col
-                  config:
-                    style:
-                      height: 150px
-                      width: 150px
-                  slots:
-                    default:
-                      - component: f7-block
-                        config:
-                          style:
-                            align-items: center
-                            border: solid
-                            border-color: "=props.tilesBorderColor ? props.tilesBorderColor :
-                              (themeOptions.dark === 'dark' ? '#c95826' :
-                              '#c95826')"
-                            border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' :
-                              '20px'"
-                            border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
-                            display: flex
-                            flex-direction: column
-                            height: 150px
-                            justify-content: center
-                            margin: 0
-                            width: 150px
-                          visible: "=@props.itemCarBatterySOC ? true : false"
-                        slots:
-                          default:
-                            - component: oh-icon
-                              config:
-                                color: rgb(156, 163, 113)
-                                height: 40px
-                                icon: if:mdi:car-electric
-                            - component: Label
-                              config:
-                                style:
-                                  white-space: nowrap
-                                text: = @props.itemCarBatterySOC
-                                visible: true
-    - component: f7-card-footer
-      config:
-        style:
-          --f7-card-footer-border-color: transparent
-          --f7-card-footer-font-size: "=props.footerTextSize ? (props.footerTextSize) + 'px' : '16px'"
-          --f7-card-footer-font-weight: 500
-          --f7-card-footer-min-height: "=props.footerShow == 'true' ? '20px' : '0px'"
-          --f7-card-footer-text-color: "=props.footerTextColor ? props.footerTextColor :
-            (themeOptions.dark === 'dark' ? 'white' : 'black')"
-          margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' :
-            (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
-      slots:
-        default:
-          - component: Label
-            config:
-              text: "=props.footerText ? props.footerText : 'Footer'"
-              visible: "=props.footerShow ? props.footerShow : props.footerShow"
+version: 1
+widgets:
+  Card_Template_Home_Consumption:
+    tags:
+      - Card Template Home Consumption
+      - Customizable Template
+      - Version 0.4
+      - ScrewPlate
+    props:
+      parameters:
+        - description: "Input without 'px' (Default: none)"
+          label: Card Height
+          name: cardHeight
+          required: false
+          type: TEXT
+          groupName: cardGroup
+        - description: "Input without 'px' (Default: 20px)"
+          label: Card Border Radius
+          name: cardBorderRadius
+          required: false
+          type: TEXT
+          groupName: cardGroup
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+          label: Card Border Color
+          name: cardBorderColor
+          required: false
+          type: TEXT
+          groupName: cardGroup
+        - description: "Input without 'px' (Default: 3px)"
+          label: Card Border Size
+          name: cardBorderSize
+          required: false
+          type: TEXT
+          groupName: cardGroup
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+          label: Card Background Color
+          name: cardBgColor
+          required: false
+          type: TEXT
+          groupName: cardGroup
+        - default: false
+          label: Card Background Image - Show on Card
+          name: cardBgImageShow
+          required: false
+          type: BOOLEAN
+          groupName: cardGroup
+        - description: Input file name for Background Image (uploaded to /html/ folder)
+          label: Card Background Image
+          name: cardBgImage
+          required: false
+          type: TEXT
+          groupName: cardGroup
+        - default: false
+          label: Icon - Show on Card
+          name: iconShow
+          required: false
+          type: BOOLEAN
+          groupName: iconGroup
+        - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon), material:iconName (Material icon) or iconify:iconSet:iconName
+          label: Icon
+          name: iconName
+          required: false
+          type: TEXT
+          groupName: iconGroup
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+          label: Icon Color
+          name: iconColor
+          required: false
+          type: TEXT
+          groupName: iconGroup
+        - description: "Input without 'px' (Default: 30px)"
+          label: Icon  Size
+          name: iconSize
+          required: false
+          type: TEXT
+          groupName: iconGroup
+        - default: false
+          label: Header - Show on Card
+          name: headerShow
+          required: false
+          type: BOOLEAN
+          groupName: headerGroup
+        - description: Input Text to diplay on Header
+          label: Header
+          name: headerText
+          required: false
+          type: TEXT
+          groupName: headerGroup
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+          label: Header Text Color
+          name: headerTextColor
+          required: false
+          type: TEXT
+          groupName: headerGroup
+        - description: "Input without 'px' (Default: 25px)"
+          label: Header Text Size
+          name: headerTextSize
+          required: false
+          type: TEXT
+          groupName: headerGroup
+        - default: false
+          label: Footer - Show on Card
+          name: footerShow
+          required: false
+          type: BOOLEAN
+          groupName: footerGroup
+        - description: Input Text to diplay on Footer
+          label: Footer
+          name: footerText
+          required: false
+          type: TEXT
+          groupName: footerGroup
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+          label: Footer Text Color
+          name: footerTextColor
+          required: false
+          type: TEXT
+          groupName: footerGroup
+        - description: "Input without 'px' (Default: 16px)"
+          label: Footer Text Size
+          name: footerTextSize
+          required: false
+          type: TEXT
+          groupName: footerGroup
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+          label: Content Text Color
+          name: contentTextColor
+          required: false
+          type: TEXT
+          groupName: contentGroup
+        - description: "Input without 'px' (Default: 18px)"
+          label: Content Text Size
+          name: contentTextSize
+          required: false
+          type: TEXT
+          groupName: contentGroup
+        - description: "Input without 'px' (Default: 30px)"
+          label: Content Icon Size
+          name: contentIconSize
+          required: false
+          type: TEXT
+          groupName: contentGroup
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+          label: Content Icon Color
+          name: contentIconColor
+          required: false
+          type: TEXT
+          groupName: contentGroup
+        - description: "Input without 'px' (Default: 20px)"
+          label: Tiles Border Radius
+          name: tilesBorderRadius
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
+          label: Tiles Border Color
+          name: tilesBorderColor
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - description: "Input without 'px' (Default: 3px)"
+          label: Tiles Border Size
+          name: tilesBorderSize
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Consumption from Grid - Power (current Watt) (Consumption)
+          label: Consumption from Grid Item - Power (current Watt) (Consumption)
+          name: itemConsumptionFromGridPower
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Consumption from Grid - Energy (kWh per Day) (Consumption)
+          label: Consumption from Grid Item - Energy (kWh per Day) (Consumption)
+          name: itemConsumptionFromGridEnergy
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Price Level from Grid
+          label: Price Level from Grid
+          name: itemConsumptionFromGridPriceLevel
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Production to Grid - Power (current Watt) (Surplus feed-in)
+          label: Production to Grid Item - Power (current Watt) (Surplus feed-in)
+          name: itemProductionToGridPower
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Production to Grid - Energy (kWh per Day) (Surplus feed-in)
+          label: Production to Grid Item - Energy (kWh per Day) (Surplus feed-in)
+          name: itemProductionToGridEnergy
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Solar Production - Power (current Watt) (Production)
+          label: Solar Production - Power (current Watt) (Production)
+          name: itemSolarProductionPower
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Solar Production - Energy (kWh per Day) (Production)
+          label: Solar Production - Energy (kWh per Day) (Production)
+          name: itemSolarProductionEnergy
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Solar Own Consumption -  (% per Day) (Own Consumption)
+          label: Solar Own Consumption -  (% per Day) (Own Consumption)
+          name: itemSolarOwnConsumption
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Solar Battery - Power (Load/Decharge)
+          label: Solar Battery - Power (Load/Decharge)
+          name: itemSolarBatteryPower
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Solar Battery - SOC (State of charge)
+          label: Solar Battery - SOC (State of charge)
+          name: itemSolarBatterySOC
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Home Consumption - Power (current Watt)
+          label: Home Consumption - Power (current Watt)
+          name: itemHomeConsumptionPower
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Home Consumption - Energy (kWh per Day)
+          label: Home Consumption - Energy (kWh per Day)
+          name: itemHomeConsumptionEnergy
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Car Battery - Power (Load/Decharge)
+          label: Car Battery - Power (Load/Decharge)
+          name: itemCarBatteryPower
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Car Battery - Energy (kWh)
+          label: Car Battery - Energy (kWh)
+          name: itemCarBatteryEnergy
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Car Battery - SOC (State of charge)
+          label: Car Battery - SOC (State of charge)
+          name: itemCarBatterySOC
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Main Gas Consumption - (m³ per Day)
+          label: Main Gas Consumption - (m³ per Day)
+          name: itemMainGasConsumption
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Main Water Consumption - (m³ per Day)
+          label: Main Water Consumption - (m³ per Day)
+          name: itemMainWaterConsumption
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Garden Water Consumption - (m³ per Day)
+          label: Garden Water Consumption - (m³ per Day)
+          name: itemGardenWaterConsumption
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Water Cisterne SoC (liter)
+          label: Water Cisterne SoC (liter)
+          name: itemWaterCisterneSoC
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - context: item
+          description: Water Cisterne SoC (%)
+          label: Water Cisterne SoC (%)
+          name: itemWaterCisterneSoCPercent
+          required: false
+          type: TEXT
+          groupName: customGroup
+      parameterGroups:
+        - name: cardGroup
+          label: Card Settings
+          description: All settings to customize the card layout
+        - name: iconGroup
+          label: Icon Settings
+          description: All settings to customize the icon
+        - name: headerGroup
+          label: Header Settings
+          description: All settings to customize the header area
+        - name: footerGroup
+          label: Footer Settings
+          description: All settings to customize the content area
+        - name: contentGroup
+          label: Content Settings
+          description: All settings to customize the content area
+        - name: customGroup
+          label: Custom Settings
+          description: All settings to customize the custom objects
+    component: f7-card
+    config:
+      style:
+        --f7-card-bg-color: "=props.cardBgColor ? props.cardBgColor : (themeOptions.dark === 'dark' ? '#232324' : 'white')"
+        --f7-card-border-radius: "=props.cardBorderRadius ? props.cardBorderRadius + 'px' : '20px'"
+        --f7-card-margin-horizontal: 4px
+        --f7-card-margin-vertical: 4px
+        --f7-card-outline-border-color: "=props.cardBorderColor ? props.cardBorderColor : '#c95826'"
+        background-color: var(--f7-card-bg-color)
+        background-image: "=props.cardBgImageShow && props.cardBgImage ? 'linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url(/static/' + props.cardBgImage + ')' : ''"
+        border: "=props.cardBorderSize ? props.cardBorderSize + 'px solid var(--f7-card-outline-border-color)' : '3px solid var(--f7-card-outline-border-color)'"
+        color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+        font-size: "=props.contentTextSize ? props.contentTextSize + 'px' : '18px'"
+    slots:
+      default:
+        - component: f7-card-header
+          config:
+            style:
+              --f7-card-header-border-color: transparent
+              --f7-card-header-font-size: "=props.headerTextSize ? (props.headerTextSize) + 'px' : '25px'"
+              --f7-card-header-font-weight: 800
+              --f7-card-header-min-height: "=props.headerShow == 'true' ? '35px' : '0px'"
+              --f7-card-header-text-color: "=props.headerTextColor ? props.headerTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+              justify-content: flex-start
+              margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' : (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
+              padding-bottom: 0px
+          slots:
+            default:
+              - component: oh-icon
+                config:
+                  icon: "=props.iconName ? props.iconName : 'f7:house'"
+                  style:
+                    color: "=props.iconColor ? props.iconColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+                    padding-right: 10px
+                  visible: "=props.iconShow ? props.iconShow : props.iconShow"
+                  width: "=props.iconSize ? (props.iconSize) + 'px' : '30px'"
+              - component: Label
+                config:
+                  text: "=props.headerText ? props.headerText : 'Header'"
+                  visible: "=props.headerShow ? props.headerShow : props.headerShow"
+        - component: f7-card-content
+          config:
+            style:
+              align-items: center
+              display: flex
+              flex-direction: column
+              height: "=props.cardHeight ? (props.cardHeight) + 'px' : ''"
+              justify-content: center
+              margin-bottom: -15px
+              margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' : (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
+              margin-top: -15px
+              text-align: center
+          slots:
+            default:
+              - component: f7-row
+                config:
+                  style:
+                    disply: flex
+                    justify-content: center
+                slots:
+                  default:
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 150px
+                      slots:
+                        default:
+                          - component: f7-block
+                            config:
+                              style:
+                                align-items: center
+                                border: solid
+                                border-color: "=props.tilesBorderColor ? props.tilesBorderColor : (themeOptions.dark === 'dark' ? '#c95826' : '#c95826')"
+                                border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' : '20px'"
+                                border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
+                                display: flex
+                                flex-direction: column
+                                height: 150px
+                                justify-content: center
+                                margin: 0
+                                width: 150px
+                              visible: "=@props.itemMainWaterConsumption ? true : false"
+                            slots:
+                              default:
+                                - component: oh-icon
+                                  config:
+                                    color: rgb(91, 148, 240)
+                                    height: 40px
+                                    icon: if:mdi:water
+                                - component: Label
+                                  config:
+                                    style:
+                                      white-space: nowrap
+                                    text: = @props.itemMainWaterConsumption
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 70px
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 150px
+                      slots:
+                        default:
+                          - component: f7-block
+                            config:
+                              style:
+                                align-items: center
+                                border: solid
+                                border-color: "=props.tilesBorderColor ? props.tilesBorderColor : (themeOptions.dark === 'dark' ? '#c95826' : '#c95826')"
+                                border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' : '20px'"
+                                border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
+                                display: flex
+                                flex-direction: column
+                                height: 150px
+                                justify-content: center
+                                margin: 0
+                                width: 150px
+                              visible: "=@props.itemMainGasConsumption ? true : false"
+                            slots:
+                              default:
+                                - component: oh-icon
+                                  config:
+                                    color: rgb(204, 55, 43)
+                                    height: 40px
+                                    icon: "=(props.itemMainGasConsumption) ? 'if:mdi:fire' : 'if:mdi:fire'"
+                                - component: Label
+                                  config:
+                                    text: = @props.itemMainGasConsumption
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 70px
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 150px
+                      slots:
+                        default:
+                          - component: f7-block
+                            config:
+                              style:
+                                align-items: center
+                                border: solid
+                                border-color: "=props.tilesBorderColor ? props.tilesBorderColor : (themeOptions.dark === 'dark' ? '#c95826' : '#c95826')"
+                                border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' : '20px'"
+                                border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
+                                display: flex
+                                flex-direction: column
+                                height: 150px
+                                justify-content: center
+                                margin: 0
+                                width: 150px
+                              visible: "=@props.itemConsumptionFromGridPower || @props.itemConsumptionFromGridEnergy || @props.itemProductionToGridPower || @props.itemProductionToGridEnergy ? true : false"
+                            slots:
+                              default:
+                                - component: oh-icon
+                                  config:
+                                    color: rgb(156, 163, 113)
+                                    height: 40px
+                                    icon: if:mdi:transmission-tower
+                                - component: oh-link
+                                  config:
+                                    iconColor: purple
+                                    iconF7: "=(props.itemProductionToGridPower) ? 'arrowtriangle_up_fill' : ''"
+                                    iconSize: 20px
+                                    text: "=((Number.parseFloat(@props.itemProductionToGridPower) > 0) ? '' : '') + @props.itemProductionToGridPower"
+                                    text-color: "=props.headerTextColor ? props.headerTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+                                    visible: true
+                                - component: Label
+                                  config:
+                                    text: = @props.itemProductionToGridEnergy
+                                    visible: true
+                                - component: oh-link
+                                  config:
+                                    iconColor: purple
+                                    iconF7: "=(props.itemConsumptionFromGridPower) ? 'arrowtriangle_down_fill' : ''"
+                                    iconSize: 20px
+                                    text: = @props.itemConsumptionFromGridPower
+                                    text-color: "=props.headerTextColor ? props.headerTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+                                    visible: true
+                                - component: Label
+                                  config:
+                                    text: = @props.itemConsumptionFromGridEnergy
+                                    visible: true
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 70px
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 150px
+                      slots:
+                        default:
+                          - component: f7-block
+                            config:
+                              style:
+                                align-items: center
+                                border: solid
+                                border-color: "=props.tilesBorderColor ? props.tilesBorderColor : (themeOptions.dark === 'dark' ? '#c95826' : '#c95826')"
+                                border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' : '20px'"
+                                border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
+                                display: flex
+                                flex-direction: column
+                                height: 150px
+                                justify-content: center
+                                margin: 0
+                                width: 150px
+                              visible: "=@props.itemConsumptionFromGridPriceLevel ? true : false"
+                            slots:
+                              default:
+                                - component: oh-icon
+                                  config:
+                                    color: "=items[props.itemConsumptionFromGridPriceLevel].state == 0 ? 'rgb(221, 204, 107)' : items[props.itemConsumptionFromGridPriceLevel].state > 0 ? 'rgb(204, 55, 43)' : items[props.itemConsumptionFromGridPriceLevel].state < 0 ? 'rgb(158, 162, 116)' : 'rgb(0, 0, 0)'"
+                                    height: 45px
+                                    icon: "=(props.itemConsumptionFromGridPriceLevel) ? 'if:streamline-freehand:advertising-money-idea' : 'if:streamline-freehand:advertising-money-idea'"
+                                - component: Label
+                                  config:
+                                    text: = @props.itemConsumptionFromGridPriceLevel
+              - component: f7-row
+                config:
+                  style:
+                    disply: flex
+                    justify-content: center
+                slots:
+                  default:
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 70px
+                          width: 800px
+                      slots:
+                        default:
+                          - component: f7-block
+                            config:
+                              style:
+                                display: flex
+                                flex-direction: column
+                                margin: 0
+                                padding: 0
+                              visible: true
+                            slots:
+                              default:
+                                - component: f7-col
+                                  config:
+                                    preserveAspectRatio: xMidYMid slice
+                                    style:
+                                      height: 70px
+                                      width: 100%
+                                    tag: svg
+                                    viewBox: 0 0 100 100
+                                    xmlns: http://www.w3.org/2000/svg
+                                  slots:
+                                    default:
+                                      - component: f7-row
+                                        config:
+                                          d: M9,0 V60
+                                          fill: none
+                                          id: path6
+                                          stroke: rgb(91, 148, 240)
+                                          stroke-width: 5
+                                          tag: path
+                                          vector-effect: non-scaling-stroke
+                                          visible: "=@props.itemGardenWaterConsumption ? true : false"
+                                      - component: f7-row
+                                        config:
+                                          fill: rgb(91, 148, 240)
+                                          r: 1
+                                          tag: circle
+                                          vectorEffect: non-scaling-stroke
+                                          visible: false
+                                        slots:
+                                          default:
+                                            - component: f7-row
+                                              config:
+                                                calcMode: linear
+                                                dur: 7s
+                                                repeatCount: indefinite
+                                                tag: animateMotion
+                                              slots:
+                                                default:
+                                                  - component: f7-row
+                                                    config:
+                                                      tag: mpath
+                                                      xlink:href: "#path6"
+                                      - component: f7-row
+                                        config:
+                                          d: M36,0 V60
+                                          fill: none
+                                          id: path7
+                                          stroke: rgb(204, 55, 43)
+                                          stroke-width: 5
+                                          tag: path
+                                          vector-effect: non-scaling-stroke
+                                          visible: "=@props.itemMainGasConsumption ? true : false"
+                                      - component: f7-row
+                                        config:
+                                          fill: rgb(204, 55, 43)
+                                          r: 1
+                                          tag: circle
+                                          vectorEffect: non-scaling-stroke
+                                          visible: false
+                                        slots:
+                                          default:
+                                            - component: f7-row
+                                              config:
+                                                calcMode: linear
+                                                dur: 7s
+                                                repeatCount: indefinite
+                                                tag: animateMotion
+                                              slots:
+                                                default:
+                                                  - component: f7-row
+                                                    config:
+                                                      tag: mpath
+                                                      xlink:href: "#path7"
+                                      - component: f7-row
+                                        config:
+                                          d: M64,64 V-60
+                                          fill: none
+                                          id: path8
+                                          stroke: rgb(156, 163, 113)
+                                          stroke-width: 5
+                                          tag: path
+                                          vector-effect: non-scaling-stroke
+                                          visible: "=@props.itemSolarProductionPower || @props.itemSolarProductionEnergy || @props.itemSolarOwnConsumption ? true : false"
+                                      - component: f7-row
+                                        config:
+                                          fill: rgb(156, 163, 113)
+                                          r: 1
+                                          tag: circle
+                                          vectorEffect: non-scaling-stroke
+                                          visible: "=((Number.parseFloat(items[props.itemProductionToGridPower].state) > 0 )) ? true : false"
+                                        slots:
+                                          default:
+                                            - component: f7-row
+                                              config:
+                                                calcMode: linear
+                                                dur: 7s
+                                                repeatCount: indefinite
+                                                tag: animateMotion
+                                              slots:
+                                                default:
+                                                  - component: f7-row
+                                                    config:
+                                                      tag: mpath
+                                                      xlink:href: "#path8"
+                                      - component: f7-row
+                                        config:
+                                          d: M9,0 V50 h25 v10
+                                          fill: none
+                                          id: path9
+                                          stroke: rgb(91, 148, 240)
+                                          stroke-width: 5
+                                          tag: path
+                                          vector-effect: non-scaling-stroke
+                                          visible: "=@props.itemMainWaterConsumption ? true : false"
+                                      - component: f7-row
+                                        config:
+                                          fill: rgb(91, 148, 240)
+                                          r: 1
+                                          tag: circle
+                                          vectorEffect: non-scaling-stroke
+                                          visible: false
+                                        slots:
+                                          default:
+                                            - component: f7-row
+                                              config:
+                                                calcMode: linear
+                                                dur: 7s
+                                                repeatCount: indefinite
+                                                tag: animateMotion
+                                              slots:
+                                                default:
+                                                  - component: f7-row
+                                                    config:
+                                                      tag: mpath
+                                                      xlink:href: "#path9"
+                                      - component: f7-row
+                                        config:
+                                          d: M64,0 V50 h-26 v10
+                                          fill: none
+                                          id: path10
+                                          stroke: rgb(156, 163, 113)
+                                          stroke-width: 5
+                                          tag: path
+                                          vector-effect: non-scaling-stroke
+                                          visible: "=@props.itemConsumptionFromGridPower || @props.itemConsumptionFromGridEnergy || @props.itemProductionToGridPower || @props.itemProductionToGridEnergy ? true : false"
+                                      - component: f7-row
+                                        config:
+                                          fill: rgb(156, 163, 113)
+                                          r: 1
+                                          tag: circle
+                                          vectorEffect: non-scaling-stroke
+                                          visible: "=((Number.parseFloat(items[props.itemConsumptionFromGridPower].state) > 0 )) ? true : false"
+                                        slots:
+                                          default:
+                                            - component: f7-row
+                                              config:
+                                                calcMode: linear
+                                                dur: 6s
+                                                repeatCount: indefinite
+                                                tag: animateMotion
+                                              slots:
+                                                default:
+                                                  - component: f7-row
+                                                    config:
+                                                      tag: mpath
+                                                      xlink:href: "#path10"
+                                      - component: f7-row
+                                        config:
+                                          d: M64,0 V50 h27 v10
+                                          fill: none
+                                          id: path11
+                                          stroke: rgb(156, 163, 113)
+                                          stroke-width: 5
+                                          tag: path
+                                          vector-effect: non-scaling-stroke
+                                          visible: "=@props.itemCarBatteryPower || @props.itemCarBatteryEnergy ? true : false"
+                                      - component: f7-row
+                                        config:
+                                          fill: rgb(156, 163, 113)
+                                          r: 1
+                                          tag: circle
+                                          vectorEffect: non-scaling-stroke
+                                          visible: "=((Number.parseFloat(items[props.itemCarBatteryPower].state) > 0 )) ? true : false"
+                                        slots:
+                                          default:
+                                            - component: f7-row
+                                              config:
+                                                calcMode: linear
+                                                dur: 7s
+                                                repeatCount: indefinite
+                                                tag: animateMotion
+                                              slots:
+                                                default:
+                                                  - component: f7-row
+                                                    config:
+                                                      tag: mpath
+                                                      xlink:href: "#path11"
+              - component: f7-row
+                config:
+                  style:
+                    disply: flex
+                    justify-content: center
+                slots:
+                  default:
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 150px
+                      slots:
+                        default:
+                          - component: f7-block
+                            config:
+                              style:
+                                align-items: center
+                                border: solid
+                                border-color: "=props.tilesBorderColor ? props.tilesBorderColor : (themeOptions.dark === 'dark' ? '#c95826' : '#c95826')"
+                                border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' : '20px'"
+                                border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
+                                display: flex
+                                flex-direction: column
+                                height: 150px
+                                justify-content: center
+                                margin: 0
+                                width: 150px
+                              visible: "=@props.itemGardenWaterConsumption ? true : false"
+                            slots:
+                              default:
+                                - component: oh-icon
+                                  config:
+                                    color: rgb(91, 148, 240)
+                                    height: 40px
+                                    icon: if:mdi:flower
+                                - component: Label
+                                  config:
+                                    text: = @props.itemGardenWaterConsumption
+                                    visible: true
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 70px
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 150px
+                      slots:
+                        default:
+                          - component: f7-block
+                            config:
+                              style:
+                                align-items: center
+                                border: solid
+                                border-color: "=props.tilesBorderColor ? props.tilesBorderColor : (themeOptions.dark === 'dark' ? '#c95826' : '#c95826')"
+                                border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' : '20px'"
+                                border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
+                                display: flex
+                                flex-direction: column
+                                height: 150px
+                                justify-content: center
+                                margin: 0
+                                width: 150px
+                              visible: true
+                            slots:
+                              default:
+                                - component: oh-icon
+                                  config:
+                                    color: rgb(229, 203, 99)
+                                    height: 40px
+                                    icon: if:mdi:home
+                                - component: oh-link
+                                  config:
+                                    iconColor: purple
+                                    iconF7: "=(props.itemConsumptionFromGridPower) ? 'arrow_2_circlepath_circle_fill' : ''"
+                                    iconSize: 20px
+                                    text: = @props.itemHomeConsumptionPower
+                                    text-color: "=props.headerTextColor ? props.headerTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+                                    visible: true
+                                - component: Label
+                                  config:
+                                    style:
+                                      white-space: nowrap
+                                    text: = @props.itemHomeConsumptionEnergy
+                                    visible: true
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 70px
+                      slots:
+                        default:
+                          - component: f7-block
+                            config:
+                              style:
+                                height: 155px
+                                margin: 0
+                                padding: 0
+                              visible: true
+                            slots:
+                              default:
+                                - component: f7-col
+                                  config:
+                                    preserveAspectRatio: xMidYMid slice
+                                    style:
+                                      height: 100%
+                                    tag: svg
+                                    viewBox: 0 0 100 100
+                                    xmlns: http://www.w3.org/2000/svg
+                                  slots:
+                                    default:
+                                      - component: f7-row
+                                        config:
+                                          d: M45,50 h-150
+                                          fill: none
+                                          id: path1
+                                          stroke: rgb(156, 163, 113)
+                                          stroke-width: 5
+                                          tag: path
+                                          vector-effect: non-scaling-stroke
+                                          visible: "=@props.itemSolarProductionPower || @props.itemSolarProductionEnergy || @props.itemSolarOwnConsumption ? true : false"
+                                      - component: f7-row
+                                        config:
+                                          fill: rgb(156, 163, 113)
+                                          r: 5
+                                          tag: circle
+                                          vectorEffect: non-scaling-stroke
+                                          visible: "=((Number.parseFloat(items[props.itemSolarProductionPower].state) > 0 )) ? true : false"
+                                        slots:
+                                          default:
+                                            - component: f7-row
+                                              config:
+                                                calcMode: linear
+                                                dur: 3s
+                                                repeatCount: indefinite
+                                                tag: animateMotion
+                                              slots:
+                                                default:
+                                                  - component: f7-row
+                                                    config:
+                                                      tag: mpath
+                                                      xlink:href: "#path1"
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 150px
+                      slots:
+                        default:
+                          - component: f7-block
+                            config:
+                              style:
+                                align-items: center
+                                border: solid
+                                border-color: "=props.tilesBorderColor ? props.tilesBorderColor : (themeOptions.dark === 'dark' ? '#c95826' : '#c95826')"
+                                border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' : '20px'"
+                                border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
+                                display: flex
+                                flex-direction: column
+                                height: 150px
+                                justify-content: center
+                                margin: 0
+                                width: 150px
+                              visible: "=@props.itemSolarProductionPower || @props.itemSolarProductionEnergy || @props.itemSolarOwnConsumption ? true : false"
+                            slots:
+                              default:
+                                - component: oh-icon
+                                  config:
+                                    color: rgb(156, 163, 113)
+                                    height: 40px
+                                    icon: if:mdi:solar-power
+                                - component: oh-link
+                                  config:
+                                    iconColor: purple
+                                    iconF7: "=@props.itemSolarProductionPower || @props.itemSolarProductionEnergy || @props.itemSolarOwnConsumption ? 'arrowtriangle_down_fill' : ''"
+                                    iconSize: 20px
+                                    text: = @props.itemSolarProductionPower
+                                    text-color: "=props.headerTextColor ? props.headerTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+                                    visible: true
+                                - component: Label
+                                  config:
+                                    style:
+                                      white-space: nowrap
+                                    text: = @props.itemSolarProductionEnergy
+                                    visible: true
+                                - component: Label
+                                  config:
+                                    style:
+                                      white-space: nowrap
+                                    text: = @props.itemSolarOwnConsumption
+                                    visible: true
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 70px
+                      slots:
+                        default:
+                          - component: f7-block
+                            config:
+                              style:
+                                height: 150px
+                                margin: 0
+                                padding: 0
+                              visible: true
+                            slots:
+                              default:
+                                - component: f7-col
+                                  config:
+                                    preserveAspectRatio: xMidYMid slice
+                                    style: height:100%
+                                    tag: svg
+                                    viewBox: 0 0 100 100
+                                    xmlns: http://www.w3.org/2000/svg
+                                  slots:
+                                    default:
+                                      - component: f7-row
+                                        config:
+                                          d: M0,50 H47
+                                          fill: none
+                                          id: path2
+                                          stroke: rgb(156, 163, 113)
+                                          stroke-width: 5
+                                          tag: path
+                                          vector-effect: non-scaling-stroke
+                                          visible: "=@props.itemCarBatteryPower || @props.itemCarBatteryEnergy ? true : false"
+                                      - component: f7-row
+                                        config:
+                                          fill: rgb(156, 163, 113)
+                                          r: 5
+                                          tag: circle
+                                          vectorEffect: non-scaling-stroke
+                                          visible: "=((Number.parseFloat(items[props.itemCarBatteryPower].state) > 0 )) ? true : false"
+                                        slots:
+                                          default:
+                                            - component: f7-row
+                                              config:
+                                                calcMode: linear
+                                                dur: 3s
+                                                repeatCount: indefinite
+                                                tag: animateMotion
+                                              slots:
+                                                default:
+                                                  - component: f7-row
+                                                    config:
+                                                      tag: mpath
+                                                      xlink:href: "#path2"
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 150px
+                      slots:
+                        default:
+                          - component: f7-block
+                            config:
+                              style:
+                                align-items: center
+                                border: solid
+                                border-color: "=props.tilesBorderColor ? props.tilesBorderColor : (themeOptions.dark === 'dark' ? '#c95826' : '#c95826')"
+                                border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' : '20px'"
+                                border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
+                                display: flex
+                                flex-direction: column
+                                height: 150px
+                                justify-content: center
+                                margin: 0
+                                width: 150px
+                              visible: "=@props.itemCarBatteryPower || @props.itemCarBatteryEnergy ? true : false"
+                            slots:
+                              default:
+                                - component: oh-icon
+                                  config:
+                                    color: rgb(156, 163, 113)
+                                    height: 40px
+                                    icon: if:mdi:wallbox
+                                - component: oh-link
+                                  config:
+                                    iconColor: purple
+                                    iconF7: "=((Number.parseFloat(items[props.itemCarBatteryPower].state) < 0 )) ? 'arrowtriangle_down_fill' : ((Number.parseFloat(items[props.itemCarBatteryPower].state) > 0 )) ? 'arrowtriangle_up_fill' : 'stop_fill'"
+                                    iconSize: 20px
+                                    text: = @props.itemCarBatteryPower
+                                    text-color: "=props.headerTextColor ? props.headerTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+                                    visible: true
+                                - component: Label
+                                  config:
+                                    style:
+                                      white-space: nowrap
+                                    text: = @props.itemCarBatteryEnergy
+                                    visible: true
+              - component: f7-row
+                config:
+                  style:
+                    disply: flex
+                    justify-content: center
+                slots:
+                  default:
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 70px
+                          width: 800px
+                      slots:
+                        default:
+                          - component: f7-block
+                            config:
+                              style:
+                                display: flex
+                                flex-direction: column
+                                margin: 0
+                                padding: 0
+                              visible: true
+                            slots:
+                              default:
+                                - component: f7-col
+                                  config:
+                                    preserveAspectRatio: xMidYMid slice
+                                    style:
+                                      height: 70px
+                                      width: 100%
+                                    tag: svg
+                                    viewBox: 0 0 100 100
+                                    xmlns: http://www.w3.org/2000/svg
+                                  slots:
+                                    default:
+                                      - component: f7-row
+                                        config:
+                                          d: M9,55 v-55
+                                          fill: none
+                                          id: path3
+                                          stroke: rgb(91, 148, 240)
+                                          stroke-width: 5
+                                          tag: path
+                                          vector-effect: non-scaling-stroke
+                                          visible: "=@props.itemWaterCisterneSoCPercent || @props.itemWaterCisterneSoC ? true : false"
+                                      - component: f7-row
+                                        config:
+                                          fill: rgb(91, 148, 240)
+                                          r: 1
+                                          tag: circle
+                                          vectorEffect: non-scaling-stroke
+                                          visible: false
+                                        slots:
+                                          default:
+                                            - component: f7-row
+                                              config:
+                                                calcMode: linear
+                                                dur: 7s
+                                                repeatCount: indefinite
+                                                tag: animateMotion
+                                              slots:
+                                                default:
+                                                  - component: f7-row
+                                                    config:
+                                                      tag: mpath
+                                                      xlink:href: "#path3"
+                                      - component: f7-row
+                                        config:
+                                          d: M91,91 V-60
+                                          fill: none
+                                          id: path4
+                                          stroke: rgb(156, 163, 113)
+                                          stroke-width: 5
+                                          tag: path
+                                          vector-effect: non-scaling-stroke
+                                          visible: "=@props.itemCarBatterySOC && @props.itemCarBatteryPower || @props.itemCarBatteryEnergy ? true : false"
+                                      - component: f7-row
+                                        config:
+                                          fill: rgb(156, 163, 113)
+                                          r: 1
+                                          tag: circle
+                                          vectorEffect: non-scaling-stroke
+                                          visible: "=((Number.parseFloat(items[props.itemCarBatteryPower].state) > 0 )) ? true : false"
+                                        slots:
+                                          default:
+                                            - component: f7-row
+                                              config:
+                                                calcMode: linear
+                                                dur: 7s
+                                                repeatCount: indefinite
+                                                tag: animateMotion
+                                              slots:
+                                                default:
+                                                  - component: f7-row
+                                                    config:
+                                                      tag: mpath
+                                                      xlink:href: "#path4"
+                                      - component: f7-row
+                                        config:
+                                          d: "=((Number.parseFloat(items[props.itemSolarBatteryPower].state) > 0 )) ? 'M64,0 V64' : 'M64,64 V-20'"
+                                          fill: none
+                                          id: path5
+                                          stroke: rgb(156, 163, 113)
+                                          stroke-width: 5
+                                          tag: path
+                                          vector-effect: non-scaling-stroke
+                                          visible: =@props.itemSolarBatteryPower || @props.itemSolarBatterySOC ? true :false
+                                      - component: f7-row
+                                        config:
+                                          fill: rgb(156, 163, 113)
+                                          r: 1
+                                          tag: circle
+                                          vectorEffect: non-scaling-stroke
+                                          visible: "=((Number.parseFloat(items[props.itemSolarBatteryPower].state) != 0 )) ? true : false"
+                                        slots:
+                                          default:
+                                            - component: f7-row
+                                              config:
+                                                calcMode: linear
+                                                dur: 5s
+                                                repeatCount: indefinite
+                                                tag: animateMotion
+                                              slots:
+                                                default:
+                                                  - component: f7-row
+                                                    config:
+                                                      tag: mpath
+                                                      xlink:href: "#path5"
+              - component: f7-row
+                config:
+                  style:
+                    disply: flex
+                    justify-content: center
+                slots:
+                  default:
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 150px
+                      slots:
+                        default:
+                          - component: f7-block
+                            config:
+                              style:
+                                align-items: center
+                                border: solid
+                                border-color: "=props.tilesBorderColor ? props.tilesBorderColor : (themeOptions.dark === 'dark' ? '#c95826' : '#c95826')"
+                                border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' : '20px'"
+                                border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
+                                display: flex
+                                flex-direction: column
+                                height: 150px
+                                justify-content: center
+                                margin: 0
+                                width: 150px
+                              visible: "=@props.itemWaterCisterneSoCPercent || @props.itemWaterCisterneSoC ? true : false"
+                            slots:
+                              default:
+                                - component: oh-icon
+                                  config:
+                                    color: rgb(91, 148, 240)
+                                    height: 40px
+                                    icon: if:game-icons:water-tank
+                                - component: Label
+                                  config:
+                                    style:
+                                      white-space: nowrap
+                                    text: = @props.itemWaterCisterneSoCPercent
+                                    visible: true
+                                - component: Label
+                                  config:
+                                    style:
+                                      white-space: nowrap
+                                    text: = @props.itemWaterCisterneSoC
+                                    visible: true
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 70px
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 150px
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 70px
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 150px
+                      slots:
+                        default:
+                          - component: f7-block
+                            config:
+                              style:
+                                align-items: center
+                                border: solid
+                                border-color: "=props.tilesBorderColor ? props.tilesBorderColor : (themeOptions.dark === 'dark' ? '#c95826' : '#c95826')"
+                                border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' : '20px'"
+                                border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
+                                display: flex
+                                flex-direction: column
+                                height: 150px
+                                justify-content: center
+                                margin: 0
+                                width: 150px
+                              visible: "=@props.itemSolarBatteryPower || @props.itemSolarBatterySOC ? true : false"
+                            slots:
+                              default:
+                                - component: oh-icon
+                                  config:
+                                    color: rgb(156, 163, 113)
+                                    height: 40px
+                                    icon: if:mdi:battery-charging
+                                - component: oh-link
+                                  config:
+                                    iconColor: purple
+                                    iconF7: "=((Number.parseFloat(items[props.itemSolarBatteryPower].state) > 0 )) ? 'arrowtriangle_down_fill' : ((Number.parseFloat(items[props.itemSolarBatteryPower].state) < 0 )) ? 'arrowtriangle_up_fill' : 'stop_fill'"
+                                    iconSize: 20px
+                                    text: = @props.itemSolarBatteryPower
+                                    text-color: "=props.headerTextColor ? props.headerTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+                                    visible: true
+                                - component: Label
+                                  config:
+                                    style:
+                                      white-space: nowrap
+                                    text: = @props.itemSolarBatterySOC
+                                    visible: true
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 70px
+                    - component: f7-col
+                      config:
+                        style:
+                          height: 150px
+                          width: 150px
+                      slots:
+                        default:
+                          - component: f7-block
+                            config:
+                              style:
+                                align-items: center
+                                border: solid
+                                border-color: "=props.tilesBorderColor ? props.tilesBorderColor : (themeOptions.dark === 'dark' ? '#c95826' : '#c95826')"
+                                border-radius: "=props.tilesBorderRadius ? (props.tilesBorderRadius) + 'px' : '20px'"
+                                border-width: "=props.tilesBorderSize ? (props.tilesBorderSize) + 'px' : '3px'"
+                                display: flex
+                                flex-direction: column
+                                height: 150px
+                                justify-content: center
+                                margin: 0
+                                width: 150px
+                              visible: "=@props.itemCarBatterySOC ? true : false"
+                            slots:
+                              default:
+                                - component: oh-icon
+                                  config:
+                                    color: rgb(156, 163, 113)
+                                    height: 40px
+                                    icon: if:mdi:car-electric
+                                - component: Label
+                                  config:
+                                    style:
+                                      white-space: nowrap
+                                    text: = @props.itemCarBatterySOC
+                                    visible: true
+        - component: f7-card-footer
+          config:
+            style:
+              --f7-card-footer-border-color: transparent
+              --f7-card-footer-font-size: "=props.footerTextSize ? (props.footerTextSize) + 'px' : '16px'"
+              --f7-card-footer-font-weight: 500
+              --f7-card-footer-min-height: "=props.footerShow == 'true' ? '20px' : '0px'"
+              --f7-card-footer-text-color: "=props.footerTextColor ? props.footerTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+              margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' : (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
+          slots:
+            default:
+              - component: Label
+                config:
+                  text: "=props.footerText ? props.footerText : 'Footer'"
+                  visible: "=props.footerShow ? props.footerShow : props.footerShow"

@@ -145,7 +145,6 @@ widgets:
           name: contentIconColor
           required: false
           type: TEXT
-          groupName: contentGroup
       parameterGroups:
         - name: cardGroup
           label: Card Settings
@@ -175,7 +174,7 @@ widgets:
         --f7-card-outline-border-color: "=props.cardBorderColor ? props.cardBorderColor : '#c95826'"
         background-color: var(--f7-card-bg-color)
         background-image: "=props.cardBgImageShow && props.cardBgImage ? 'linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url(/static/' + props.cardBgImage + ')' : ''"
-        border: "=props.cardBorderSize ? props.cardBorderSize + 'px solid var(--f7-card-outline-border-color)' : '6px solid var(--f7-card-outline-border-color)'"
+        border: "=props.cardBorderSize ? props.cardBorderSize + 'px solid var(--f7-card-outline-border-color)' : '3px solid var(--f7-card-outline-border-color)'"
         color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
         font-size: "=props.contentTextSize ? props.contentTextSize + 'px' : '18px'"
     slots:
@@ -215,15 +214,26 @@ widgets:
               margin-top: -10px
           slots:
             default:
-              - component: f7-block
+              - component: f7-list
                 config:
-                  style:
-                    margin-top: -10px
+                  simple-list: true
                 slots:
                   default:
-                    - component: Label
+                    - component: f7-list-item
                       config:
-                        text: The status or other things are displayed here later
+                        after: =items[props.item1].displayState || items[props.item1].state
+                        title: =items[props.item1].label
+                        visible: =!!props.item1
+                    - component: f7-list-item
+                      config:
+                        after: =items[props.item2].displayState || items[props.item2].state
+                        title: =items[props.item2].label
+                        visible: =!!props.item2
+                    - component: f7-list-item
+                      config:
+                        after: =items[props.item3].displayState || items[props.item3].state
+                        title: =items[props.item3].label
+                        visible: =!!props.item3
         - component: f7-card-footer
           config:
             style:

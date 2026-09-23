@@ -1,10 +1,10 @@
 version: 1
 widgets:
-  Card_Template_Weather:
+  Card_Template_Waste_Collection:
     tags:
-      - Card Template Weather
-      - Version 0.2
+      - Card Template Waste Collection
       - Customizable Template
+      - Version 0.4
       - ScrewPlate
     props:
       parameters:
@@ -20,7 +20,7 @@ widgets:
           required: false
           type: TEXT
           groupName: cardGroup
-        - description: "Input like '#FFFFFF' or 'red', 'yellow' etc."
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
           label: Card Border Color
           name: cardBorderColor
           required: false
@@ -32,7 +32,7 @@ widgets:
           required: false
           type: TEXT
           groupName: cardGroup
-        - description: "Input like '#FFFFFF' or 'red', 'yellow' etc."
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
           label: Card Background Color
           name: cardBgColor
           required: false
@@ -44,7 +44,7 @@ widgets:
           required: false
           type: BOOLEAN
           groupName: cardGroup
-        - description: "Input file name for Background Image (uploaded to /html/ folder)"
+        - description: Input file name for Background Image (uploaded to /html/ folder)
           label: Card Background Image
           name: cardBgImage
           required: false
@@ -56,13 +56,13 @@ widgets:
           required: false
           type: BOOLEAN
           groupName: iconGroup
-        - description: "Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon), material:iconName (Material icon) or iconify:iconSet:iconName"
+        - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon), material:iconName (Material icon) or iconify:iconSet:iconName
           label: Icon
           name: iconName
           required: false
           type: TEXT
           groupName: iconGroup
-        - description: "Input like '#FFFFFF' or 'red', 'yellow' etc."
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
           label: Icon Color
           name: iconColor
           required: false
@@ -80,13 +80,13 @@ widgets:
           required: false
           type: BOOLEAN
           groupName: headerGroup
-        - description: "Input Text to display on Header"
+        - description: Input Text to diplay on Header
           label: Header
           name: headerText
           required: false
           type: TEXT
           groupName: headerGroup
-        - description: "Input like '#FFFFFF' or 'red', 'yellow' etc."
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
           label: Header Text Color
           name: headerTextColor
           required: false
@@ -104,13 +104,13 @@ widgets:
           required: false
           type: BOOLEAN
           groupName: footerGroup
-        - description: "Input Text to display on Footer"
+        - description: Input Text to diplay on Footer
           label: Footer
           name: footerText
           required: false
           type: TEXT
           groupName: footerGroup
-        - description: "Input like '#FFFFFF' or 'red', 'yellow' etc."
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
           label: Footer Text Color
           name: footerTextColor
           required: false
@@ -122,7 +122,7 @@ widgets:
           required: false
           type: TEXT
           groupName: footerGroup
-        - description: "Input like '#FFFFFF' or 'red', 'yellow' etc."
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
           label: Content Text Color
           name: contentTextColor
           required: false
@@ -140,105 +140,82 @@ widgets:
           required: false
           type: TEXT
           groupName: contentGroup
-        - description: "Input like '#FFFFFF' or 'red', 'yellow' etc."
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
           label: Content Icon Color
           name: contentIconColor
           required: false
           type: TEXT
           groupName: contentGroup
-        - default: true
-          label: "Weather - current Situation - Show on Card"
-          name: itemWeatherSituationShow
-          required: false
-          type: BOOLEAN
-          groupName: customGroup
         - context: item
-          description: "Weather - current Situation"
-          name: itemWeatherSituation
+          description: Group Item for waste collection dates
+          label: Group for waste collection dates
+          name: itemGroupWasteCollection
+          required: true
+          type: TEXT
+          groupName: customGroup
+        - description: Input text value for today
+          label: "Text value for today (Default: today)"
+          name: itemGroupWasteCollectionToday
           required: false
           type: TEXT
           groupName: customGroup
-        - default: true
-          label: "Weather - current Temperature - Show on Card"
-          name: itemWeatherTemperatureShow
-          required: false
-          type: BOOLEAN
-          groupName: customGroup
-        - context: item
-          description: "Weather - current Temperature"
-          name: itemWeatherTemperature
+        - description: Input like 'red', 'yellow' etc.
+          label: Color for Badge for today
+          name: itemGroupWasteCollectionTodayColor
           required: false
           type: TEXT
           groupName: customGroup
-        - default: true
-          label: "Weather - current Humidity - Show on Card"
-          name: itemWeatherHumidityShow
-          required: false
-          type: BOOLEAN
-          groupName: customGroup
-        - context: item
-          description: "Weather - current Humidity"
-          name: itemWeatherHumidity
+        - description: Input text value for tomorrow
+          label: "Text value for tomorrow (Default: tomorrow)"
+          name: itemGroupWasteCollectionTomorrow
           required: false
           type: TEXT
           groupName: customGroup
-        - default: true
-          label: "Weather - current SunRise - Show on Card"
-          name: itemWeatherSunRiseShow
-          required: false
-          type: BOOLEAN
-          groupName: customGroup
-        - context: item
-          description: "Weather - current SunRise"
-          name: itemWeatherSunRise
+        - description: Input like 'red', 'yellow' etc.
+          label: Color for Badge for tomorrow
+          name: itemGroupWasteCollectionTomorrowColor
           required: false
           type: TEXT
           groupName: customGroup
-        - default: true
-          label: "Weather - current SunSet - Show on Card"
-          name: itemWeatherSunSetShow
-          required: false
-          type: BOOLEAN
-          groupName: customGroup
-        - context: item
-          description: "Weather - current SunSet"
-          name: itemWeatherSunSet
+        - description: Input like 'red', 'yellow' etc.
+          label: Text Color for Badge
+          name: badgeTextColor
           required: false
           type: TEXT
           groupName: customGroup
-        - default: true
-          label: "Weather - current Wind Speed - Show on Card"
-          name: itemWeatherWindSpeedShow
-          required: false
-          type: BOOLEAN
-          groupName: customGroup
-        - context: item
-          description: "Weather - current Wind Speed"
-          name: itemWeatherWindSpeed
+        - description: Input text to filter to paper waste to set color
+          label: Input text to filter to paper waste to set color
+          name: filterPaper
           required: false
           type: TEXT
           groupName: customGroup
-        - default: true
-          label: "Weather - current Wind Direction - Show on Card"
-          name: itemWeatherWindDirectionShow
-          required: false
-          type: BOOLEAN
-          groupName: customGroup
-        - context: item
-          description: "Weather - current Wind Direction"
-          name: itemWeatherWindDirection
+        - description: Input like 'red', 'yellow' etc.
+          label: Input color for paper waste
+          name: filterPaperColor
           required: false
           type: TEXT
           groupName: customGroup
-        - default: true
-          label: "Weather - current Luminosity - Show on Card"
-          name: itemWeatherLuminosityShow
+        - description: Input text to filter to residual waste to set color
+          label: Input text to filter to residual waste to set color
+          name: filterResidual
           required: false
-          type: BOOLEAN
+          type: TEXT
           groupName: customGroup
-        - context: item
-          description: "Weather - current Luminosity"
-          name: itemWeatherLuminosity
+        - description: Input like 'red', 'yellow' etc.
+          label: Input color for residual waste
+          name: filterResidualColor
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - description: Input text to filter to recycling waste to set color
+          label: Input text to filter to recycling waste to set color
+          name: filterRecycling
+          required: false
+          type: TEXT
+          groupName: customGroup
+        - description: Input like 'red', 'yellow' etc.
+          label: Input color for recycling waste
+          name: filterRecyclingColor
           required: false
           type: TEXT
           groupName: customGroup
@@ -265,24 +242,24 @@ widgets:
     config:
       style:
         --f7-card-bg-color: "=props.cardBgColor ? props.cardBgColor : (themeOptions.dark === 'dark' ? '#232324' : 'white')"
-        --f7-card-border-radius: "=props.cardBorderRadius ? (props.cardBorderRadius) + 'px' : '20px'"
+        --f7-card-border-radius: "=props.cardBorderRadius ? props.cardBorderRadius + 'px' : '20px'"
         --f7-card-margin-horizontal: 4px
         --f7-card-margin-vertical: 4px
         --f7-card-outline-border-color: "=props.cardBorderColor ? props.cardBorderColor : '#c95826'"
         background-color: var(--f7-card-bg-color)
-        background-image: "=props.cardBgImageShow == 'true' && props.cardBgImage ? 'url(/static/' + props.cardBgImage + ')' : 'none'"
-        border: "=props.cardBorderSize ? (props.cardBorderSize)+'px solid var(--f7-card-outline-border-color)' : '6px solid var(--f7-card-outline-border-color)'"
+        background-image: "=(props.cardBgImageShow === 'false' || !props.cardBgImageShow) ? '' : 'linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url(/static/' + props.cardBgImage + ')'"
+        border: "=props.cardBorderSize ? props.cardBorderSize + 'px solid var(--f7-card-outline-border-color)' : '3px solid var(--f7-card-outline-border-color)'"
         color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
-        font-size: "=props.contentTextSize ? (props.contentTextSize)+'px' : '18px'"
+        font-size: "=props.contentTextSize ? props.contentTextSize + 'px' : '18px'"
     slots:
       default:
         - component: f7-card-header
           config:
             style:
               --f7-card-header-border-color: transparent
-              --f7-card-header-font-size: "=props.headerTextSize ? (props.headerTextSize) + 'px' : '25px'"
+              --f7-card-header-font-size: "=props.headerTextSize ? props.headerTextSize + 'px' : '25px'"
               --f7-card-header-font-weight: 800
-              --f7-card-header-min-height: "=props.headerShow == 'true' ? '35px' : '0px'"
+              --f7-card-header-min-height: "=props.headerShow == 'true' || props.headerShow === true ? '35px' : '0px'"
               --f7-card-header-text-color: "=props.headerTextColor ? props.headerTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
               justify-content: flex-start
               margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' : (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
@@ -295,18 +272,18 @@ widgets:
                   style:
                     color: "=props.iconColor ? props.iconColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
                     padding-right: 10px
-                  visible: "=props.iconShow == true || props.iconShow == 'true'"
-                  width: "=props.iconSize ? (props.iconSize) + 'px' : '30px'"
+                  visible: =props.iconShow
+                  width: "=props.iconSize ? props.iconSize + 'px' : '30px'"
               - component: Label
                 config:
                   text: "=props.headerText ? props.headerText : 'Header'"
-                  visible: "=props.headerShow == true || props.headerShow == 'true'"
+                  visible: =props.headerShow
         - component: f7-card-content
           config:
             style:
               align-items: center
               display: flex
-              height: "=props.cardHeight ? (props.cardHeight) + 'px' : ''"
+              height: "=props.cardHeight ? props.cardHeight + 'px' : ''"
               justify-content: center
               margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' : (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
               margin-top: -10px
@@ -316,180 +293,54 @@ widgets:
                 config:
                   style:
                     margin-top: -10px
-                    text-align: center
                     width: 100%
                 slots:
                   default:
-                    - component: f7-row
+                    - component: oh-list
+                      config:
+                        noHairlinesBetween: true
+                        stylesheet: |
+                          .icon{
+                            width: 30px !important;
+                            height: 30px !important;
+                            font-size: 30px !important;
+                          }                      
                       slots:
                         default:
-                          - component: f7-col
-                            config:
-                              visible: "=props.itemWeatherSituationShow == true || props.itemWeatherSituationShow == 'true'"
+                          - component: oh-list
                             slots:
                               default:
-                                - component: oh-icon
+                                - component: oh-repeater
                                   config:
-                                    icon: f7:cloud_sun_rain_fill
-                                    style:
-                                      color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
-                                    width: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
-                                - component: Label
-                                  config:
-                                    style:
-                                      color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
-                                    text: "=props.itemWeatherSituation ? @(props.itemWeatherSituation) : 'n/a'"
-                          - component: f7-col
-                            config:
-                              visible: "=props.itemWeatherTemperatureShow == true || props.itemWeatherTemperatureShow == 'true'"
-                            slots:
-                              default:
-                                - component: oh-link
-                                  config:
-                                    action: analyzer
-                                    actionAnalyzerChartType: day
-                                    actionAnalyzerCoordSystem: time
-                                    actionAnalyzerItems: =props.itemWeatherTemperature
+                                    for: item
+                                    groupItem: =[props.itemGroupWasteCollection]
+                                    map: "loop.item_source.sort((x,y) => (x.state).localeCompare(y.state,undefined,{ numeric: true }))[loop.item_idx]"
+                                    sourceType: itemsInGroup
                                   slots:
                                     default:
-                                      - component: oh-icon
+                                      - component: oh-list-item
                                         config:
-                                          icon: f7:thermometer
+                                          badge: '=((dayjs(loop.item.state).diff(dayjs().startOf("day"), "days")) == 0 ? (props.itemGroupWasteCollectionToday ? props.itemGroupWasteCollectionToday : "Today") : (dayjs(loop.item.state).diff(dayjs().startOf("day"),"days")) == 1 ? (props.itemGroupWasteCollectionTomorrow ? props.itemGroupWasteCollectionTomorrow : "Tomorrow") : false)'
+                                          badgeColor: '=((dayjs(loop.item.state).diff(dayjs().startOf("day"), "days")) == 0 ? (props.itemGroupWasteCollectionTodayColor ? props.itemGroupWasteCollectionTodayColor : "black") : (props.itemGroupWasteCollectionTomorrowColor ? props.itemGroupWasteCollectionTomorrowColor : "black"))'
+                                          footer: =items[loop.item.name].displayState
+                                          icon: f7:trash
+                                          iconColor: "=loop.item.label.includes(props.filterPaper) ? props.filterPaperColor : (loop.item.label.includes(props.filterResidual) ? props.filterResidualColor : (loop.item.label.includes(props.filterRecycling) ? props.filterRecyclingColor : (props.contentIconColor ? props.contentIconColor : 'black')))"
                                           style:
-                                            color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
-                                          width: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
-                                - component: Label
-                                  config:
-                                    style:
-                                      color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
-                                    text: "=props.itemWeatherTemperature ? @(props.itemWeatherTemperature) : 'n/a'"
-                          - component: f7-col
-                            config:
-                              visible: "=props.itemWeatherHumidityShow == true || props.itemWeatherHumidityShow == 'true'"
-                            slots:
-                              default:
-                                - component: oh-link
-                                  config:
-                                    action: analyzer
-                                    actionAnalyzerChartType: day
-                                    actionAnalyzerCoordSystem: time
-                                    actionAnalyzerItems: =props.itemWeatherHumidity
-                                  slots:
-                                    default:
-                                      - component: oh-icon
-                                        config:
-                                          icon: f7:drop
-                                          style:
-                                            color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
-                                          width: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
-                                - component: Label
-                                  config:
-                                    style:
-                                      color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
-                                    text: "=props.itemWeatherHumidity ? @(props.itemWeatherHumidity) : 'n/a'"
-                          - component: f7-col
-                            config:
-                              visible: "=props.itemWeatherSunRiseShow == true || props.itemWeatherSunRiseShow == 'true'"
-                            slots:
-                              default:
-                                - component: oh-icon
-                                  config:
-                                    icon: f7:sunrise_fill
-                                    style:
-                                      color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
-                                    width: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
-                                - component: Label
-                                  config:
-                                    style:
-                                      color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
-                                    text: "=props.itemWeatherSunRise ? @(props.itemWeatherSunRise) : 'n/a'"
-                          - component: f7-col
-                            config:
-                              visible: "=props.itemWeatherSunSetShow == true || props.itemWeatherSunSetShow == 'true'"
-                            slots:
-                              default:
-                                - component: oh-icon
-                                  config:
-                                    icon: f7:sunset_fill
-                                    style:
-                                      color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
-                                    width: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
-                                - component: Label
-                                  config:
-                                    style:
-                                      color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
-                                    text: "=props.itemWeatherSunSet ? @(props.itemWeatherSunSet) : 'n/a'"
-                          - component: f7-col
-                            config:
-                              visible: "=props.itemWeatherWindSpeedShow == true || props.itemWeatherWindSpeedShow == 'true'"
-                            slots:
-                              default:
-                                - component: oh-link
-                                  config:
-                                    action: analyzer
-                                    actionAnalyzerChartType: day
-                                    actionAnalyzerCoordSystem: time
-                                    actionAnalyzerItems: =props.itemWeatherWindSpeed
-                                  slots:
-                                    default:
-                                      - component: oh-icon
-                                        config:
-                                          icon: f7:wind
-                                          style:
-                                            color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
-                                          width: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
-                                - component: Label
-                                  config:
-                                    style:
-                                      color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
-                                    text: "=props.itemWeatherWindSpeed ? @(props.itemWeatherWindSpeed) : 'n/a'"
-                          - component: f7-col
-                            config:
-                              visible: "=props.itemWeatherWindDirectionShow == true || props.itemWeatherWindDirectionShow == 'true'"
-                            slots:
-                              default:
-                                - component: oh-icon
-                                  config:
-                                    icon: f7:compass
-                                    style:
-                                      color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
-                                    width: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
-                                - component: Label
-                                  config:
-                                    style:
-                                      color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
-                                    text: "=props.itemWeatherWindDirection ? @(props.itemWeatherWindDirection) : 'n/a'"
-                          - component: f7-col
-                            config:
-                              visible: "=props.itemWeatherLuminosityShow == true || props.itemWeatherLuminosityShow == 'true'"
-                            slots:
-                              default:
-                                - component: oh-link
-                                  config:
-                                    action: analyzer
-                                    actionAnalyzerChartType: day
-                                    actionAnalyzerCoordSystem: time
-                                    actionAnalyzerItems: =props.itemWeatherLuminosity
-                                  slots:
-                                    default:
-                                      - component: oh-icon
-                                        config:
-                                          icon: f7:sun_min
-                                          style:
-                                            color: "=props.contentIconColor ? props.contentIconColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
-                                          width: "=props.contentIconSize ? (props.contentIconSize) + 'px' : '30px'"
-                                - component: Label
-                                  config:
-                                    style:
-                                      color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
-                                    text: "=props.itemWeatherLuminosity ? @(props.itemWeatherLuminosity) : 'n/a'"
+                                            --f7-badge-text-color: "=props.badgeTextColor ? props.badgeTextColor : 'white'"
+                                            --f7-list-item-footer-font-size: "=props.contentTextSize ? props.contentTextSize + 'px' : '18px'"
+                                            --f7-list-item-footer-text-color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+                                            --f7-list-item-media-margin: 10px
+                                            font-size: "=props.contentTextSize ? props.contentTextSize + 'px' : '18px'"
+                                            margin-left: -50px
+                                          title: =loop.item.label
+                                          visible: =loop.item.state != "UNDEF" && ((dayjs(loop.item.state).diff(dayjs().startOf("day"), "days")) > -14)
         - component: f7-card-footer
           config:
             style:
               --f7-card-footer-border-color: transparent
-              --f7-card-footer-font-size: "=props.footerTextSize ? (props.footerTextSize) + 'px' : '16px'"
+              --f7-card-footer-font-size: "=props.footerTextSize ? props.footerTextSize + 'px' : '16px'"
               --f7-card-footer-font-weight: 500
-              --f7-card-footer-min-height: "=props.footerShow == 'true' ? '20px' : '0px'"
+              --f7-card-footer-min-height: "=props.footerShow == 'true' || props.footerShow === true ? '20px' : '0px'"
               --f7-card-footer-text-color: "=props.footerTextColor ? props.footerTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
               margin-left: "=(Number.parseInt(props.cardBorderRadius) > 90) ? '30px' : (Number.parseInt(props.cardBorderRadius) > 50) ? '10px' : '0px'"
           slots:
@@ -497,4 +348,4 @@ widgets:
               - component: Label
                 config:
                   text: "=props.footerText ? props.footerText : 'Footer'"
-                  visible: "=props.footerShow == true || props.footerShow == 'true'"
+                  visible: =props.footerShow

@@ -4,8 +4,8 @@ widgets:
     tags:
       - Card Device Washer and Dryer
       - Customizable Template
-      - ScrewPlate
       - Version 0.4
+      - ScrewPlate
     props:
       parameters:
         - description: "Input without 'px' (Default: none)"
@@ -229,7 +229,7 @@ widgets:
         --f7-card-outline-border-color: "=props.cardBorderColor ? props.cardBorderColor : '#c95826'"
         background-color: var(--f7-card-bg-color)
         background-image: "=(props.cardBgImageShow == true || props.cardBgImageShow == 'true') && props.cardBgImage ? 'url(/static/' + props.cardBgImage + ')' : 'none'"
-        border: "=props.cardBorderSize ? props.cardBorderSize + 'px solid var(--f7-card-outline-border-color)' : '6px solid var(--f7-card-outline-border-color)'"
+        border: "=props.cardBorderSize ? props.cardBorderSize + 'px solid var(--f7-card-outline-border-color)' : '3px solid var(--f7-card-outline-border-color)'"
         color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
         font-size: "=props.contentTextSize ? props.contentTextSize + 'px' : '18px'"
     slots:
@@ -253,12 +253,12 @@ widgets:
                   style:
                     color: "=props.iconColor ? props.iconColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
                     padding-right: 10px
-                  visible: "=props.iconShow"
+                  visible: =props.iconShow
                   width: "=props.iconSize ? props.iconSize + 'px' : '30px'"
               - component: Label
                 config:
                   text: "=props.headerText ? props.headerText : 'Header'"
-                  visible: "=props.headerShow"
+                  visible: =props.headerShow
         - component: f7-card-content
           config:
             style:
@@ -426,7 +426,7 @@ widgets:
                                                   - no-margin
                                                 style:
                                                   position: absolute
-                                                visible: "=props.deviceItemState && items[props.deviceItemState].state == props.deviceStateRuns"
+                                                visible: =props.deviceItemState && items[props.deviceItemState].state == props.deviceStateRuns
                                               slots:
                                                 default:
                                                   - component: Label
@@ -448,4 +448,4 @@ widgets:
               - component: Label
                 config:
                   text: "=props.footerText ? props.footerText : 'Footer'"
-                  visible: "=props.footerShow"
+                  visible: =props.footerShow

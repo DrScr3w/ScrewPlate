@@ -175,14 +175,13 @@ widgets:
         --f7-card-outline-border-color: "=props.cardBorderColor ? props.cardBorderColor : '#c95826'"
         background-color: var(--f7-card-bg-color)
         background-image: "=props.cardBgImageShow && props.cardBgImage ? 'linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url(/static/' + props.cardBgImage + ')' : ''"
-        border: "=props.cardBorderSize ? props.cardBorderSize + 'px solid var(--f7-card-outline-border-color)' : '6px solid var(--f7-card-outline-border-color)'"
+        border: "=props.cardBorderSize ? props.cardBorderSize + 'px solid var(--f7-card-outline-border-color)' : '3px solid var(--f7-card-outline-border-color)'"
         color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
         font-size: "=props.contentTextSize ? props.contentTextSize + 'px' : '18px'"
     slots:
       default:
         - component: f7-card-header
           config:
-            visible: =props.headerShow
             style:
               --f7-card-header-border-color: transparent
               --f7-card-header-font-size: "=props.headerTextSize ? props.headerTextSize + 'px' : '25px'"
@@ -191,15 +190,16 @@ widgets:
               justify-content: flex-start
               margin-left: "=(Number.parseInt(props.cardBorderRadius || '20') > 90) ? '30px' : (Number.parseInt(props.cardBorderRadius || '20') > 50) ? '10px' : '0px'"
               padding-bottom: 0px
+            visible: =props.headerShow
           slots:
             default:
               - component: oh-icon
                 config:
                   icon: "=props.iconName ? props.iconName : 'f7:house'"
-                  visible: =props.iconShow
                   style:
                     color: "=props.iconColor ? props.iconColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
                     padding-right: 10px
+                  visible: =props.iconShow
                   width: "=props.iconSize ? props.iconSize + 'px' : '30px'"
               - component: Label
                 config:
@@ -226,13 +226,13 @@ widgets:
                         text: The status or other things are displayed here later
         - component: f7-card-footer
           config:
-            visible: =props.footerShow
             style:
               --f7-card-footer-border-color: transparent
               --f7-card-footer-font-size: "=props.footerTextSize ? props.footerTextSize + 'px' : '16px'"
               --f7-card-footer-font-weight: 500
               --f7-card-footer-text-color: "=props.footerTextColor ? props.footerTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
               margin-left: "=(Number.parseInt(props.cardBorderRadius || '20') > 90) ? '30px' : (Number.parseInt(props.cardBorderRadius || '20') > 50) ? '10px' : '0px'"
+            visible: =props.footerShow
           slots:
             default:
               - component: Label

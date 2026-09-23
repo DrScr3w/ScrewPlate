@@ -20,7 +20,7 @@ widgets:
           required: false
           type: TEXT
           groupName: cardGroup
-        - description: "Input like '#FFFFFF' or 'red', 'yellow' etc."
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
           label: Card Border Color
           name: cardBorderColor
           required: false
@@ -32,7 +32,7 @@ widgets:
           required: false
           type: TEXT
           groupName: cardGroup
-        - description: "Input like '#FFFFFF' or 'red', 'yellow' etc."
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
           label: Card Background Color
           name: cardBgColor
           required: false
@@ -44,7 +44,7 @@ widgets:
           required: false
           type: BOOLEAN
           groupName: cardGroup
-        - description: "Input file name for Background Image (uploaded to /html/ folder)"
+        - description: Input file name for Background Image (uploaded to /html/ folder)
           label: Card Background Image
           name: cardBgImage
           required: false
@@ -56,13 +56,13 @@ widgets:
           required: false
           type: BOOLEAN
           groupName: iconGroup
-        - description: "Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon), material:iconName (Material icon) or iconify:iconSet:iconName"
+        - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon), material:iconName (Material icon) or iconify:iconSet:iconName
           label: Icon
           name: iconName
           required: false
           type: TEXT
           groupName: iconGroup
-        - description: "Input like '#FFFFFF' or 'red', 'yellow' etc."
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
           label: Icon Color
           name: iconColor
           required: false
@@ -80,13 +80,13 @@ widgets:
           required: false
           type: BOOLEAN
           groupName: headerGroup
-        - description: "Input Text to display on Header"
+        - description: Input Text to display on Header
           label: Header
           name: headerText
           required: false
           type: TEXT
           groupName: headerGroup
-        - description: "Input like '#FFFFFF' or 'red', 'yellow' etc."
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
           label: Header Text Color
           name: headerTextColor
           required: false
@@ -104,13 +104,13 @@ widgets:
           required: false
           type: BOOLEAN
           groupName: footerGroup
-        - description: "Input Text to display on Footer"
+        - description: Input Text to display on Footer
           label: Footer
           name: footerText
           required: false
           type: TEXT
           groupName: footerGroup
-        - description: "Input like '#FFFFFF' or 'red', 'yellow' etc."
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
           label: Footer Text Color
           name: footerTextColor
           required: false
@@ -122,7 +122,7 @@ widgets:
           required: false
           type: TEXT
           groupName: footerGroup
-        - description: "Input like '#FFFFFF' or 'red', 'yellow' etc."
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
           label: Content Text Color
           name: contentTextColor
           required: false
@@ -140,26 +140,26 @@ widgets:
           required: false
           type: TEXT
           groupName: contentGroup
-        - description: "Input like '#FFFFFF' or 'red', 'yellow' etc."
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
           label: Content Icon Color
           name: contentIconColor
           required: false
           type: TEXT
           groupName: contentGroup
         - context: item
-          description: "Item for display the Alarm System State (ON/OFF)"
+          description: Item for display the Alarm System State (ON/OFF)
           label: Alarm System State
           name: itemAlarmSystemState
           required: false
           type: TEXT
           groupName: customGroup
-        - description: "Input like '#FFFFFF' or 'red', 'yellow' etc."
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
           label: Alarm System State Icon Color for State (ON)
           name: itemAlarmSystemIconActiveColor
           required: false
           type: TEXT
           groupName: customGroup
-        - description: "Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon), material:iconName (Material icon) or iconify:iconSet:iconName"
+        - description: Use oh:iconName (openHAB icon), f7:iconName (Framework7 icon), material:iconName (Material icon) or iconify:iconSet:iconName
           label: Icon for Alarm System State
           name: itemAlarmSystemIcon
           required: false
@@ -171,20 +171,20 @@ widgets:
           required: false
           type: TEXT
           groupName: customGroup
-        - description: "Input like '#FFFFFF' or 'red', 'yellow' etc."
+        - description: Input like '#FFFFFF' or 'red', 'yellow' etc.
           label: Alarm System State Icon Color for State (OPEN)"
           name: itemStateActiveColor
           required: false
           type: TEXT
           groupName: customGroup
         - context: item
-          description: "Group Item to display all Doors state (OPEN/CLOSED)"
+          description: Group Item to display all Doors state (OPEN/CLOSED)
           name: itemDoorGroup
           required: false
           type: TEXT
           groupName: customGroup
         - context: item
-          description: "Group Item to display all Windows state (OPEN/CLOSED)"
+          description: Group Item to display all Windows state (OPEN/CLOSED)
           name: itemWindowGroup
           required: false
           type: TEXT
@@ -196,7 +196,7 @@ widgets:
           type: BOOLEAN
           groupName: customGroup
         - context: item
-          description: "Group Item to display the Garage state (OPEN/CLOSED)"
+          description: Group Item to display the Garage state (OPEN/CLOSED)
           name: itemGarageGroup
           required: false
           type: TEXT
@@ -230,7 +230,7 @@ widgets:
         --f7-card-outline-border-color: "=props.cardBorderColor ? props.cardBorderColor : '#c95826'"
         background-color: var(--f7-card-bg-color)
         background-image: "=props.cardBgImageShow == true || props.cardBgImageShow == 'true' ? 'linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url(/static/' + props.cardBgImage + ')' : ''"
-        border: "=props.cardBorderSize ? (props.cardBorderSize)+'px solid var(--f7-card-outline-border-color)' : '6px solid var(--f7-card-outline-border-color)'"
+        border: "=props.cardBorderSize ? (props.cardBorderSize)+'px solid var(--f7-card-outline-border-color)' : '3px solid var(--f7-card-outline-border-color)'"
         color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
         font-size: "=props.contentTextSize ? (props.contentTextSize)+'px' : '18px'"
     slots:
@@ -254,12 +254,12 @@ widgets:
                   style:
                     color: "=props.iconColor ? props.iconColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
                     padding-right: 10px
-                  visible: "=props.iconShow == true || props.iconShow == 'true'"
+                  visible: =props.iconShow == true || props.iconShow == 'true'
                   width: "=props.iconSize ? (props.iconSize) + 'px' : '30px'"
               - component: Label
                 config:
                   text: "=props.headerText ? props.headerText : 'Header'"
-                  visible: "=props.headerShow == true || props.headerShow == 'true'"
+                  visible: =props.headerShow == true || props.headerShow == 'true'
         - component: f7-card-content
           config:
             style:
@@ -398,4 +398,4 @@ widgets:
               - component: Label
                 config:
                   text: "=props.footerText ? props.footerText : 'Footer'"
-                  visible: "=props.footerShow == true || props.footerShow == 'true'"
+                  visible: =props.footerShow == true || props.footerShow == 'true'
