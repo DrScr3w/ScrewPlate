@@ -160,13 +160,18 @@ widgets:
           required: true
           type: TEXT
           groupName: customGroup
-        - default: year
-          description: year, month, day or hour
-          label: Chart X Axis Type
-          name: chartType
-          required: true
+        - description: "Enter the desired start year (e.g., 2025). (Default: current year)"
+          label: Initial Year
+          name: chartInitialYear
+          required: false
           type: TEXT
           groupName: customGroup
+        - description: "Bar Color"
+          label: Input like '#FFFFFF' or 'red', 'yellow' etc.
+          name: chartBarColor
+          required: false
+          type: TEXT
+          groupName: customGroup          
       parameterGroups:
         - name: cardGroup
           label: Card Settings
@@ -239,47 +244,69 @@ widgets:
               - component: f7-block
                 config:
                   style:
-                    height: 100%
                     margin-top: -10px
+                    text-align: center
                     width: 100%
                 slots:
                   default:
                     - component: oh-chart
                       config:
                         chartType: year
+                        initialYear: "=props.chartInitialYear ? Number(props.chartInitialYear) : dayjs().year()"                     
+                        stylesheet: |
+                              .menu {
+                                top: -15px;
+                                right: -15px;
+                                transform: scale(0.95);
+                                transform-origin: top right;
+                              }              
+                        options:
+                              backgroundColor: "=props.cardBgColor ? props.cardBgColor : (themeOptions.dark === 'dark' ? '#232324' : 'white')"                       
                       slots:
-                        series:
-                          - component: oh-aggregate-series
+                        grid:
+                          - component: oh-chart-grid
                             config:
-                              aggregationFunction: last
-                              dimension1: month
-                              gridIndex: 0
-                              item: =props.chartItem
-                              markLine:
-                                data:
-                                  - type: average
-                              markPoint:
-                                label:
-                                  backgroundColor: auto
-                              name: =props.chartYUOM
-                              type: bar
-                              xAxisIndex: 0
-                              yAxisIndex: 0
-                        tooltip:
-                          - component: oh-chart-tooltip
-                            config:
-                              confine: true
+                              bottom: "30"
+                              left: "40"
+                              right: "20"
+                              top: "40"
                         xAxis:
                           - component: oh-category-axis
                             config:
                               categoryType: year
                               gridIndex: 0
                               monthFormat: short
+                              name: " "
+                              axisLabel:
+                                color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+                                fontSize: "=props.contentTextSize ? props.contentTextSize + 'px' : '12px'"                           
                         yAxis:
                           - component: oh-value-axis
                             config:
                               gridIndex: 0
-                              name: =props.chartYUOM
+                              name: "=props.chartYUOM"
+                              nameTextStyle:
+                                color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+                                fontSize: "=props.contentTextSize ? props.contentTextSize + 'px' : '12px'"                                    
+                              axisLabel:
+                                color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+                                fontSize: "=props.contentTextSize ? props.contentTextSize + 'px' : '12px'"                              
+                        series:
+                          - component: oh-aggregate-series
+                            config:
+                              aggregationFunction: last
+                              dimension1: month
+                              gridIndex: 0
+                              item: "=props.chartItem"
+                              type: bar
+                              xAxisIndex: 0
+                              yAxisIndex: 0
+                              itemStyle:
+                                color: "=props.chartBarColor ? props.chartBarColor : '#409eff'"
+                        tooltip:
+                          - component: oh-chart-tooltip
+                            config:
+                              confine: true
         - component: f7-card-footer
           config:
             style:
