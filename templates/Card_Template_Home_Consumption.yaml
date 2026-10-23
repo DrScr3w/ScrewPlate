@@ -4,7 +4,7 @@ widgets:
     tags:
       - Card Template Home Consumption
       - Customizable Template
-      - Version 0.4
+      - Version 0.5
       - ScrewPlate
     props:
       parameters:
@@ -405,7 +405,7 @@ widgets:
                                 justify-content: center
                                 margin: 0
                                 width: 150px
-                              visible: "=@props.itemMainWaterConsumption ? true : false"
+                              visible: "=props.itemMainWaterConsumption ? true : false"
                             slots:
                               default:
                                 - component: oh-icon
@@ -444,7 +444,7 @@ widgets:
                                 justify-content: center
                                 margin: 0
                                 width: 150px
-                              visible: "=@props.itemMainGasConsumption ? true : false"
+                              visible: "=props.itemMainGasConsumption ? true : false"
                             slots:
                               default:
                                 - component: oh-icon
@@ -481,7 +481,7 @@ widgets:
                                 justify-content: center
                                 margin: 0
                                 width: 150px
-                              visible: "=@props.itemConsumptionFromGridPower || @props.itemConsumptionFromGridEnergy || @props.itemProductionToGridPower || @props.itemProductionToGridEnergy ? true : false"
+                              visible: "=props.itemConsumptionFromGridPower || props.itemConsumptionFromGridEnergy || props.itemProductionToGridPower || props.itemProductionToGridEnergy ? true : false"
                             slots:
                               default:
                                 - component: oh-icon
@@ -539,7 +539,7 @@ widgets:
                                 justify-content: center
                                 margin: 0
                                 width: 150px
-                              visible: "=@props.itemConsumptionFromGridPriceLevel ? true : false"
+                              visible: "=props.itemConsumptionFromGridPriceLevel ? true : false"
                             slots:
                               default:
                                 - component: oh-icon
@@ -594,7 +594,7 @@ widgets:
                                           stroke-width: 5
                                           tag: path
                                           vector-effect: non-scaling-stroke
-                                          visible: "=@props.itemGardenWaterConsumption ? true : false"
+                                          visible: "=props.itemGardenWaterConsumption ? true : false"
                                       - component: f7-row
                                         config:
                                           fill: rgb(91, 148, 240)
@@ -625,7 +625,7 @@ widgets:
                                           stroke-width: 5
                                           tag: path
                                           vector-effect: non-scaling-stroke
-                                          visible: "=@props.itemMainGasConsumption ? true : false"
+                                          visible: "=props.itemMainGasConsumption ? true : false"
                                       - component: f7-row
                                         config:
                                           fill: rgb(204, 55, 43)
@@ -656,7 +656,7 @@ widgets:
                                           stroke-width: 5
                                           tag: path
                                           vector-effect: non-scaling-stroke
-                                          visible: "=@props.itemSolarProductionPower || @props.itemSolarProductionEnergy || @props.itemSolarOwnConsumption ? true : false"
+                                          visible: "=props.itemSolarProductionPower || props.itemSolarProductionEnergy || props.itemSolarOwnConsumption ? true : false"
                                       - component: f7-row
                                         config:
                                           fill: rgb(156, 163, 113)
@@ -687,7 +687,7 @@ widgets:
                                           stroke-width: 5
                                           tag: path
                                           vector-effect: non-scaling-stroke
-                                          visible: "=@props.itemMainWaterConsumption ? true : false"
+                                          visible: "=props.itemMainWaterConsumption ? true : false"
                                       - component: f7-row
                                         config:
                                           fill: rgb(91, 148, 240)
@@ -718,7 +718,7 @@ widgets:
                                           stroke-width: 5
                                           tag: path
                                           vector-effect: non-scaling-stroke
-                                          visible: "=@props.itemConsumptionFromGridPower || @props.itemConsumptionFromGridEnergy || @props.itemProductionToGridPower || @props.itemProductionToGridEnergy ? true : false"
+                                          visible: "=props.itemConsumptionFromGridPower || props.itemConsumptionFromGridEnergy || props.itemProductionToGridPower || props.itemProductionToGridEnergy ? true : false"
                                       - component: f7-row
                                         config:
                                           fill: rgb(156, 163, 113)
@@ -749,7 +749,7 @@ widgets:
                                           stroke-width: 5
                                           tag: path
                                           vector-effect: non-scaling-stroke
-                                          visible: "=@props.itemCarBatteryPower || @props.itemCarBatteryEnergy ? true : false"
+                                          visible: "=props.itemCarBatteryPower || props.itemCarBatteryEnergy ? true : false"
                                       - component: f7-row
                                         config:
                                           fill: rgb(156, 163, 113)
@@ -799,7 +799,7 @@ widgets:
                                 justify-content: center
                                 margin: 0
                                 width: 150px
-                              visible: "=@props.itemGardenWaterConsumption ? true : false"
+                              visible: "=props.itemGardenWaterConsumption ? true : false"
                             slots:
                               default:
                                 - component: oh-icon
@@ -894,7 +894,7 @@ widgets:
                                           stroke-width: 5
                                           tag: path
                                           vector-effect: non-scaling-stroke
-                                          visible: "=@props.itemSolarProductionPower || @props.itemSolarProductionEnergy || @props.itemSolarOwnConsumption ? true : false"
+                                          visible: "=props.itemSolarProductionPower || props.itemSolarProductionEnergy || props.itemSolarOwnConsumption ? true : false"
                                       - component: f7-row
                                         config:
                                           fill: rgb(156, 163, 113)
@@ -937,7 +937,7 @@ widgets:
                                 justify-content: center
                                 margin: 0
                                 width: 150px
-                              visible: "=@props.itemSolarProductionPower || @props.itemSolarProductionEnergy || @props.itemSolarOwnConsumption ? true : false"
+                              visible: "=props.itemSolarProductionPower || props.itemSolarProductionEnergy || props.itemSolarOwnConsumption ? true : false"
                             slots:
                               default:
                                 - component: oh-icon
@@ -999,7 +999,7 @@ widgets:
                                           stroke-width: 5
                                           tag: path
                                           vector-effect: non-scaling-stroke
-                                          visible: "=@props.itemCarBatteryPower || @props.itemCarBatteryEnergy ? true : false"
+                                          visible: "=props.itemCarBatteryPower || props.itemCarBatteryEnergy ? true : false"
                                       - component: f7-row
                                         config:
                                           fill: rgb(156, 163, 113)
@@ -1042,7 +1042,7 @@ widgets:
                                 justify-content: center
                                 margin: 0
                                 width: 150px
-                              visible: "=@props.itemCarBatteryPower || @props.itemCarBatteryEnergy ? true : false"
+                              visible: "=props.itemCarBatteryPower || props.itemCarBatteryEnergy ? true : false"
                             slots:
                               default:
                                 - component: oh-icon
@@ -1108,7 +1108,7 @@ widgets:
                                           stroke-width: 5
                                           tag: path
                                           vector-effect: non-scaling-stroke
-                                          visible: "=@props.itemWaterCisterneSoCPercent || @props.itemWaterCisterneSoC ? true : false"
+                                          visible: "=props.itemWaterCisterneSoCPercent || props.itemWaterCisterneSoC ? true : false"
                                       - component: f7-row
                                         config:
                                           fill: rgb(91, 148, 240)
@@ -1139,7 +1139,7 @@ widgets:
                                           stroke-width: 5
                                           tag: path
                                           vector-effect: non-scaling-stroke
-                                          visible: "=@props.itemCarBatterySOC && @props.itemCarBatteryPower || @props.itemCarBatteryEnergy ? true : false"
+                                          visible: "=props.itemCarBatterySOC && props.itemCarBatteryPower || props.itemCarBatteryEnergy ? true : false"
                                       - component: f7-row
                                         config:
                                           fill: rgb(156, 163, 113)
@@ -1170,7 +1170,7 @@ widgets:
                                           stroke-width: 5
                                           tag: path
                                           vector-effect: non-scaling-stroke
-                                          visible: =@props.itemSolarBatteryPower || @props.itemSolarBatterySOC ? true :false
+                                          visible: =props.itemSolarBatteryPower || props.itemSolarBatterySOC ? true :false
                                       - component: f7-row
                                         config:
                                           fill: rgb(156, 163, 113)
@@ -1220,7 +1220,7 @@ widgets:
                                 justify-content: center
                                 margin: 0
                                 width: 150px
-                              visible: "=@props.itemWaterCisterneSoCPercent || @props.itemWaterCisterneSoC ? true : false"
+                              visible: "=props.itemWaterCisterneSoCPercent || props.itemWaterCisterneSoC ? true : false"
                             slots:
                               default:
                                 - component: oh-icon
@@ -1276,7 +1276,7 @@ widgets:
                                 justify-content: center
                                 margin: 0
                                 width: 150px
-                              visible: "=@props.itemSolarBatteryPower || @props.itemSolarBatterySOC ? true : false"
+                              visible: "=props.itemSolarBatteryPower || props.itemSolarBatterySOC ? true : false"
                             slots:
                               default:
                                 - component: oh-icon
@@ -1324,7 +1324,7 @@ widgets:
                                 justify-content: center
                                 margin: 0
                                 width: 150px
-                              visible: "=@props.itemCarBatterySOC ? true : false"
+                              visible: "=props.itemCarBatterySOC ? true : false"
                             slots:
                               default:
                                 - component: oh-icon
