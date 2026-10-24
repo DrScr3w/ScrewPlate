@@ -2,10 +2,10 @@ version: 1
 widgets:
   Card_Template_List:
     tags:
-      - Version 0.2
       - Customizable Template
       - Card Template List
       - ScrewPlate
+      - Version 0.2
     props:
       parameters:
         - description: "Input without 'px' (Default: none)"
@@ -164,7 +164,7 @@ widgets:
           name: shortenDelimiter
           required: false
           type: TEXT
-          groupName: customGroup          
+          groupName: customGroup
       parameterGroups:
         - name: cardGroup
           label: Card Settings
@@ -244,14 +244,14 @@ widgets:
                   default:
                     - component: oh-list
                       config:
-                        noHairlinesBetween: true                     
+                        noHairlinesBetween: true
                       slots:
                         default:
                           - component: oh-repeater
                             config:
                               for: item
                               sourceType: itemsInGroup
-                              groupItem: =props.group                 
+                              groupItem: =props.group
                             slots:
                               default:
                                 - component: oh-list-item
