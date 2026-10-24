@@ -31,7 +31,8 @@ The widget can be installed via ***openHAB -> Add-on Store -> User Interfaces***
 - **Card_Template_Device_Dishwasher**: A card to show the Dishwasher State.
 - **Card_Template_Device_Washer_Dryer**: A card to show the Washer or Dryer State.
 - **Card_Template_Home_Consumption**: A card to show electricity, gas and water consumption.
-- **Card_Template_Chart_Bar_Aggregated**: A card that displays a chat for an aggregated item. 
+- **Card_Template_Chart_Bar_Aggregated**: A card that displays a chat for an aggregated item.
+- **Card_Template_List**: A card that generates a list based on a group.
 - **more cards will follow**: ...
 
 |**Examples**|
@@ -41,6 +42,8 @@ The widget can be installed via ***openHAB -> Add-on Store -> User Interfaces***
 ![image](https://github.com/user-attachments/assets/584a5558-ebca-463e-82c0-5934a1d56781)
 ![image](https://github.com/user-attachments/assets/b31513ee-c730-4ae1-a7bf-3324fdd67cca)
 ![image](https://github.com/user-attachments/assets/ac2fe4b7-5ee3-4b1c-9a93-f47dfb870a9c)
+![image](https://github.com/user-attachments/assets/5237b8cd-beb2-4aa7-b738-37ddf8c0ed63)
+
 
 
 
