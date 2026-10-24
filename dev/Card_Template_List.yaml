@@ -2,7 +2,7 @@ version: 1
 widgets:
   Card_Template_List:
     tags:
-      - Version 0.10
+      - Version 0.2
       - Customizable Template
       - Card Template List
       - ScrewPlate
@@ -145,6 +145,14 @@ widgets:
           name: contentIconColor
           required: false
           type: TEXT
+          groupName: contentGroup
+        - context: item
+          description: The group whose items are to be listed
+          label: Group Item
+          name: group
+          required: true
+          type: TEXT
+          groupName: customGroup
       parameterGroups:
         - name: cardGroup
           label: Card Settings
@@ -214,26 +222,36 @@ widgets:
               margin-top: -10px
           slots:
             default:
-              - component: f7-list
+              - component: f7-block
                 config:
-                  simple-list: true
+                  style:
+                    margin-top: -10px
+                    width: 100%
                 slots:
                   default:
-                    - component: f7-list-item
+                    - component: oh-list
                       config:
-                        after: =items[props.item1].displayState || items[props.item1].state
-                        title: =items[props.item1].label
-                        visible: =!!props.item1
-                    - component: f7-list-item
-                      config:
-                        after: =items[props.item2].displayState || items[props.item2].state
-                        title: =items[props.item2].label
-                        visible: =!!props.item2
-                    - component: f7-list-item
-                      config:
-                        after: =items[props.item3].displayState || items[props.item3].state
-                        title: =items[props.item3].label
-                        visible: =!!props.item3
+                        noHairlinesBetween: true                     
+                      slots:
+                        default:
+                          - component: oh-repeater
+                            config:
+                              for: item
+                              sourceType: itemsInGroup
+                              groupItem: =props.group                 
+                            slots:
+                              default:
+                                - component: oh-label-item
+                                  config:
+                                    title: =loop.item.label
+                                    item: =loop.item.name
+                                    icon: =loop.item.category
+                                    style:
+                                      font-size: "=props.contentTextSize ? props.contentTextSize + 'px' : '18px'"
+                                      margin-left: "=(Number.parseInt(props.cardBorderRadius || '20') > 90) ? '30px' : (Number.parseInt(props.cardBorderRadius || '20') > 50) ? '10px' : '0px'"
+                                      margin-right: "=(Number.parseInt(props.cardBorderRadius || '20') > 90) ? '30px' : (Number.parseInt(props.cardBorderRadius || '20') > 50) ? '10px' : '0px'"
+                                      --f7-list-item-after-text-color: "=props.contentTextColor ? props.contentTextColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
+                                      --f7-list-item-after-font-size: "=props.contentTextSize ? props.contentTextSize + 'px' : '18px'"
         - component: f7-card-footer
           config:
             style:
