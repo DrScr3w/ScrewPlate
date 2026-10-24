@@ -153,6 +153,18 @@ widgets:
           required: true
           type: TEXT
           groupName: customGroup
+        - default: false
+          label: Truncate the label at the first character (define the character in the next field)
+          name: shortenLabels
+          required: false
+          type: BOOLEAN
+          groupName: customGroup
+        - description: "The character from which the text should be shortened. (Default: -)"
+          label: Trim from character
+          name: shortenDelimiter
+          required: false
+          type: TEXT
+          groupName: customGroup          
       parameterGroups:
         - name: cardGroup
           label: Card Settings
@@ -197,7 +209,6 @@ widgets:
               justify-content: flex-start
               margin-left: "=(Number.parseInt(props.cardBorderRadius || '20') > 90) ? '30px' : (Number.parseInt(props.cardBorderRadius || '20') > 50) ? '10px' : '0px'"
               padding-bottom: 0px
-            visible: =props.headerShow
           slots:
             default:
               - component: oh-icon
@@ -206,11 +217,12 @@ widgets:
                   style:
                     color: "=props.iconColor ? props.iconColor : (themeOptions.dark === 'dark' ? 'white' : 'black')"
                     padding-right: 10px
-                  visible: =props.iconShow
-                  width: "=props.iconSize ? props.iconSize + 'px' : '30px'"
+                  visible: "=props.iconShow ? props.iconShow : props.iconShow"
+                  width: "=props.iconSize ? (props.iconSize) + 'px' : '30px'"
               - component: Label
                 config:
                   text: "=props.headerText ? props.headerText : 'Header'"
+                  visible: "=props.headerShow ? props.headerShow : props.headerShow"
         - component: f7-card-content
           config:
             style:
@@ -225,8 +237,9 @@ widgets:
               - component: f7-block
                 config:
                   style:
-                    margin-top: -10px
+                    margin-top: "=props.iconShow || props.headerShow  ? '-10px' : '-45px'"
                     width: 100%
+                    padding: 0px
                 slots:
                   default:
                     - component: oh-list
@@ -241,11 +254,11 @@ widgets:
                               groupItem: =props.group                 
                             slots:
                               default:
-                                - component: oh-label-item
+                                - component: oh-list-item
                                   config:
-                                    title: =loop.item.label
-                                    item: =loop.item.name
+                                    title: "=loop.item.label ? (props.shortenLabels ? loop.item.label.split(props.shortenDelimiter ? props.shortenDelimiter : '-')[0].trim() : loop.item.label) : loop.item.name"
                                     icon: =loop.item.category
+                                    after: "=loop.item.state && loop.item.state.toString().match(/\\d/) ? Math.round(Number(loop.item.state.toString().split(' ')[0])) + (loop.item.state.toString().indexOf(' ') > 0 ? ' ' + loop.item.state.toString().substring(loop.item.state.toString().indexOf(' ') + 1) : '') : loop.item.state"
                                     style:
                                       font-size: "=props.contentTextSize ? props.contentTextSize + 'px' : '18px'"
                                       margin-left: "=(Number.parseInt(props.cardBorderRadius || '20') > 90) ? '30px' : (Number.parseInt(props.cardBorderRadius || '20') > 50) ? '10px' : '0px'"
