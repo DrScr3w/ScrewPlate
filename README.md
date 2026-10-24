@@ -31,6 +31,7 @@ The widget can be installed via ***openHAB -> Add-on Store -> User Interfaces***
 - **Card_Template_Device_Dishwasher**: A card to show the Dishwasher State.
 - **Card_Template_Device_Washer_Dryer**: A card to show the Washer or Dryer State.
 - **Card_Template_Home_Consumption**: A card to show electricity, gas and water consumption.
+- **Card_Template_Chart_Bar_Aggregated**: A card that displays a chat for an aggregated item. 
 - **more cards will follow**: ...
 
 |**Examples**|
